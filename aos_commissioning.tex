@@ -1,2 +1,75 @@
 \section{Active Optics System Commissioning}
 \label{sec:aos_commissioning}
+
+The commissioning of the Active Optics System (AOS) has marked a significant milestone for the Rubin Observatory, 
+demonstrating the system's readiness to support high-quality imaging. The first images captured with ComCam 
+achieved an impressive 1.7 arcsecond full-width half-maximum (FWHM) image quality, exceptional work of the engineering 
+and optical teams during assembly and to the optimization of the Look-Up Table (LUT) using laser tracker data at
+the beginning of 2024. Through rigorous testing, frustration and lots of learning, 
+we have achieved a system capable of delivering sub-arcsecond image quality with good seeing, 
+laying the foundation for the transition to LSSTCam commissioning and the start of survey operations.
+
+\subsection{Initial Alignment}
+The initial alignment of the AOS utilized an updated laser tracker nominal frame, ensuring the system was 
+consistently brought into focus. These refinements simplified the alignment process, demonstrating the 
+value of accurate laser tracker data and paving the way for seamless operations.
+
+\subsection{Coordinate Systems}
+Throughout commissioning, significant effort was devoted to understanding and refining coordinate systems. 
+We identified a rotation discrepancy in ComCam's installation compared to the expected design, requiring 
+adjustments in our alignment procedures. This experience was useful to prepare for similar challenges 
+with LSSTCam, equipping the AOS team with strategies to handle future discrepancies.
+
+\subsection{Wavefront estimation}
+The wavefront estimator proved robust across diverse observing conditions. 
+On dense fields such as 47 Tuc, the estimator provided accurate results for 
+all sensors except the central one. Validation against Batoid simulations confirmed 
+the good accuracy of Rubin's ray-tracing software.
+
+Advancements included the implementation of sparse Zernikes, which allowed selective 
+inclusion of terms while minimizing cross-correlations of modes with identical azimuthal 
+dependencies. The forward-model approach (Danish) demonstrated resilience to poor seeing 
+and significant defocus, although it remains slower than the TIE method. Improving the 
+computational efficiency of both techniques remains a priority for the team.
+
+\subsection{Closed Loop}
+Following resolution of initial issues with the AOS pipelines, 
+closed-loop operations were achieved across varying elevations. 
+Most optical modes were utilized, excluding the three highest-order modes on M2. 
+Consistency in results across nights confirmed the need for further refinement of the LUT.
+
+In favorable seeing conditions, the system achieved sub-arcsecond image 
+quality, with FWHM as low as 0.65 arcseconds. Zernike-based AOS FWHM 
+contributions confirmed the system's convergence to exceptional image 
+quality. Autonomous closed-loop operations were run by observers, 
+demonstrating the maturity of the system. Preparations are underway 
+for a fully autonomous survey-mode triplet-taking block before the 
+conclusion of ComCam's on-sky operations.
+
+\subsection{LUT}
+The LUT underwent initial validation across elevations, azimuths, and rotator angles, 
+leading to incremental improvements. While these updates enhanced performance, 
+further refinements are needed to address second-order dependencies. Insights 
+from ComCam data will inform these efforts, ensuring readiness for LSSTCam, which 
+may present distinct challenges due to its larger focal plane and optical system.
+
+\subsection{Lessons Learned and Next Steps}
+\textbf{Lessons Learned}
+- Coordinate Systems: Precision and methodical testing of coordinate systems are essential. 
+Starting with foundational tests and incrementally increasing complexity ensures reliability.
+- Observer Training: Comprehensive documentation, including a subsystem overview and closed-loop procedures, 
+significantly enhances observer support capabilities.
+- Engagement and Morale: Fun and engaging night summaries boost team morale, fostering a collaborative 
+and motivated work environment.
+- Transferability: Some ComCam learnings, particularly LUT and coordinate system adjustments, 
+will not fully transfer to LSSTCam, requiring repeated validation.
+
+\textbf{Next Steps}
+- Conduct step-by-step closed-loop validations for LSSTCam, validating signs and rotations for intentional perturbations.
+- Collaborate with the Camera Team to anticipate and mitigate known camera tilts.
+- Implement and validate tests tailored to LSSTCam's larger focal plane dimensions.
+- Prepare RubinTV and donutViz for full-array LSSTCam mode and automate its execution for all triplet-taking sequences.
+- Adapt MTAOS to run as a continuous background task, supporting survey-mode operations.
+- Optimize the AOS pipeline for speed, including binning and ISR performance improvements.
+
+
