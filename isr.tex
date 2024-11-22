@@ -1,2 +1,116 @@
-\section{Istrument Signature Removal}
+% We’re writing a tech note (SITCOMTN-149) to capture our
+% understanding of the state of the system during on-sky commissioning
+% campaign with ComCam.  Please use this ticket to capture the work.
+%
+% From the introduction:
+%
+% The Vera C. Rubin Observatory on-sky commissioning campaign using
+% the Commissioning Camera (ComCam) began on 24 October 2024 and is
+% forecasted to continue through mid-December 2024. This interim
+% report provides a concise summary of our understanding of the
+% integrated system performance based tests and analyses conducted
+% during the first weeks of the ComCam on-sky campaign. The emphasis
+% is distilling and communicating what we have learned about the
+% system. The report is organized into sections to describe major
+% activities during the campaign, as well as multiple aspects of the
+% demonstrated system and science performance.
+%
+% Charge:
+%
+% The groups within the Rubin Observatory project working on each of
+% the activities and performance analyses are charged with
+% contributing to the relevant sections of the report. The anticipated
+% level of detail for the sections ranges from a paragraph up to a
+% page or two of text, depending on the current state of
+% understanding, with quantitative performance expressed as summary
+% statistics, tables, and/or figures.  The objective for this document
+% is to summarize the state of knowledge of the system, rather than
+% how we got there or “lessons learned”. The sections refer to
+% additional supporting documentation, e.g., analysis notebooks, other
+% technotes with further detail, as needed. Given the timelines for
+% commissioning various aspects of the system, it is natural that some
+% sections will have more detail than others.
+
+\section{Instrument Signature Removal}
 \label{sec:isr}
+\newcommand{\czw}[1]{
+  \textbf{CZW: }\textcolor{red}{#1}
+}
+The quality of the instrument signal removal (ISR) has improved during commissioning, as we create and deploy updated calibration products that better represent the LSSTComCam system.
+The following discussion summarizes our current understanding of a variety of features, both expected and newly seen on LSSTComCam, and presents our expected prognosis of the behavior of the full LSSTCam.,
+
+\subsection{Phosphorescence}
+
+There are regions on some of the detectors (most visible in \czw{R22_S01}) which show bright emission, particularly at bluer wavelengths, as shown in Figure \ref{fig:isr_phosphorescence_example}
+This is believed to be caused by a thin layer of remnant photo-resist from the manufacturing process that remained on the detector surface, and is now permanent due to the subsequent addition of the anti-reflective coating.
+This material is known to be phosphorescent, explaining why these regions show more strongly in the blue.
+
+The initial studies of this (Figure \ref{fig:isr_phosphorescence_decay} show that these features can continue to emit light up to \czw{N seconds} after they've been illuminated.
+Due to the long duration of these features, we decided to place manual defect masks over the worst regions, and 
+
+\begin{figure}
+  \caption{The phosphorescence seen in \czw{R22_S01}, shown here in a DARK exposure taken after a series of twilight flats (exposure=2024112000065).  This material absorbs light at bluer wavelengths and re-emit that energy over a wide range of wavelengths, and for \czw{add some characterization of the time scales}.}
+  \ref{fig:isr_phosphorescence_example}
+\end{figure}
+
+\begin{figure}
+  \caption{Brightness of a phosphorescent area (defined as \czw{XYZ}) as a function of time since the last illumination, in a series of \czw{bias?} exposures.  Measured by \czw{I remember seeing this, but don't remember who}.}
+  \ref{fig:isr_phosphorescence_decay}
+\end{figure}
+
+Expected loss ~3.5\%, consistent with estimates of ``less than an amplifier.'' 
+The LSSTCam ITL detectors are believed to have been cleaned better, but this may still be an issue.
+  
+\subsection{Vampire pixels}
+
+Bright pixel with axisymmetric ``depressed'' region.
+Appear to conserve charge.
+More common than thought.  We're masking with 200\%-of-flat threshold, with X pixel radius circle masks
+Two detectors in the full camera may have this at the level of R22_S10.
+All ITL have a few.
+
+\begin{figure}
+  \caption{A close up of one of the largest vampire pixels.}
+\end{figure}
+
+\begin{figure}
+  \caption{A view of detector \czw{R22_S10}, which has a large number of less significant vampire pixels.}
+\end{figure}
+
+
+\subsection{Saturated star effects}
+
+Saturated stars end up with dark trails that stretch to the top and bottom of the detector (across channel stops)
+Masking will be the solution here as well.  Saturation threshold + width configurations.
+
+\begin{figure}
+  \caption{Example of a bright star with full-detector bleed.}
+\end{figure}
+
+\subsection{Gain ratios}
+We have different observed gain ratios between the lab data and the on-sky data.
+Two lab scans come up with different results, and on sky is different still.
+Does not seem to correlate with REB temperature, time, VBB etc.
+It does appear to be stable, as we've only needed to apply the correction once.
+
+\begin{figure}
+  \caption{Example of gain ratio mismatch.}
+\end{figure}
+
+\begin{figure}
+  \caption{measured ratios}
+\end{figure}
+
+\subsection{Crosstalk}
+
+Crosstalk is treated reasonably well by the current set of coefficients: averaged ITL measurements taken on LSSTCam.
+Expect those measurements (specifically the filtered version to exclude outliers) will be sufficient at the start of LSSTCam comissioning.
+\czw{I want to have numbers and figures here.}
+
+\subsection{Twilight flats}
+
+Twilight flats have worked better than expected.
+We now have at least an initial set of flats for ugrizy.
+Star print through is one problem we've seen, but this will improve as we take more data + rotations + etc.
+Vampire pixels do show up
+
