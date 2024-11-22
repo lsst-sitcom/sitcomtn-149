@@ -1,2 +1,86 @@
 \section{Photometric Calibration}
 \label{sec:photometric_calibration}
+
+We have started commissioning the full photometric calibration pipeline for
+Rubin Observatory, with great success so far. For testing photometric
+calibration we have obtained over 150 dithered science observations in ugriz
+over the Extended Chandra Deep Field-South (ECDFS) (one of the planned LSST
+deep fields), and tens more in rizy over the Euclid Deep Field South
+(EDFS). All of the science data has delivered seeing of $\sim0.8$ to $\sim1.5$
+arcsecond seeing, which is due to the excellent work of the AOS team.  The
+validation work in this document covers the ECDFS field with more complete
+filter coverage.
+
+The precision photometric calibration software used for Rubin is the Forward
+Global Calibration Method (Burke, Rykoff, et al. 2018) which was used
+successfully to achieve better than 2 mmag uniformity for the Dark Energy
+Survey. This software has been adapted for the LSST Science Pipelines and has
+been used on Hyper Suprime Cam Special Survey Program (HSC SSP) for data
+releases since DR2.
+
+The performance on HSC data has not been as good as that on DES data due to a
+number of reasons, yielding repeatability and uniformity closer to the 5 mmag
+level for grizy data.  First, we have had a lot of problems with HSC
+backgrounds and amp-to-amp non-linearities.  Second, the HSC survey strategy
+was not well suited to self calibration due to the slow slewing of the
+telescope and the long time required to change a filter, leading to lots of
+isolated single-band single-night surveys.  Third, we do not have detailed
+throughput scans including detector-to-detector QE variations and in-situ scans
+of the significant filter variations that are required for the full forward
+modeling in FGCM.
+
+Early calibration of the ComCam data is in many ways easier than that of HSC.
+First of all, we have a smaller camera (9 detectors) and thus fewer variations
+to have to cross-calibrate.  Second, the camera is situated in the center and
+easiest to calibrate part of the focal plane.  Third, we only have one field to
+calibrate across a few nights of data so far over a limited range of airmass.
+Fourth, the survey strategy (multiple bands per night dithered and repeated
+with overlapping filters from night to night) is well suited to
+self-calibration.  On the other hand, we do not have the CBP set up yet, so we
+do not have detailed filter or detector scans available for ComCam, and are
+just using the LSSTCam reference filter throughputs and average detector
+throughput for the LSSTCam ITL detectors.  In addition, we do not have a flat
+field screen so we have had to rely on twilight flat observations for flat fielding.
+
+\subsection{Processing Overview}
+
+We start with the standard ISR as documented in Section~\ref{sec:isr}. While
+there are a number of challenges that we have discovered with the ITL
+detectors, these are mostly near the sky level, while the testing of
+photometric calibration is focused on brighter stars that are less affected by
+these issues. We then apply twilight flats, which we are investigating how to
+make better. At the same time, we are going to have the flat field screen and
+laser and projector installed prior to the commissioning of LSSTCam, so we do
+not want to spend too much time worrying about specific challenges of twilight
+flats which are only necessary for ComCam.
+
+After flat fielding we find an initial point-spread function (PSF), do a star
+selection based on source and psf moments that was developed for HSC
+single-frame processing, and perform an initial astrometric solution and
+photometric solution (with a single zero-point per detector).  The initial
+astrometric solution is used to associate star observations together prior to
+global photometric calibration with FGCM.  The initial photometric solution is
+used for rapid analysis and prompt processing, but is not used at all for FGCM
+which relies entirely on instrumental fluxes (in units of electrons) with a
+minor constraint from the reference catalog.
+
+\subsection{Global Photometric Calibration with FGCM}
+
+All associated stars with observations with signal-to-noise greater than 10 are
+input into the FGCM solution.  In addition, reference stars from The Monster
+reference catalog are associated with the stars .  Only a small fraction of the
+reference stars are used in the FGCM solution, sufficient to estimate an
+``absolute'' calibration (trusting that The Monster is a good absolute
+reference catalog).  There is additional ongoing work with absolute calibration
+with respect to the CalSpec star C26202 which is not saturated in LSST images
+and is fortunately contained in ECDFS that is described below.
+
+The FGCM model constrains the atmospheric parameters per night, as well as the
+absolute throughput relative to the input scans.  The standard atmosphere is
+given by MODTRAN, run at the elevation of Cerro Pachon at airmass 1.2 with an
+Angstrom aerosol model.  The optics and filters are all taken from
+$lsst/throughputs$ version 1.9, and the detector throughput is taken from the
+ITL average of the lab scans ingested into $obs\_lsst\_data$.  Note that the
+detector QEs are normalized to 1.0 at 800 nm, which is certainly
+greater than the true QE at this wavelength.
+
