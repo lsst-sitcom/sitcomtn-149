@@ -44,13 +44,14 @@ The following discussion summarizes our current understanding of a variety of fe
 There are regions on some of the detectors (most visible in R22_S01, detector=1) which show bright emission, particularly at bluer wavelengths, as shown in Figure \ref{fig:isr_phosphorescence_example}.
 This is believed to be caused by a thin layer of remnant photo-resist from the manufacturing process that remained on the detector surface, and is now permanent due to the subsequent addition of the anti-reflective coating.
 In addition to the large areas, there are also discrete point-source-like or cosmic-ray-like defects caused by accumulations of this material.
-Adding to the difficulty of mitigating these defects is that this photo-resist is known to be phosphorescent, explaining why these regions are more noticable in the bluer filters.
+Adding to the difficulty of mitigating these defects is that this photo-resist is known to be phosphorescent, explaining why these regions are more noticeable in the bluer filters.
 
 The initial studies of this (Figure \ref{fig:isr_phosphorescence_decay} show that these features can continue to emit light up to minutes after they've been illuminated.
 Due to the long duration of these features, we decided to place manual defect masks over the worst regions.
 The first of these manual masks takes up about 3.5\% of that detector, smaller than but consistent with estimates that this would create a pixel loss of approximately one amplifier.
 
 \begin{figure}
+%  \includegraphics{
   \caption{The phosphorescence seen in R22_S01, shown here in a DARK exposure taken after a series of twilight flats (exposure=2024112000065).  This material absorbs light at bluer wavelengths and re-emits that energy over a wide range of wavelengths.
   \ref{fig:isr_phosphorescence_example}
 \end{figure}
@@ -62,7 +63,6 @@ The first of these manual masks takes up about 3.5\% of that detector, smaller t
 
 The ITL detectors in LSSTCam are believed to have been cleaned better, so this should be less of an issue on the full camera.
 
-
 \subsection{Vampire pixels}
 
 There are defects on LSSTComCam that have been classified as ``vampire'' pixels, as they appear as a bright defect with a (generally) axisymmetric region surrounding the bright core, as if the defect is draining charge from its neighbors.
@@ -72,7 +72,6 @@ After the initial discovery of the bright obvious vampires, we added new masking
 This appears to find the most problematic examples, but as we have improved flat quality during commissioning, we are finding that there is a sub-population that are not as severe, but likely have a similar physical mechanism.
 This population is still bright on the flat, with peaks around 1.2 (20\% elevated relative to the flat), and may need to be masked as well.
 From an initial study in the lab, it appears that all ITL detectors on LSSTCam have a few of these kinds of defects, with two detectors (\czw{X} and \czw{Y}) approaching similar contamination levels as R22_S10 on LSSTComCam.
-
 
 \begin{figure}
   \caption{A close up of one of the largest vampire pixels.}
@@ -113,19 +112,11 @@ This results in the flat containing mainly QE and illumination patterns, which i
 If we have properly diagonalized the flats and the gains, we would expect that applying the gain correction would create images with consistent sky levels across different amplifiers.
 However, when we look at images taken on-sky, our initial gain values result in some amplifiers being significantly different than their neighbors.
 The gains that we use are derived from the photon transfer curve (PTC), which uses flat pairs at different flux levels to monitor the properties of the noise.
-We have two of these sequences taken in the lab, and they disagree at the \czw{X\%} level.
+We have two of these sequences taken in the lab, and they disagree at the few percent level.
 This is similar in scale to the errors necessary to explain the on-sky differences.
 Further complicating this issue, the offsets seen in twilight data (used for flats) and that seen during the night also seem to differ.
-
-These differences so far have not been found to correlate with any device temperature, time, or voltage values, 
-
-
-We have two lab PTC datasets that come up with slightly different gain values.  
-
-We have different observed gain ratios between the lab data and the on-sky data.
-Two lab scans come up with different results, and on sky is different still.
-Does not seem to correlate with REB temperature, time, VBB etc.
-It does appear to be stable, as we've only needed to apply the correction once.
+These differences so far have not been found to correlate with any device temperature, time, or voltage values.
+The gain correction fix appears to be stable, as we've only needed to generate and apply it once.
 
 \begin{figure}
   \caption{Example of gain ratio mismatch.}
@@ -137,17 +128,19 @@ It does appear to be stable, as we've only needed to apply the correction once.
 
 \subsection{Crosstalk}
 
-Crosstalk is treated reasonably well by the current set of coefficients: averaged ITL measurements taken on LSSTCam.
-Expect those measurements (specifically the filtered version to exclude outliers) will be sufficient at the start of LSSTCam comissioning.
-\czw{I want to have numbers and figures here.}
+We are currently using crosstalk values that were constructed by averaging the lab-based ITL measurements taken on LSSTCam.
+These are working better than expected, with residuals post correction being only a few electrons peak to peak.
+We plan to do a more complete crosstalk study using on-sky data, but the current results suggest that these lab measurements are sufficient for LSSTComCam, and expect the same to be true for LSSTCam.
 
 \subsection{Twilight flats}
 
-Twilight flats have worked better than expected.
-We now have at least an initial set of flats for ugrizy.
-Star print through is one problem we've seen, but this will improve as we take more data + rotations + etc.
-Vampire pixels do show up
+There is no flat screen currently available for the main telescope, and so we have constructed twilight flats for all bands using exposures taken to have median counts between 15000-20000 ADU.
+We have some dithering in the inputs, which have allowed us to reduce the impact of stars that print through into the flat.
+This reduction of non-sky signals is imperfect, and the current i-band flat shows a satellite trail as a result
+We are working to replace this flat using newly taken data.
 
 \subsection{Operations}
 
-Report link
+The Telescope and Auxiliary Instrumentation Calibration Acceptance Board (TAXICAB) has been meeting previously to discuss LATISS calibrations, and has been helping manage calibrations for LSSTComCam.
+This process has not prevented problematic calibrations from being deployed (like the i-band flat with the satellite trail), but it has ensured that multiple people have checked some set of results.
+We are generating calibration verification reports regularly as part of this process (available at \url{https://s3df.slac.stanford.edu/people/czw/cpv_reports/}), and plan to add new metrics and checks to these as we discover more features of these detectors.
