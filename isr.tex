@@ -46,20 +46,23 @@ This is believed to be caused by a thin layer of remnant photo-resist from the m
 In addition to the large areas, there are also discrete point-source-like or cosmic-ray-like defects caused by accumulations of this material.
 Adding to the difficulty of mitigating these defects is that this photo-resist is known to be phosphorescent, explaining why these regions are more noticeable in the bluer filters.
 
-The initial studies of this (Figure \ref{fig:isr_phosphorescence_decay} show that these features can continue to emit light up to minutes after they've been illuminated.
+The initial studies of this show that these features can continue to emit light up to several minutes after they've been illuminated.
 Due to the long duration of these features, we decided to place manual defect masks over the worst regions.
 The first of these manual masks takes up about 3.5\% of that detector, smaller than but consistent with estimates that this would create a pixel loss of approximately one amplifier.
 
 \begin{figure}
-  \includegraphics{figures/isr-f01-phosphor_dark_exposure.jpg}
+  \begin{center}
+  \includegraphics[width=\textwidth]{figures/isr-f01-phosphor_dark_exposure.jpg}
   \caption{The phosphorescence seen in R22\_S01, shown here in a dark exposure taken after a series of twilight flats (exposure=2024112000065).  This material absorbs light at bluer wavelengths and re-emits that energy over a wide range of wavelengths.}
-  \ref{fig:isr_phosphorescence_example}
+  \label{fig:isr_phosphorescence_example}
+  \end{center}
 \end{figure}
 
 \begin{figure}
-  \includegraphics{figures/isr-f02-phosphorescence_point_like.jpg}
+  \begin{center}
+  \includegraphics[width=\textwidth]{figures/isr-f02-phosphorescence_point_like.jpg}
   \caption{A full-resolution view of the edge of R22\_S01.  The features shown in this image are point-like sources caused by the trapped phosphorescence photo-resist.}
-  \ref{fig:isr_phosphorescence_decay}
+  \end{center}
 \end{figure}
 
 The ITL detectors in LSSTCam are believed to have been cleaned better, so this should be less of an issue on the full camera.
@@ -75,13 +78,17 @@ This population is still bright on the flat, with peaks around 1.2 (20\% elevate
 From an initial study in the lab, it appears that all ITL detectors on LSSTCam have a few of these kinds of defects, with two detectors approaching similar contamination levels as R22\_S10 on LSSTComCam.
 
 \begin{figure}
-  \includegraphics{figures/isr-f03-vampire_pixel.png}
+  \begin{center}
+  \includegraphics[width=\textwidth]{figures/isr-f03-vampire_pixel.png}
   \caption{A close up of one of the largest vampire pixels.  The bright core and region of depletion are clearly visible.  Currently we only mask the core and depleted region, but will be extending this to mask the persistence-like trail that this feature leaves in the next few weeks.}
+  \end{center}
 \end{figure}
 
 \begin{figure}
-  \includegraphics{figures/isr-f04-vampire_pixels_y_det03.png}
+  \begin{center}
+  \includegraphics[width=\textwidth]{figures/isr-f04-vampire_pixels_y_det03.png}
   \caption{A view of detector R22\_S10 in y-band, which has a large number of less significant vampire pixels.}
+  \end{center}
 \end{figure}
 
 
@@ -122,13 +129,17 @@ These differences so far have not been found to correlate with any device temper
 The gain correction fix appears to be stable, as we've only needed to generate and apply it once.
 
 \begin{figure}
-  \includegraphics{figures/isr-f06-twilight_flat_ratio.png}
+  \begin{center}
+  \includegraphics[width=\textwidth]{figures/isr-f06-twilight_flat_ratio.png}
   \caption{The ratio of the twilight-flat divided by a flat constructed from 94 r-band science frames.  The scaling ranges from 0.9905 to 1.007.  The visibility of amplifiers is caused by the unknown gain errors.  The bottom right corner amplifier (C07) on R22\_S21 is one of the indicator amplifiers, as it diverges from its neighbors.  Although the C00-C03 amplifiers in R22\_S12 also show significant offsets, these amplifiers also have an unrelated CTI issue, making them less reliable indicators.}
+  \end{center}
 \end{figure}
 
 \begin{figure}
-  \includegraphics{figures/isr-f05-gain_ratios_by_flat.png}
+  \begin{center}
+  \includegraphics[width=\textwidth]{figures/isr-f05-gain_ratios_by_flat.png}
   \caption{A comparison of the gain ratio between amplifiers in R22\_S12.  C07 is chosen as the indicator amplifier, and C04 is the reference.  We have three twilight flat measurements taken at different rotator angles, and one from the 94 input sky flat.}
+  \end{center}
 \end{figure}
 
 \subsection{Crosstalk}
