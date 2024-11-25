@@ -51,13 +51,14 @@ Due to the long duration of these features, we decided to place manual defect ma
 The first of these manual masks takes up about 3.5\% of that detector, smaller than but consistent with estimates that this would create a pixel loss of approximately one amplifier.
 
 \begin{figure}
-%  \includegraphics{
-  \caption{The phosphorescence seen in R22_S01, shown here in a DARK exposure taken after a series of twilight flats (exposure=2024112000065).  This material absorbs light at bluer wavelengths and re-emits that energy over a wide range of wavelengths.
+  \includegraphics{figures/isr-f01-phosphor_dark_exposure.jpg}
+  \caption{The phosphorescence seen in R22_S01, shown here in a dark exposure taken after a series of twilight flats (exposure=2024112000065).  This material absorbs light at bluer wavelengths and re-emits that energy over a wide range of wavelengths.}
   \ref{fig:isr_phosphorescence_example}
 \end{figure}
 
 \begin{figure}
-  \caption{Brightness of a phosphorescent area (defined as \czw{XYZ}) as a function of time since the last illumination, in a series of \czw{bias?} exposures.  Measured by \czw{I remember seeing this, but don't remember who}.}
+  \includegraphics{figures/isr-f02-phosphorescence_point_like.jpg}
+  \caption{A full-resolution view of the edge of R22_S01.  The features shown in this image are point-like sources caused by the trapped phosphorescence photo-resist.}
   \ref{fig:isr_phosphorescence_decay}
 \end{figure}
 
@@ -74,11 +75,13 @@ This population is still bright on the flat, with peaks around 1.2 (20\% elevate
 From an initial study in the lab, it appears that all ITL detectors on LSSTCam have a few of these kinds of defects, with two detectors (\czw{X} and \czw{Y}) approaching similar contamination levels as R22_S10 on LSSTComCam.
 
 \begin{figure}
-  \caption{A close up of one of the largest vampire pixels.}
+  \includegraphics{figures/isr-f03-vampire_pixel.png}
+  \caption{A close up of one of the largest vampire pixels.  The bright core and region of depletion are clearly visible.  Currently we only mask the core and depleted region, but will be extending this to mask the persistence-like trail that this feature leaves in the next few weeks.}
 \end{figure}
 
 \begin{figure}
-  \caption{A view of detector \czw{R22_S10}, which has a large number of less significant vampire pixels.}
+  \includegraphics{figures/isr-f04-vampire_pixels_y_det03.png}
+  \caption{A view of detector \czw{R22_S10} in y-band, which has a large number of less significant vampire pixels.}
 \end{figure}
 
 
@@ -119,11 +122,13 @@ These differences so far have not been found to correlate with any device temper
 The gain correction fix appears to be stable, as we've only needed to generate and apply it once.
 
 \begin{figure}
-  \caption{Example of gain ratio mismatch.}
+  \includegraphics{figures/isr-f06-twilight_flat_ratio.png}
+  \caption{The ratio of the twilight-flat divided by a flat constructed from 94 r-band science frames.  The scaling ranges from 0.9905 to 1.007.  The visibility of amplifiers is caused by the unknown gain errors.  The bottom right corner amplifier (C07) on R22_S21 is one of the indicator amplifiers, as it diverges from its neighbors.  Although the C00-C03 amplifiers in R22_S12 also show significant offsets, these amplifiers also have an unrelated CTI issue, making them less reliable indicators.}
 \end{figure}
 
 \begin{figure}
-  \caption{measured ratios}
+  \includegraphics{figures/isr-f05-gain_ratios_by_flat.png}
+  \caption{A comparison of the gain ratio between amplifiers in R22_S12.  C07 is chosen as the indicator amplifier, and C04 is the reference.  We have three twilight flat measurements taken at different rotator angles, and one from the 94 input sky flat.}
 \end{figure}
 
 \subsection{Crosstalk}
