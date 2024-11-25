@@ -41,7 +41,7 @@ The following discussion summarizes our current understanding of a variety of fe
 
 \subsection{Phosphorescence}
 
-There are regions on some of the detectors (most visible in R22_S01, detector=1) which show bright emission, particularly at bluer wavelengths, as shown in Figure \ref{fig:isr_phosphorescence_example}.
+There are regions on some of the detectors (most visible in R22\_S01, detector=1) which show bright emission, particularly at bluer wavelengths, as shown in Figure \ref{fig:isr_phosphorescence_example}.
 This is believed to be caused by a thin layer of remnant photo-resist from the manufacturing process that remained on the detector surface, and is now permanent due to the subsequent addition of the anti-reflective coating.
 In addition to the large areas, there are also discrete point-source-like or cosmic-ray-like defects caused by accumulations of this material.
 Adding to the difficulty of mitigating these defects is that this photo-resist is known to be phosphorescent, explaining why these regions are more noticeable in the bluer filters.
@@ -52,13 +52,13 @@ The first of these manual masks takes up about 3.5\% of that detector, smaller t
 
 \begin{figure}
   \includegraphics{figures/isr-f01-phosphor_dark_exposure.jpg}
-  \caption{The phosphorescence seen in R22_S01, shown here in a dark exposure taken after a series of twilight flats (exposure=2024112000065).  This material absorbs light at bluer wavelengths and re-emits that energy over a wide range of wavelengths.}
+  \caption{The phosphorescence seen in R22\_S01, shown here in a dark exposure taken after a series of twilight flats (exposure=2024112000065).  This material absorbs light at bluer wavelengths and re-emits that energy over a wide range of wavelengths.}
   \ref{fig:isr_phosphorescence_example}
 \end{figure}
 
 \begin{figure}
   \includegraphics{figures/isr-f02-phosphorescence_point_like.jpg}
-  \caption{A full-resolution view of the edge of R22_S01.  The features shown in this image are point-like sources caused by the trapped phosphorescence photo-resist.}
+  \caption{A full-resolution view of the edge of R22\_S01.  The features shown in this image are point-like sources caused by the trapped phosphorescence photo-resist.}
   \ref{fig:isr_phosphorescence_decay}
 \end{figure}
 
@@ -72,7 +72,7 @@ There is an intensity dependence that makes these vampire pixels different than 
 After the initial discovery of the bright obvious vampires, we added new masking code that identifies the bright cores that are above 2.0 on the combined flat (pixels that are greater than 200\% of the median flat level), and adds circular masks to the defect list.
 This appears to find the most problematic examples, but as we have improved flat quality during commissioning, we are finding that there is a sub-population that are not as severe, but likely have a similar physical mechanism.
 This population is still bright on the flat, with peaks around 1.2 (20\% elevated relative to the flat), and may need to be masked as well.
-From an initial study in the lab, it appears that all ITL detectors on LSSTCam have a few of these kinds of defects, with two detectors (\czw{X} and \czw{Y}) approaching similar contamination levels as R22_S10 on LSSTComCam.
+From an initial study in the lab, it appears that all ITL detectors on LSSTCam have a few of these kinds of defects, with two detectors approaching similar contamination levels as R22\_S10 on LSSTComCam.
 
 \begin{figure}
   \includegraphics{figures/isr-f03-vampire_pixel.png}
@@ -81,7 +81,7 @@ From an initial study in the lab, it appears that all ITL detectors on LSSTCam h
 
 \begin{figure}
   \includegraphics{figures/isr-f04-vampire_pixels_y_det03.png}
-  \caption{A view of detector \czw{R22_S10} in y-band, which has a large number of less significant vampire pixels.}
+  \caption{A view of detector R22\_S10 in y-band, which has a large number of less significant vampire pixels.}
 \end{figure}
 
 
@@ -123,12 +123,12 @@ The gain correction fix appears to be stable, as we've only needed to generate a
 
 \begin{figure}
   \includegraphics{figures/isr-f06-twilight_flat_ratio.png}
-  \caption{The ratio of the twilight-flat divided by a flat constructed from 94 r-band science frames.  The scaling ranges from 0.9905 to 1.007.  The visibility of amplifiers is caused by the unknown gain errors.  The bottom right corner amplifier (C07) on R22_S21 is one of the indicator amplifiers, as it diverges from its neighbors.  Although the C00-C03 amplifiers in R22_S12 also show significant offsets, these amplifiers also have an unrelated CTI issue, making them less reliable indicators.}
+  \caption{The ratio of the twilight-flat divided by a flat constructed from 94 r-band science frames.  The scaling ranges from 0.9905 to 1.007.  The visibility of amplifiers is caused by the unknown gain errors.  The bottom right corner amplifier (C07) on R22\_S21 is one of the indicator amplifiers, as it diverges from its neighbors.  Although the C00-C03 amplifiers in R22\_S12 also show significant offsets, these amplifiers also have an unrelated CTI issue, making them less reliable indicators.}
 \end{figure}
 
 \begin{figure}
   \includegraphics{figures/isr-f05-gain_ratios_by_flat.png}
-  \caption{A comparison of the gain ratio between amplifiers in R22_S12.  C07 is chosen as the indicator amplifier, and C04 is the reference.  We have three twilight flat measurements taken at different rotator angles, and one from the 94 input sky flat.}
+  \caption{A comparison of the gain ratio between amplifiers in R22\_S12.  C07 is chosen as the indicator amplifier, and C04 is the reference.  We have three twilight flat measurements taken at different rotator angles, and one from the 94 input sky flat.}
 \end{figure}
 
 \subsection{Crosstalk}
