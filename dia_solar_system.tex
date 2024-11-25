@@ -40,12 +40,18 @@ All of the other ten-point tracklets were found to correspond to known asteroids
 \subsection{Single-epoch Association}
 \label{sec:association}
 
-Ten images taken on 2024-11-06 in the same field close to the ecliptic were ideal for asteroid association. Across the ten images, 24 known asteroids (all main belt asteroids with high-precision ephemerides) were detected and labeled, in 8 images per object on average. Failure modes included one object near the limiting magnitude which was detected in some but not all images and two objects which travelled near bright stars on which the deblender did not run, precluding their detection in the source catalog. The dimmest object had an ephemeris magnitude of V $\sim$23.3. 
+Ten images taken on 2024-11-06 in the same field close to the ecliptic were ideal for asteroid association. Across the ten images, 24 known asteroids (all main belt asteroids with high-precision ephemerides) were detected and labeled, in 8 images per object on average (Figure \ref{fig:asteroids01}). Failure modes included one object near the limiting magnitude which was detected in some but not all images and two objects which travelled near bright stars on which the deblender did not run, precluding their detection in the source catalog. The dimmest object had an ephemeris magnitude of V $\sim$23.3. 
 
 Comparing the sources' astrometry to ephemerides,  we see a mean and median total error of 0.174 and 0.092 arcseconds, again indicating that there are not major errors in either timing or astrometry (Figure \ref{fig:resid01}). Evaluating the signed offsets (i.e., observed-calculated RA and Dec) to search for systematic errors, we find a median value of only 3 mas in RA and 26 mas in Dec. As for the specific analysis of asteroid (193300) 2000 SO275, these values are statistically consistent with a true systematic error of zero.
 
+
 \begin{figure}
-\includegraphics[width=3.5in]{sfa_resid-2.pdf}
+\includegraphics[width=5.5in]{27_asteroids-1.pdf}
+\caption{On-sky tracklets for the known asteroids discussed in Section \ref{sec:association} \label{fig:asteroids01}}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=5.5in]{sfa_resid-2.pdf}
 \caption{Offsets between measured and predicted positions for 24 known asteroids measured in up to 10 images each \label{fig:resid01}}
 \end{figure}
 
