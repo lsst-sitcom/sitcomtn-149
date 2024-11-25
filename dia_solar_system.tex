@@ -1,3 +1,4 @@
+\usepackage{graphicx}
 \section{Difference Image Analysis: Solar System Objects}
 \label{sec:dia_solar_system}
 
@@ -13,7 +14,7 @@ These difference images also enabled a test of tracklet creation, the first stag
 
 So far, {\tt make\_tracklets} has been run on two sets of difference images, one with 10 visits and one with 12.  In the first case, the average number of positive sources per visit (over the 10 visits) was 840; in the second case it was only 430. These numbers are encouragingly low, indicating that Rubin difference images are fairly clean. Accordingly, only nine total tracklets were produced (two in the first run and seven in the second). None of the tracklets had more than the minimum number of 5 detections, and all had inconsistent photometry and a relatively high Great Circle residual (GCR)\footnote{Defined only for tracklets with more than two points, the GCR is the RMS residual relative to the best-fit trajectory that follows a Great Circle on the sky at constant angular velocity. Real asteroids, unless they are very near the Earth, produce tracklets with very low intrinsic GCR: hence, elevated GCR usually indicates a spurious tracklet.}, indicating they were probably spurious. Just as for the known object association, it was unlikely that any unknown asteroids would be found so far from the ecliptic.
 
-Manual examination of image cutouts confirmed the expectation that the tracklets would not correspond to real asteroids: all nine tracklets were entirely composed of spurious sources. This finding of nine spurious tracklets in two fields is not surprising. In production, where two-point tracklets will be generated, thousands of spurious tracklets per visit-pair are expected --- and the downstream multi-night linking softwared based on the HelioLinc3D algorithm is designed to handle this.
+Manual examination of image cutouts confirmed the expectation that the tracklet would not correspond to real asteroids: all nine tracklets were entirely composed of spurious sources. This finding of nine spurious tracklets in two fields is not surprising. In production, where two-point tracklets will be generated, thousands of spurious tracklets per visit-pair are expected --- and the downstream multi-night linking softwared based on the HelioLinc3D algorithm is designed to handle this.
 
 More interesting is the nature of the spurious sources that made up the tracklets. All were associated with bright stars. They included diffraction rays, incompletely subtracted scattered light halos, and subtraction residuals near the PSF core. This is very good news, in that all of these types of spurious detections can potentially be eliminated by pre-screening of the source catalogs.
 
@@ -40,22 +41,10 @@ All of the other ten-point tracklets were found to correspond to known asteroids
 \subsection{Single-epoch Association}
 \label{sec:association}
 
-Ten images taken on 2024-11-06 in the same field close to the ecliptic were ideal for asteroid association. Across the ten images, 24 known asteroids (all main belt asteroids with high-precision ephemerides) were detected and labeled, in 8 images per object on average (Figure \ref{fig:asteroids01}). Failure modes included one object near the limiting magnitude which was detected in some but not all images and two objects which travelled near bright stars on which the deblender did not run, precluding their detection in the source catalog. The dimmest object had an ephemeris magnitude of V $\sim$23.3. 
-
-Comparing the sources' astrometry to ephemerides,  we see a mean and median total error of 0.174 and 0.092 arcseconds, again indicating that there are not major errors in either timing or astrometry (Figure \ref{fig:resid01}). Evaluating the signed offsets (i.e., observed-calculated RA and Dec) to search for systematic errors, we find a median value of only 3 mas in RA and 26 mas in Dec. As for the specific analysis of asteroid (193300) 2000 SO275, these values are statistically consistent with a true systematic error of zero.
-
+Ten images taken in one field on 2024-11-06 and ten each in four fields on 2024-11-23 were close enough to the ecliptic for asteroid association. Around 800 instances of object-source association occurred, identifying around 130 unique objects. Comparing the sources' astrometry to ephemerides, we find very low bias -- the median source is 0.013 arcseconds from its expected position, again indicating that there are not major errors in either timing or astrometry. As for the specific analysis of asteroid (193300) 2000 SO275, these values are statistically consistent with a true systematic error of zero.
 
 \begin{figure}
-\includegraphics[width=5.5in]{27_asteroids-1.pdf}
-\caption{On-sky tracklets for the known asteroids discussed in Section \ref{sec:association} \label{fig:asteroids01}}
+  \label{fig:solar_system_residuals}
+  \includegraphics{sso_figures/sso_residuals.pdf}
+  \caption{}
 \end{figure}
-
-\begin{figure}
-\includegraphics[width=5.5in]{sfa_resid-2.pdf}
-\caption{Offsets between measured and predicted positions for 24 known asteroids measured in up to 10 images each \label{fig:resid01}}
-\end{figure}
-
-
-
-
-
