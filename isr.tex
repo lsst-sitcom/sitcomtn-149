@@ -37,19 +37,21 @@
   \textbf{CZW: }\textcolor{red}{#1}
 }
 The quality of the instrument signal removal (ISR) has improved during commissioning, as we create and deploy updated calibration products that better represent the LSSTComCam system.
-The following discussion summarizes our current understanding of a variety of features, both expected and newly seen on LSSTComCam, and presents our expected prognosis of the behavior of the full LSSTCam.,
+The following discussion summarizes our current understanding of a variety of features, both expected and newly seen on LSSTComCam, and presents our expected prognosis of the behavior of the full LSSTCam.
 
 \subsection{Phosphorescence}
 
-There are regions on some of the detectors (most visible in \czw{R22_S01}) which show bright emission, particularly at bluer wavelengths, as shown in Figure \ref{fig:isr_phosphorescence_example}
+There are regions on some of the detectors (most visible in R22_S01, detector=1) which show bright emission, particularly at bluer wavelengths, as shown in Figure \ref{fig:isr_phosphorescence_example}.
 This is believed to be caused by a thin layer of remnant photo-resist from the manufacturing process that remained on the detector surface, and is now permanent due to the subsequent addition of the anti-reflective coating.
-This material is known to be phosphorescent, explaining why these regions show more strongly in the blue.
+In addition to the large areas, there are also discrete point-source-like or cosmic-ray-like defects caused by accumulations of this material.
+Adding to the difficulty of mitigating these defects is that this photo-resist is known to be phosphorescent, explaining why these regions are more noticable in the bluer filters.
 
-The initial studies of this (Figure \ref{fig:isr_phosphorescence_decay} show that these features can continue to emit light up to \czw{N seconds} after they've been illuminated.
-Due to the long duration of these features, we decided to place manual defect masks over the worst regions, and 
+The initial studies of this (Figure \ref{fig:isr_phosphorescence_decay} show that these features can continue to emit light up to minutes after they've been illuminated.
+Due to the long duration of these features, we decided to place manual defect masks over the worst regions.
+The first of these manual masks takes up about 3.5\% of that detector, smaller than but consistent with estimates that this would create a pixel loss of approximately one amplifier.
 
 \begin{figure}
-  \caption{The phosphorescence seen in \czw{R22_S01}, shown here in a DARK exposure taken after a series of twilight flats (exposure=2024112000065).  This material absorbs light at bluer wavelengths and re-emit that energy over a wide range of wavelengths, and for \czw{add some characterization of the time scales}.}
+  \caption{The phosphorescence seen in R22_S01, shown here in a DARK exposure taken after a series of twilight flats (exposure=2024112000065).  This material absorbs light at bluer wavelengths and re-emits that energy over a wide range of wavelengths.
   \ref{fig:isr_phosphorescence_example}
 \end{figure}
 
@@ -58,16 +60,19 @@ Due to the long duration of these features, we decided to place manual defect ma
   \ref{fig:isr_phosphorescence_decay}
 \end{figure}
 
-Expected loss ~3.5\%, consistent with estimates of ``less than an amplifier.'' 
-The LSSTCam ITL detectors are believed to have been cleaned better, but this may still be an issue.
-  
+The ITL detectors in LSSTCam are believed to have been cleaned better, so this should be less of an issue on the full camera.
+
+
 \subsection{Vampire pixels}
 
-Bright pixel with axisymmetric ``depressed'' region.
-Appear to conserve charge.
-More common than thought.  We're masking with 200\%-of-flat threshold, with X pixel radius circle masks
-Two detectors in the full camera may have this at the level of R22_S10.
-All ITL have a few.
+There are defects on LSSTComCam that have been classified as ``vampire'' pixels, as they appear as a bright defect with a (generally) axisymmetric region surrounding the bright core, as if the defect is draining charge from its neighbors.
+The naming is at least broadly correct, as integrating to large radii shows that these regions do appear to conserve charge.
+There is an intensity dependence that makes these vampire pixels different than standard hot pixels, as these pixels do not show up on dark frames, only on flats and science exposures, where the detector surface is illuminated.
+After the initial discovery of the bright obvious vampires, we added new masking code that identifies the bright cores that are above 2.0 on the combined flat (pixels that are greater than 200\% of the median flat level), and adds circular masks to the defect list.
+This appears to find the most problematic examples, but as we have improved flat quality during commissioning, we are finding that there is a sub-population that are not as severe, but likely have a similar physical mechanism.
+This population is still bright on the flat, with peaks around 1.2 (20\% elevated relative to the flat), and may need to be masked as well.
+From an initial study in the lab, it appears that all ITL detectors on LSSTCam have a few of these kinds of defects, with two detectors (\czw{X} and \czw{Y}) approaching similar contamination levels as R22_S10 on LSSTComCam.
+
 
 \begin{figure}
   \caption{A close up of one of the largest vampire pixels.}
@@ -80,14 +85,43 @@ All ITL have a few.
 
 \subsection{Saturated star effects}
 
-Saturated stars end up with dark trails that stretch to the top and bottom of the detector (across channel stops)
-Masking will be the solution here as well.  Saturation threshold + width configurations.
+Although we expected to find saturated star trails coming from bright sources, the observed behavior of these trails is unique.
+Saturation spikes on most cameras appear as streaks extending from the core of the bright source along the direction of the parallel transfers, and truncate as the charge bleeds run out of charge (and can no longer overcome the potentials defining the pixel).
+The trails seem with LSSTComCam, however, extend the entire height of the detectors, crossing the midline break.
+These trails are also not at the expected high state, with the centers of these trails having flux levels lower than the average sky levels, creating dark trails.
+On the worst saturated objects, there is also evidence of charge pile-up near the serial readout, which can then create fan-like bright features at the edge of the detector.
+Those bright features can also then crosstalk onto other amplifiers.
 
-\begin{figure}
-  \caption{Example of a bright star with full-detector bleed.}
-\end{figure}
+The underlying physics is not well understood, and further study will be needed to see if we can correct these trails outside of the regions of charge buildup.
+Until we have a correction, we plan to begin masking both the trail and the fan-spread near the serial register.
+
+Although we haven't seen identical features on LATISS, the presence of these odd trails on all LSSTComCam detectors suggests that this is a property of the ITL devices, and so will likely be seen on LSSTCam as well.
+
+%% This cannot go in the paper, as it would require on-sky data.
+%% TODO: Add a link to examples on slack.
+% \begin{figure}
+%  \caption{Example of a bright star with full-detector bleed.}
+% \end{figure}
 
 \subsection{Gain ratios}
+
+LSSTComCam has been the first large-scale application of the updated ``IsrTaskLSST'' task, which uses a model of how the various signals combine to form the raw images to inform how we correct those signals during the ISR process.
+One improvement of this new task is that we now apply per-amplifier gains before flat correction, removing the gain component that was previously included in the flat correction.
+This results in the flat containing mainly QE and illumination patterns, which is much ``flatter'' than flats that also include gain terms (which offset the amplifiers relative to each other).
+
+
+If we have properly diagonalized the flats and the gains, we would expect that applying the gain correction would create images with consistent sky levels across different amplifiers.
+However, when we look at images taken on-sky, our initial gain values result in some amplifiers being significantly different than their neighbors.
+The gains that we use are derived from the photon transfer curve (PTC), which uses flat pairs at different flux levels to monitor the properties of the noise.
+We have two of these sequences taken in the lab, and they disagree at the \czw{X\%} level.
+This is similar in scale to the errors necessary to explain the on-sky differences.
+Further complicating this issue, the offsets seen in twilight data (used for flats) and that seen during the night also seem to differ.
+
+These differences so far have not been found to correlate with any device temperature, time, or voltage values, 
+
+
+We have two lab PTC datasets that come up with slightly different gain values.  
+
 We have different observed gain ratios between the lab data and the on-sky data.
 Two lab scans come up with different results, and on sky is different still.
 Does not seem to correlate with REB temperature, time, VBB etc.
@@ -114,3 +148,6 @@ We now have at least an initial set of flats for ugrizy.
 Star print through is one problem we've seen, but this will improve as we take more data + rotations + etc.
 Vampire pixels do show up
 
+\subsection{Operations}
+
+Report link
