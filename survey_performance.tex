@@ -1,2 +1,19 @@
 \section{Survey Performance}
 \label{sec:survey_performance}
+
+Understanding and predicting survey performance includes modeling the likely input telemetry, the expected performance of the telescope and observatory, as well as understanding the survey strategy and its interaction with science outcomes. 
+
+At this point in commissioning, the operations of the observatory are focused on obtaining specific observations, with very different strategies than will be employed during operations. This includes very different configurations of the Feature Based Scheduler. Thus, we are not testing the Feature Based Scheduler as it would be used in operations yet, and have no comment about issues that may be related specifically to survey strategy implementation. 
+
+We can however begin to evaluate how our models may be validated or not by the currently acquired observations. We focus on the observations acquired for the science program, BLOCK-320.
+
+First, clearly bad visits (where stars were clearly trailed in the images, as visible in rubintv) were removed from the set of science visits. 
+
+The throughput curves available in `syseng_throughputs`, the repository that tracks current system engineering summaries of full-focal-plane throughputs, can be used to predict zeropoints for average ITL CCDs. See \url{https://github.com/lsst-pst/syseng_throughputs/blob/main/notebooks/InterpolateZeropoint.ipynb}, where a simple interpolation function for filter and airmass is defined for the current throughputs (v1.9). The returned zeropoint includes the exposure time, as zeropoints in DM pipelines outputs are for a given exposure with the given exposure time (they are not 1-second zeropoints). A comparison of these predicted zeropoints to the reported median visit zeropoints in the ConsDB (the column `cdb_lsstcomcam.visit1_quicklook.zero_point_median`) is shown in Figure~\ref{fig:zeropoints). The mean of these zeropoint variations averages 0.13 magnitudes across all bands, being slightly smaller in r (0.09 mag) and slightly larger in y band (0.18); the RMS scatter in these measurements is < 0.02 magnitudes. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{sp/zeropoints.png}
+    \caption{Predicted zeropoints from syseng_throughputs (accounting for airmass) compared to measured zeropoints from `cdb_lsst.comcam.visits1_quicklook`.}
+    \label{fig:zeropoints}
+    \end{figure}
