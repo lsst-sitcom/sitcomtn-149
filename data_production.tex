@@ -1,2 +1,44 @@
 \section{Data Production}
 \label{sec:data_production}
+
+As of 25 November, the latest data release production campaign has been completed on all science
+data taken between 2024-11-01 and 2024-11-20. The visits by target field and filter are summarized
+in Table~\ref{table:data_production_visits}.
+
+\begin{table}
+\begin{tabular}{lrrrrrrr}
+Field & u & g & r & i & z & y & total \\
+\hline
+Chandra Deep Field South & 28 & 18 & 70 & 81 & 61 & 30 & 288 \\
+Euclid Deep Field South & 0 & 0 & 27 & 21 & 25 & 10 & 83 \\
+Rubin\_SV\_095\_-25 & 0 & 0 & 11 & 10 & 0 & 11 & 32 \\
+XMM\_LSST & 0 & 0 & 2 & 1 & 2 & 0 & 5 \\
+64, -22 & 0 & 0 & 31 & 5 & 0 & 0 & 36 \\
+22, -26 & 0 & 0 & 27 & 0 & 0 & 0 & 27 \\
+59, -21 & 0 & 0 & 16 & 0 & 0 & 0 & 16 \\
+laser testing & 0 & 1 & 3 & 1 & 0 & 0 & 5 \\
+25, -22 & 0 & 0 & 1 & 0 & 0 & 0 & 1 \\
+\end{tabular}
+\caption{Visits included in latest DRP campaign.}
+\label{table:data_production_visits}
+\end{table}
+
+The only significant processing errors were in in single frame processing, summarized in
+Table~\ref{table:data_production_errors}.
+
+\begin{table}
+\begin{tabular}{lrrrr}
+Task & Expected Quanta & Successful & Failures & Explanations \\
+\hline
+\texttt{characterizeImage} & 4518 & 4397 & 121 & \makecell{83 failures to find PSF stars.\\ 38 failures from out-of-focus
+    images.} \\
+\texttt{calibrate} & 4397 & 4291 & 106 & 106 failures to fit astrometry.\\
+\end{tabular}
+\caption{Errors from latest DRP campaign. For \texttt{characterizeImage} and \texttt{calibrate},
+    quanta are individual detectors.}
+\label{table:data_production_errors}
+\end{table}
+
+A single detector also failed force photometry and a single patch failed in coadd detection.
+
+
