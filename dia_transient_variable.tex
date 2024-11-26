@@ -1,2 +1,35 @@
 \section{Difference Image Analysis: Transience and Variable Objects}
 \label{sec:dia_transient_variable}
+
+
+\subsection{DIA Status}
+
+As we have started to obtain repeated science-quality images of some fields, we have begun to build coadded templates as part of the regular weekly cumulative Data Release Processings. 
+These mini-DRPs also include difference image analysis (DIA) of their constituent exposures.
+Using the DRP-produced templates, we have also obtained near-real-time difference images in Prompt Processing for a few exposures. 
+We have not yet had the opportunity to begin tuning template generation, difference imaging, or Real/Bogus characterization of these data, so the report below provides an initial rough characterization of DIA performance. 
+
+\subsection{ML Reliability and Artifact Rates}
+
+We ran a convolutional neural network on 51$\times$51 difference, science, and template cutouts for 912k DIASources identified in the \texttt{w\_2024\_47} data release processing.  
+This processing primarily includes data from extragalactic deep fields.
+These DiaSources were obtained from 4252 detector-visit images, implying an average of 21 DIASources per detector or about four thousand per equivalent full LSST focal plane.
+This is somewhat less than the ten thousand DIASources expected per visit and may reflect lower sensitivity due to ongoing image quality refinement and early templates.
+
+The CNN was trained on simulated DC2 images with additional point source injection, so caution is needed when interpreting the values returned by this classifier on ComCam data.
+Nevertheless,  Figure \ref{fig:reliability_hist} shows a clear separation in reliability scores and would imply roughly a 3:1 bogus:real ratio if taken at face value.
+These values will be confirmed with manual inspection.
+We plan to train a purpose-built classifier on larger samples of labeled ComCam data.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{dia/figures/reliability_histogram.png}
+\caption{Histogram of machine-learned reliability scores computed on ComCam difference images. \label{fig:reliability_hist}}
+\end{figure}
+
+\input{dia/cosmic-rays}
+
+\input{dia/streaks-and-such}
+
+\input{dia/fakes_analysis}
+
+
