@@ -26,6 +26,28 @@ We plan to train a purpose-built classifier on larger samples of labeled ComCam 
 \caption{Histogram of machine-learned reliability scores computed on ComCam difference images. \label{fig:reliability_hist}}
 \end{figure}
 
+\section{Difference imaging QA}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{Diffim kernel quiver plot.png}
+\caption{Quiver plot of the implied offset between the science and template images, calculated from the centroid of the PSF matching kernel. \label{fig:diffim-quiver}}
+\end{figure}
+
+A difference imaging afterburner is run manually on Prompt Processing output to generate diagnostic plots, such as \ref{fig:diffim-quiver}.
+From \ref{fig:diffim-quiver} we see the centroid of the PSF matching kernel sampled across one detector, which reveals a systematic offset between the science and template images.
+A similar offset is seen across the rest of the detectors for this visit, and in other visits.
+The images comprising the template used the same astrometric reference catalog as the science image in this case, but the template was constructed with the calibrate+characterizeImage pipeline while the science image was processed with calibrateImage.
+These are not included in the Prompt Processing payload to save critical time during observing.
+
+The distribution of sources detected on the difference image reveals some detector-level effects that are not fully accounted for.
+Binning the locations of the diaSources in 1-D in \ref{fig:diaSource-distribution} by their x- and y-values reveals systematic overdensities of detections at the amplifier boundaries in x (but not in y).
+Additional overdensities seen in y-band may be from the residual phosphorescent wax reported to be left on some chips beneath the AR coating.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{diaSource_distribution.png}
+\caption{Binning the locations of the diaSources in 1-D by their x- and y-values reveals systematic overdensities of detections at the amplifier boundaries in x (but not in y). \label{fig:diaSource-distribution}}
+\end{figure}
+
 \input{dia/cosmic-rays}
 
 \input{dia/streaks-and-such}
