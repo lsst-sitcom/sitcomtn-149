@@ -7,7 +7,7 @@ From these, we make a selection, choosing a very well covered field in all bandp
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/deep_df_chip_observations.png}
+    \includegraphics[width=0.95\linewidth]{dia/figures/deep_df_chip_observations.png}
     \caption{The full LSSTComCam set of observations overlapping the chosen field and with elevation > 45 above the horizon.}
     \label{fig:deep_df}
     
@@ -17,7 +17,7 @@ In Fig~\ref{fig:sampled_df_chip_observations} we apply a first cut on the observ
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/sampled_df_chip_observations.png}
+    \includegraphics[width=0.95\linewidth]{dia/figures/sampled_df_chip_observations.png}
     \caption{The selection of CCDs for fake injection processing.}
     \label{fig:sampled_df_chip_observations}
 \end{figure}
@@ -27,14 +27,14 @@ We create a catalog of fakes for this sample of visits, by creating position and
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/sampled_df_chip_observations_plusfakes.png}
+    \includegraphics[width=0.95\linewidth]{dia/figures/sampled_df_chip_observations_plusfakes.png}
     \caption{The fake position distribution in sky and in the CCDs footprint per bandpass.}
     \label{fig:sampled_df_chip_observations_plusfakes}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/simple_hist_completeness_mag_per_filter.png}
+    \includegraphics[width=0.95\linewidth]{dia/figures/simple_hist_completeness_mag_per_filter.png}
     \caption{The distribution of magnitudes per bandpass for all the injected fakes (solid lines), and in shaded region the distribution of magnitudes of the fakes detected by the AP pipeline.}
     \label{fig:found_fakes_per_Filter}
 \end{figure}
@@ -49,8 +49,8 @@ For this, we cross-match the position of our candidate detections, or \textit{di
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.49\linewidth]{figures/scatter_xy_diaSrcs_match_px.png}
-    \includegraphics[width=0.49\linewidth]{figures/scatter_radec_diaSrcs_match_arsec_mag.png}
+    \includegraphics[width=0.49\linewidth]{dia/figures/scatter_xy_diaSrcs_match_px.png}
+    \includegraphics[width=0.49\linewidth]{dia/figures/scatter_radec_diaSrcs_match_arsec_mag.png}
     \caption{The scatter of the coordinate centroid recovery of the fakes. In the left we have the scatter around the true centroid in pixel coordinates, and in the right the scatter around the true center of fakes in sky coordinates (and in units of arc-seconds), wit the grid matching the pixel grid by means of the platescale. Also, we include the brightness in colormap.}
     \label{fig:scatter_radec_diaSrcs_match_arsec_mag}
 \end{figure}
@@ -60,26 +60,26 @@ The rate of found to existing fakes is our recovery rate, Recall or Efficiency o
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/scatter_mag_ap_mag_perfilter.png}
+    \includegraphics[width=0.95\linewidth]{dia/figures/scatter_mag_ap_mag_perfilter.png}
     \caption{The recovered Aperture magnitude residual per filter for all the found fake sample, as a function of their true magnitude. }
     \label{fig:photometric_recovery_vs_fakemag}
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/scatter_mag_psf_mag_perfilter.png}
+    \includegraphics[width=0.95\linewidth]{dia/figures/scatter_mag_psf_mag_perfilter.png}
     \caption{The residual of PSF magnitude measurement for found fakes, as function of their true magnitude.}
     \label{fig:photometric_recovery_psf_vs_fakemag}
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/scatter_dist_psf_mag_perfilter.png}
+    \includegraphics[width=0.95\linewidth]{dia/figures/scatter_dist_psf_mag_perfilter.png}
     \caption{The PSF magnitude residual for the found fakes as function of their matching distance (in [arcsec]).}
     \label{fig:photometric_recovery_vs_astrometric_dist}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/lost_sources_detector_map.png}
+    \includegraphics[width=0.95\linewidth]{dia/figures/lost_sources_detector_map.png}
     \caption{The scatter map of the lost sources in the detector coordinates. In gray scale in the colorbar we show the object magnitudes.}
     \label{fig:lost_sources_xy}
 \end{figure}
@@ -87,7 +87,7 @@ The rate of found to existing fakes is our recovery rate, Recall or Efficiency o
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/flux_pulls.png}
+    \includegraphics[width=0.95\linewidth]{dia/figures/flux_pulls.png}
     \caption{The flux pull distribution for all the found fakes, in each filter bandpass. A zero mean, unit dispersion Gaussian distribution function is also included for reference.}
     \label{fig:fake_sources_pulls}
 \end{figure}
@@ -95,7 +95,7 @@ The rate of found to existing fakes is our recovery rate, Recall or Efficiency o
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/Efficiency_vs_forced_base_PsfFlux_instFlux_SNR.png}
+    \includegraphics[width=0.95\linewidth]{dia/figures/Efficiency_vs_forced_base_PsfFlux_instFlux_SNR.png}
     \caption{The detection efficiency as function of the PSF estimated S/N ratio of the fake sources. The SNR 1/2 parameter is also included in dashed lines, and represents the 50\% efficiency S/N threshold value (lower is better).}
     \label{fig:eff_vs_snr_fakes}
 \end{figure}
