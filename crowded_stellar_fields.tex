@@ -1,2 +1,36 @@
 \section{Crowded Stellar Fields}
 \label{sec:crowded_stellar_fields}
+
+\subsection{Observations taken to date}
+Five visits of the globular cluster 47 Tuc were taken during AOS testing:
+\begin{itemize}
+    \item \href{https://usdf-rsp.slac.stanford.edu/rubintv/summit-usdf/comcam/event?key=comcam/2024-11-16/focal_plane_mosaic/000136/comcam_focal_plane_mosaic_2024-11-16_000136.jpg}{2024111600136}
+    \item \href{https://usdf-rsp.slac.stanford.edu/rubintv/summit-usdf/comcam/event?key=comcam/2024-11-16/focal_plane_mosaic/000139/comcam_focal_plane_mosaic_2024-11-16_000139.jpg}{2024111600139}
+    \item \href{https://usdf-rsp.slac.stanford.edu/rubintv/summit-usdf/comcam/event?key=comcam/2024-11-16/focal_plane_mosaic/000142/comcam_focal_plane_mosaic_2024-11-16_000142.jpg}{2024111600142}
+    \item \href{https://usdf-rsp.slac.stanford.edu/rubintv/summit-usdf/comcam/event?key=comcam/2024-11-16/focal_plane_mosaic/000145/comcam_focal_plane_mosaic_2024-11-16_000145.jpg}{2024111600145}
+    \item \href{https://usdf-rsp.slac.stanford.edu/rubintv/summit-usdf/comcam/event?key=comcam/2024-11-16/focal_plane_mosaic/000148/comcam_focal_plane_mosaic_2024-11-16_000148.jpg}{2024111600148}
+\end{itemize}
+Links are to focal plane images of each visit.
+
+This field is a good target for testing the crowded field pipeline, though these observations do not have a sufficiently good PSF for analysis. Zoomed in, the PSF of the stars in the cluster are a variety of \href 
+{https://files.slack.com/files-pri/T02SVMGU4-F082HCQ499P/image.png}{out-of-focus donuts}.
+
+Deblending failed on these images, and we are waiting on new data under better conditions to test deblending and image differencing.
+
+Other fields observed so far have not exceeded \( 25\,000 \) sources per square degree, which is insufficient for testing the crowded field pipelines.
+
+\subsection{Commissioning data needed}
+The ideal test data would be observations with densities in the \( 75\,000 - 100\,000 \) sources per square degree range. Several fields have been proposed:
+\begin{enumerate}
+\item \textbf{Extragalactic Deep Field:} Extended Chandra Deep Field-South @ (ra, dec) = (53.125, -28.1)
+\item \textbf{Extragalactic Deep Field:} Euclid Deep Field South @ (ra, dec) = (59.1004, -48.73)
+\item \textbf{Ecliptic Field:} Rubin\_SV\_38\_7 @ (ra, dec) = (37.9, 7.0)
+\item \textbf{High Stellar Density:} Fornax Dwarf Spheroidal Galaxy @ (ra, dec) = (40.00, -34.45)
+\item \textbf{High Stellar Density:} Rubin\_SV\_095\_-25 @ (ra, dec) = (95.0, -25.0)
+\end{enumerate}
+
+\subsection{Development work needed}
+While difference images can usually rely on having isolated diaSources, we expect to have many blended footprints in sufficiently crowded fields. 
+
+We have implemented deblending of blends of purely positive or purely negative peaks (\href{https://rubinobs.atlassian.net/browse/DM-44319}{DM-44319}), but blends of mixed peaks require new development.
+This work is ticketed on \href{https://rubinobs.atlassian.net/browse/DM-44416}{DM-44416}, but not yet started or planned.
