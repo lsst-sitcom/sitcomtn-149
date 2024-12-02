@@ -23,7 +23,13 @@ Dynamic optics contributions are caused by oscillations or motion of the mirrors
 
 \subsection{Observatory Seeing}
 
-The two main contributors to observatory seeing are dome seeing and mirror seeing. We do not have a direct dome seeing monitor but we do have a 3D sonic anemometer located in the dome that is taking data.
+The two main contributors to observatory seeing are dome seeing and mirror seeing. We do not have a direct dome seeing monitor but we do have a 3D sonic anemometer located in the dome that is taking data. Larom Segev has looked at the correlation between the standard deviation of the sonic temperature, which should be a proxy for dome seeing due to thermal turbulence, and measured PSF FWHM in the science images (see Fig.~\ref{fig:anemometer}). There may be some correlation, but we need more and better data, and to remove atmospheric seeing contributions.
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{image_quality_figures/anemometer_PSF.png}
+    \caption{PSF FWHM versus the standard deviation of sonic temperature.}
+    \label{fig:anemometer}
+\end{figure}
 
 \subsection{Mount Motion}
 
