@@ -6,19 +6,36 @@ Image quality and PSF modeling are closely tied to the progress of the AOS syste
 
 \textbf{On Image Quality:} \\
 
-The best image quality achieved so far is 0.7 arcsec, with a median of 1.2 arcsec during science visits. As shown in Figure \ref{seeing_plot}, the seeing as a function of observation dates highlights the progress. It is important to note that all these data were collected during the AOS testing and validation phase. This makes the achieved image quality even more encouraging, demonstrating significant progress.
+The best image quality achieved so far is 0.7 arcsec, with a median of 1.1 arcsec during science visits. As shown in Table \ref{tab:psf_summary} and Figure \ref{seeing_plot}, the PSF FWHM as a function of observation dates highlights the progress. It is important to note that all these data were collected during the AOS testing and validation phase. This makes the achieved image quality even more encouraging, demonstrating significant progress.
 
 \begin{figure*}
         \centering
         \includegraphics[width=\textwidth]{figures/seeing}
-        \caption{\small Seeing as a function of the observed date.}
+        \caption{\small PSF FWHM as a function of the observed date. Data are from DRP from 2024-11-01 to 2024-11-28.}
         \label{seeing_plot}
 \end{figure*}
 
 
+\begin{table*}
+\centering
+\begin{tabular}{@{}lccc@{}}
+\textbf{Filter} & \textbf{Number of Visits} & \textbf{Mean PSF FWHM} & \textbf{STD PSF FWHM} \\ 
+All           & 775                      & 1.12                   & 0.23                  \\
+u             & 28                       & 1.49                   & 0.08                  \\
+g             & 86                       & 1.07                   & 0.14                  \\
+r             & 307                      & 1.18                   & 0.22                  \\
+i             & 203                      & 1.09                   & 0.24                  \\
+z             & 85                       & 1.01                   & 0.21                  \\
+y             & 66                       & 1.04                   & 0.18                  \\ 
+\end{tabular}
+\caption{Summary of PSF FWHM statistics. Data are from DRP from 2024-11-01 to 2024-11-28.}
+\label{tab:psf_summary}
+\end{table*}
+
+
 \textbf{On PSF Modeling:}
 
-Two different PSF models are currently used in the DM pipeline: PSFEx, which provides a fast preliminary PSF estimation, and Piff, used later in the pipeline for more accurate PSF modeling. During the initial data collection with LSSTComCam and AOS testing, most in-focus star shapes were asymmetric, posing challenges for PSF modeling. Interestingly, Piff, despite being the more advanced model, struggled to handle the large, non-symmetric PSFs compared to PSFEx. Fig. \ref{growth_plot} shows how we were able early in the observation to constrain the PSF.
+Two different PSF models are currently used in the DM pipeline: PSFEx, which provides a fast preliminary PSF estimation, and Piff, used later in the pipeline for more accurate PSF modeling. During the initial data collection with LSSTComCam and AOS testing, most in-focus star shapes exhibited doughnut-like patterns, reflecting residual optical aberrations that had not yet been corrected. This specific form of asymmetry posed challenges for PSF modeling and was not typical. Interestingly, Piff, despite being the more advanced model, struggled to handle the large, non-symmetric PSFs compared to PSFEx. Fig. \ref{growth_plot} shows how we were able early in the observation to constrain the PSF.
 
 
 \begin{figure*}
@@ -39,7 +56,11 @@ Analysis of second-moment reconstructions shows that PSFEx has a systematic offs
         \includegraphics[scale=0.47]{figures//0_dT_1d_PSFex}
         \includegraphics[scale=0.3]{figures/0_dT_2d_Piff}
 	\includegraphics[scale=0.3]{figures/0_dT_2d_PSFex}
-        \caption{\small Size residuals for Piff and PSFex (1d distribution and 2d average across visits). Piff has no offset and smaller scatter. Both exhibit spatial structure across the focal plane but too early to make any conclusion on it.}
+        \caption{\small Size residuals for Piff and PSFex (1d distribution and 2d average across visits). Piff has no offset and smaller scatter. Both panels 
+        exhibit spatial structure across the focal plane, based on spatial averages across all science visits. The PSF is modeled per CCD in pixel coordinates 
+        using a second-order polynomial for interpolation. The observed structure is unlikely to result from atmospheric or dome effects, given that this plot 
+        represents an average across visits. Instead, it likely reflects spatial variations not captured by the second-order polynomial interpolation, such as 
+        optical aberrations or sensor anomalies.}
         \label{DT_plot}
 \end{figure*}
 
