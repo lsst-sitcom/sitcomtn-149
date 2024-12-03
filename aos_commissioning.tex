@@ -11,6 +11,13 @@ While we have demonstrated that Rubin can achieve the optical performance requir
 
 After significant development, the AOS algorithms appear robust for a range of source densities and image qualities. A number of failure modes of the AOS software are present and being investigated. These include failures in processing images through Rapid Analysis when donuts cannot be detected on all sensors, and difficulty in measuring the wavefront when the images are significantly defocused (e.g., when the intra or extra focal images appear in focus). The AOS team is working to improve the robustness of the system to monitor these and other failure modes.
 
+Figure~\ref{fig:aos} shows the FWHM delivered by the optical system (black line) as we correct the alignment and bending modes of the mirrors and camera over the nights 2024-11-25 to 2024-12-01. The FWHM is estimated from the Zernike amplitudes measured from out-of-focus donuts. The grey and blue lines are the 500nm and zenith corrected image qualities measured by SOAR and from the Rubin images respectively. The dashed green line is the 0.25 arcseconds image quality requirement for the telescope optics. From these measurements the AOS system is shown capable of meeting the image quality requirements. Delivering this consistently and without significant fine tuning is the current focus for the AOS team.
+
+\begin{figure}
+    \includegraphics[width=0.7\textwidth]{figures/optical_performance.png}
+    \caption{The FWHM delivered by Rubin (blue), the image quality from Rubin's optical system estimated from the AOS (black), and the  image quality measured by SOAR (gray). The Rubin and SOAR measured FWHMs are corrected to 500nm and zenith.}
+\end{figure}
+
 %z22 z11
 
 \subsection{Initial Alignment}
