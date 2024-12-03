@@ -2,6 +2,7 @@
 \label{sec:system_performance_analysis}
 
 \newcommand{\TMAMotionSettings}{\href{https://rubinobs.atlassian.net/wiki/spaces/LSSTCOM/pages/53741249/TMA+Motion+Settings}{TMA Motion Settings}}
+\newcommand{\testCase}[1]{\href{https://rubinobs.atlassian.net/projects/BLOCK?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page#!/v2/testCase/#1}{#1}}
 
 Topics to convert into text
 
@@ -17,11 +18,21 @@ Topics to convert into text
 \subsection{Gateway Tests}
 \label{subsec:gateway_tests}
 
-The three gateway tests defined below are required for each increase in the
-velocity, acceleration, and jerk limits. They are associated with glass and
-telescope safety. So far, we have been able to run the telescope up to 10\%
-its maximum velocity, acceleration, and jerk limits. For simplicity, we will
-show only the last results.
+We started the ComCam on Sky test campaign using Simonyi Telescope with limited
+performance, described as a percentage of the maximum velocity, acceleration,
+and jerk limits. The performance is defined in \TMAMotionSettings Concluence page.
+
+Before we can increase the telescope performance, we need to perform a set of
+tests that ensure that the system will respond safely to the new velocity, acceleration,
+and jerk. These tests are called gateway tests. Here is the list of all the tests.
+
+\begin{itemize}
+    \item \testCase{BLOCK-T227} Dynamic Tests at El = 34º short and long slews
+    \item \testCase{BLOCK-T294} Dynamic Tests at El = 70º short and long slews
+    \item \testCase{BLOCK-T231} TMA Azimuth Brake Test
+    \item \testCase{BLOCK-T240} TMA Elevation Brake Distance
+    \item \testCase{BLOCK-T241} M2 closed-loop break-out brake test during TMA slew
+\end{itemize}
 
 
 \subsubsection{Long and short slews at different elevations}
@@ -32,28 +43,23 @@ the mirrors on different telescope positions and while slewing. As we increase
 velocity, acceleration, and jerk limits, both mirrors suffer higher inertial
 forces and the force actuators must counteract them.
 
+%% TODO @b1quint - Ask Pablo, Holger, and Gabriele about the criteria for the
+%% force balance systems for M2.
 For M1M3, the criteria is to keep the measured forces on the hardpoint actuators
 below the operational limit (15\% the breakaway limit). For M2, the criteria is
-??????? (check with Holger, Gabriele, and Pablo). % TODO - check with
+??????? (check with Holger, Gabriele, and Pablo).
 
-Test cases associated:
-\begin{itemize}
-    \item \href{https://rubinobs.atlassian.net/projects/BLOCK?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page#!/v2/testCase/BLOCK-T227}{BLOCK-T227 Dynamic Tests at El = 34º \item short and long slews}
-    \item \href{https://rubinobs.atlassian.net/projects/BLOCK?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page#!/v2/testCase/BLOCK-T293}{BLOCK-T293 Dynamic Tests at El = 70º \item short and long slews}
-    \item \href{https://rubinobs.atlassian.net/projects/BLOCK?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page#!/v2/testCase/BLOCK-T294}{BLOCK-T294 Dynamic Tests at El = 70º \item short and long slews}
-    \item \href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page#!/v2/testCase/LVV-T2813}{LVV-T2813 M1M3 Dynamic Test, increasing speed, increasing acceleration}
-    \item \href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page#!/v2/testCase/LVV-T2944}{LVV-T2944 M2 Dynamic Test, increasing speed, acceleration, jerk}
-\end{itemize}
+% Detailed analysis (both TNs are still under development):
+% \begin{itemize}
+%     \item \href{https://sitcomtn-092.lsst.io/}{SITCOM-TN092 M1M3 Force Balance System \item Inertia Compensation}
+%     \item \href{https://sitcomtn-147.lsst.io/}{SITCOM-TN147 M2 Response to short and long slews}
+% \end{itemize}
 
-Detailed analysis (both TNs are still under development):
-\begin{itemize}
-    \item \href{https://sitcomtn-092.lsst.io/}{SITCOM-TN092 M1M3 Force Balance System \item Inertia Compensation}
-    \item \href{https://sitcomtn-147.lsst.io/}{SITCOM-TN147 M2 Response to short and long slews}
-\end{itemize}
+
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{spa/M1M3_short_long_slews_10_histogram.png}
+    \includegraphics[width=0.8\textwidth]{spa/10_vel_acc_jerk/M1M3_short_long_slews_10_histogram.png}
     \caption{Number of slews with minimum/maximum measured forces on the M1M3 hardpoint actuators.}
     \label{fig:m1m3_short_long_slews}
     \end{figure}
