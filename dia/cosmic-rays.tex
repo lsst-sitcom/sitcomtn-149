@@ -1,0 +1,54 @@
+\subsection{Cosmic Ray Detection Performance}
+
+In this analysis, we evaluate the performance of the cosmic ray detection algorithm by integrating real cosmic ray events into simulated observational data and applying standard detection pipelines to assess their performance. The primary objective is to assess the algorithm's ability to accurately identify cosmic rays, thereby ensuring data purity for subsequent scientific analyses.
+
+\subsubsection{Methodology}
+
+We used 67 visits (603 detectors), where the dark frames were taken from 2024-10-27 to 2024-11-01, and the simulated exposures are from $day\_obs=20240626$.
+
+We processed a set of simulated on-sky images from the ComCamSim OR4 repository and added real ComCam dark frames containing only cosmic rays. First, we performed Instrument Signature Removal (ISR) on ComCam darks as well as ComCamSim separately. After that, we combined the two images and performed image characterization and calibration.
+
+To establish ground truth, we used the ComCam dark frames and identified pixels that were brighter than 5 times the standard deviation above the mean background level. This threshold allowed us to create a ground truth mask representing cosmic rays. At the end of the process, we compared this ground truth mask with the cosmic ray (CR) mask obtained after the characterization step to evaluate the algorithm's performance.
+
+\subsubsection{Results}
+
+The detection outcomes were categorized into four classes: True Positives (TP), False Positives (FP), True Negatives (TN), and False Negatives (FN). The counts for each category are presented in Table~\ref{tab:confusion_matrix}. The True Positives, False Positives, True Negatives, and False Negatives represent the comparison between the CR mask and the ground truth mask. Critical False Negatives (CFN), on the other hand, are the pixels that are considered detections (from the DETECTED mask) but are, in fact, cosmic rays.
+
+\begin{table}[H]
+    \centering
+    \caption{Confusion Matrix for Cosmic Ray Detection (Pixel counts)}
+    \label{tab:confusion_matrix}
+    \begin{tabular}{*3c}
+        \hline
+        & \textbf{Positive (Detected)} & \textbf{Negative (Not Detected)} \\
+        \hline
+        \textbf{True (Cosmic Ray)}  & 223,982 & 92,366 \\
+        \textbf{False (Non-Cosmic Ray)} & 86,094  & 9,821,261,558 \\
+        \hline
+         \multicolumn{2}{c}{\textbf{CFN (Cosmic Ray detected as Source)}} & 27954 \\
+    \end{tabular}
+\end{table}
+
+From these results, we calculated the following performance metrics:
+
+\begin{itemize}
+    \item \textbf{Purity (Precision):} 
+    \begin{equation*}
+        \text{Purity} = \frac{TP}{TP + FP} = \frac{223,982}{223,982 + 86,094} \approx 0.722
+    \end{equation*}
+    \item \textbf{Completeness (Recall):} 
+    \begin{equation*}
+        \text{Completeness} = \frac{TP}{TP + FN} = \frac{223,982}{223,982 + 92,366} \approx 0.708
+    \end{equation*}
+    \item \textbf{Adjusted Completeness:} Considering critical false negatives (CFN), where cosmic rays were detected as sources, the adjusted completeness is 
+    \begin{equation*}
+        \text{Adjusted Completeness} = \frac{TP}{TP + CFN} = \frac{223,982}{223,982 + 27,954} \approx 0.889
+    \end{equation*}
+\end{itemize}
+
+\subsubsection{Discussion}
+
+The results indicate that the current cosmic ray detection algorithm demonstrates moderate success in identifying cosmic rays, as evidenced by a purity of approximately 72.2\%. This suggests that most of the detections are indeed true cosmic rays, though a significant portion, about 27.8\%, are false positives.
+
+The completeness, at around 70.8\%, reveals that while the algorithm is capable of detecting a majority of cosmic rays, it still misses a substantial number of events. However, the adjusted completeness of 88.9\% highlights the algorithm's improved performance when considering critical false negatives—those cosmic rays that were detected but mistakenly classified as sources rather than cosmic rays. 
+
