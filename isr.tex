@@ -94,8 +94,21 @@ From an initial study in the lab, it appears that all ITL detectors on LSSTCam h
 
 \subsection{Saturated star effects}
 
+\begin{figure}
+  \begin{center}
+    \href{https://rubin-obs.slack.com/files/U0772GZSR8W/F081SU3FAE6/19zqa.png?origin_team=T02SVMGU4&origin_channel=C07RV29CXSR}{A portion of 20241117 488}
+    \caption{
+      A portion of \texttt{day\_obs 20241127 seq\_num 488} showing the vertical bands which are apparently
+        produced by very bright (saturated?) pixels.
+    }
+\label{fig:darkStreaks}
+  \end{center}
+\end{figure}
+
 Although we expected to find saturated star trails coming from bright sources, the observed behavior of these trails is unique.
-Saturation spikes on most cameras appear as streaks extending from the core of the bright source along the direction of the parallel transfers, and truncate as the charge bleeds run out of charge (and can no longer overcome the potentials defining the pixel).
+Saturation spikes on most cameras appear as streaks extending from the core of the bright source along the
+direction of the parallel transfers, and truncate as the charge bleeds run out of charge (and can no longer
+overcome the potentials defining the pixel) (See Figure \ref{fig:darkStreaks}).
 The trails seem with \ComCam, however, extend the entire height of the detectors, crossing the midline break
 (as is to be expected in the ITL, but not the E2V, CCDs).
 These trails are also not at the expected high state, with the centers of these trails having flux levels lower than the average sky levels, creating dark trails.
