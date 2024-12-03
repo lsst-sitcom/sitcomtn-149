@@ -29,8 +29,12 @@ We plan to train a purpose-built classifier on larger samples of labeled ComCam 
 \section{Difference imaging QA}
 
 \begin{figure}
-\includegraphics[width=\textwidth]{dia/figures/DiffimKernelQuiverPlot.png}
-\caption{Quiver plot of the implied offset between the science and template images, calculated from the centroid of the PSF matching kernel. \label{fig:diffim-quiver}}
+\includegraphics[width=\textwidth]{dia/figures/DiffimKernelQuiverPlot-3x3}
+\caption{Quiver plot of the implied offset between the science and template images,
+  calculated from the centroid of the PSF matching kernel.
+  Note that the scale differs between the different panels, but that the overall pattern
+  appears coherent over the focal plane, although each CCD was solved independently.
+  \label{fig:diffim-quiver}}
 \end{figure}
 
 A difference imaging afterburner is run manually on Prompt Processing output to generate diagnostic plots, such as \ref{fig:diffim-quiver}.
