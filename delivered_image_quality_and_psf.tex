@@ -2,7 +2,7 @@
 \label{sec:delivered_image_quality_and_psf}
 
 
-Image quality and PSF modeling are closely tied to the progress of the AOS system, and here is what can be concluded halfway through the data gathering with LSSTComCam. \\
+Image quality and PSF modeling are closely tied to the progress of the AOS system, and here is what can be concluded halfway through the data gathering with \ComCam. \\
 
 \textbf{On Image Quality:} \\
 
@@ -35,13 +35,13 @@ y             & 66                       & 1.04                   & 0.18        
 
 \textbf{On PSF Modeling:}
 
-Two different PSF models are currently used in the DM pipeline: PSFEx, which provides a fast preliminary PSF estimation, and Piff, used later in the pipeline for more accurate PSF modeling. During the initial data collection with LSSTComCam and AOS testing, most in-focus star shapes exhibited doughnut-like patterns, reflecting residual optical aberrations that had not yet been corrected. This specific form of asymmetry posed challenges for PSF modeling and was not typical. Interestingly, Piff, despite being the more advanced model, struggled to handle the large, non-symmetric PSFs compared to PSFEx. Fig. \ref{growth_plot} shows how we were able early in the observation to constrain the PSF.
+Two different PSF models are currently used in the DM pipeline: PSFEx, which provides a fast preliminary PSF estimation, and Piff, used later in the pipeline for more accurate PSF modeling. During the initial data collection with \ComCam and AOS testing, most in-focus star shapes exhibited doughnut-like patterns, reflecting residual optical aberrations that had not yet been corrected. This specific form of asymmetry posed challenges for PSF modeling and was not typical. Interestingly, Piff, despite being the more advanced model, struggled to handle the large, non-symmetric PSFs compared to PSFEx. Fig. \ref{growth_plot} shows how we were able early in the observation to constrain the PSF.
 
 
 \begin{figure*}
         \centering
         \includegraphics[scale=0.2]{figures/curveOfGrowth_pfsex_u_laurenma_DM-30993_LSSTComCam_2024102900140_4}
-        \caption{\small Growth curves of the PSF compared to its model (PSFex here)  in the early data taken with LSSTComCam. }
+        \caption{\small Growth curves of the PSF compared to its model (PSFex here)  in the early data taken with \ComCam. }
         \label{growth_plot}
 \end{figure*}
 
