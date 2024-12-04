@@ -26,15 +26,15 @@ Early data suggests that LSST will produce fairly clean difference image source 
 Ten images taken in one field on 2024-11-06 and ten each in four fields on 2024-11-23 were close enough to the ecliptic for possible asteroid association. Across the five fields, we associated 828 sources with known asteroids, including 128 unique objects. The 24 objects associated on 2024-11-06 are shown in Figure \ref{fig:solar_system_positions}. We compared the sources' astrometry to our ephemerides, as shown in Figure \ref{fig:solar_system_residuals}. We find very low bias: the median unsigned error is 13 mas, indicating that there are no major errors in either timing or astrometry. We also find low variance, with standard deviationsin RA and Dec of 41 and 44 mas respectively, though in an especially bright and therefore low-variance sample of known objects. Evaluating the precision of asteroid association tests the whole software chain, including the astrometry pipeline, ephemerides computation, and image timing. In sum, the total error contributed by these different systems appears to be low enough for high-confidence association of known asteroids.
 
 \begin{figure}
-  \label{fig:solar_system_positions}
   \includegraphics[width=\textwidth]{sso_figures/24_asteroids.pdf}
   \caption{Positions of the 24 asteroids associated in images from 2024-11-06.}
+  \label{fig:solar_system_positions}
 \end{figure}
 
 \begin{figure}
-  \label{fig:solar_system_residuals}
   \includegraphics[width=\textwidth]{sso_figures/sso_residuals.pdf}
   \caption{Astrometric residuals of the 633 sources associated to 104 asteroids on 2024-11-23. All but two sources have residuals under 0.3 arcseconds, while the two outliers have been identified by visual inspection as mis-associations of undetected asteroids.}
+  \label{fig:solar_system_residuals}
 \end{figure}
 
 \subsection{Single-epoch Linking}
