@@ -428,3 +428,34 @@ TBD
 %ComCam ugrizy synthetic mags generated using rubin_sim.PhotUtils and syseng_throughput
 %ComCam ITL responses used.
 
+%There are 2 related-but-separate analyses going on:  the AB offset analysis here, and 
+%the throughput analysis.
+%The AB offset analysis is just concerned about the difference in the calibrated observed 
+%ConCam AB magnitudes and the synthetic AB magnitudes.  We get the calibrated ConCom AB 
+%magnitudes from the calibFlux column of the sourceTable and converting the calibFlux 
+%(in nano-Janskys) to AB magnitudess via mag_ab = -2.5*log10(calibFlux).   I believe — 
+% but am not 100% certain — that the calibFlux values in the sourceTable have been 
+%photometrically calibrated against the Monster RefCat, probably via calculating a local 
+%photometric zeropoint from the Monster stars observed by ConCam in that visit+detector.  
+%If this is the procedure for the photometric calibration of the calibFlux column of the 
+%sourceTable, the first-order airmass correction (the k*X term in SDSS parlance) is taken 
+%care of automatically, since the Monster RefCat stars are observed through the same airmass 
+%for that  visit+detector.  For the synthetic AB magnitudes, essentially Equation 7 of 
+%Fukugita et al. (1996) is used.  The shape of the passbands is important, but the total 
+%throughput cancels out.  For the ConCam-based synthetic magnitudes, I used the rubin_sim 
+%PhotUtils module and the syseng_throughput package (in order to make use of the ConCam 
+%ITL responses), following code that Lynne Jones pointed me to.  (I think the default 
+%airmass is X=1.2 or X=1.3; I am not sure, but it shouldn’t make a bit difference in the 
+%overall shape of the passbands.) So, if the passband shapes (including atmosphere, etc.) 
+%are generally well known and if the calibFlux is indeed calibrated against the Monster 
+%RefCat,  but there is an overall AB magnitude offset, I think this would imply a possible 
+%AB calibration error in the Monster RefCat.
+
+%The total throughput analysis ignores the Monster entirely.  It takes the ISR-corrected 
+%(but not photometrically zeropointed) psf instFlux counts for C26202 from the icSrc 
+%table and compares them against the expected counts for a single 30-second exposure 
+%calculated via rubin_sim PhotUtils module and the syseng_throughput package, again 
+%making use of code that Lynne provided.  In this case, estimaging total throughput 
+%is critical to the analysis — in fact, it is the purpose of the analysis.   Here, 
+%the expected counts are corrected to the airmass of the visit, and not just to a 
+%typical/official airmass like in the AB offset analysis above.
