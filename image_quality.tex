@@ -1,27 +1,27 @@
-\section{Image Quality}
+\subsection{Image Quality}
 \label{sec:image_quality}
 
 The AOS team has delivered very impressive image quality, showing images with 0.68 arcsec FWHM. If we assume that sources of image degradation add in quadrature and we trust our estimates of atmospheric seeing, this is consistent with reaching the image quality error budget allocation of our full system of 0.400 arcsec.
 
 We are in the process of quantifying the different sources of image degradation. The main ones we're focused on measuring are degradation due to the camera/instrument, static optics, dynamic optics, mount motion, and observatory seeing.
 
-\subsection{Atmospheric Seeing}
+\subsubsection{Atmospheric Seeing}
 
 We do not currently have a working Rubin DIMM, although there repairs are in progress. In the meantime, we have a livestream of data from the SOAR RINGS instrument, which is a  next-generation DIMM developed by Andrei Tokovinin and Edison Bustos. We are working on getting direct access to current and historical data for RINGS as well as the Gemini DIMM. This access will make it much easier to quantify the different sources of image degradation.
 
-\subsection{Static Optics}
+\subsubsection{Static Optics}
 
 See Section~\ref{sec:aos_commissioning} for more details on the performance of the static optics system.
 
-\subsection{Instrument}
+\subsubsection{Instrument}
 
 We are taking the measured LSSTCam instrument image degradation to be the same as for ComCam, so we will use budget table developed at SLAC.
 
-\subsection{Dynamic Optics}
+\subsubsection{Dynamic Optics}
 
 Dynamic optics contributions are caused by oscillations or motion of the mirrors, causing focus to shift during an exposure. We have accelerometers in the mirror cell and on the top end but have not yet analyzed the data.
 
-\subsection{Observatory Seeing}
+\subsubsection{Observatory Seeing}
 
 The two main contributors to observatory seeing are dome seeing and mirror seeing. We do not have a direct dome seeing monitor but we do have a 3D sonic anemometer located in the dome that is taking data. Larom Segev has looked at the correlation between the standard deviation of the sonic temperature, which should be a proxy for dome seeing due to thermal turbulence, and measured PSF FWHM in the science images (see Fig.~\ref{fig:anemometer}). There may be some correlation, but we need more and better data, and to remove atmospheric seeing contributions.
 
@@ -31,7 +31,7 @@ The two main contributors to observatory seeing are dome seeing and mirror seein
     \label{fig:anemometer}
 \end{figure}
 
-\subsection{Mount Motion}
+\subsubsection{Mount Motion}
 
 There are two main components to image degradation due to mount motion. The first component comes from drift due to tracking errors. As we have not yet completed a full pointing model at all azimuths and elevations, we have not quantified this component yet. The second component of mount motion image degradation is due to tracking jitter. We quantify this by computing the rms deviation of the mount position as measured by the encoders from the position sent by MTPtg. Craig Lage computed the tracking jitter for all ComCam exposures through the 20th of November. From a total of 5311 images, the median image quality impact is 0.004 arcseconds, and 0.38\% of images have an impact to image quality of above 0.05 arcseconds (see Figs.~\ref{fig:jitter}, ~\ref{fig:jitter_1}, ~\ref{fig:jitter_2}). This is well below the budgeted mount jitter error of 0.069 arcsec.
 
@@ -41,7 +41,7 @@ There are two main components to image degradation due to mount motion. The firs
   \label{fig:jitter}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \begin{minipage}{0.49\textwidth}
         \centering

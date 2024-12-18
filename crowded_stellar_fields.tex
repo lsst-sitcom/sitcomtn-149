@@ -1,7 +1,7 @@
-\section{Crowded Stellar Fields}
+\subsection{Crowded Stellar Fields}
 \label{sec:crowded_stellar_fields}
 
-\subsection{Observations taken to date}
+\subsubsection{Observations taken to date}
 Five visits of the globular cluster 47 Tuc were taken during AOS testing:
 \begin{itemize}
     \item \href{https://usdf-rsp.slac.stanford.edu/rubintv/summit-usdf/comcam/event?key=comcam/2024-11-16/focal_plane_mosaic/000136/comcam_focal_plane_mosaic_2024-11-16_000136.jpg}{2024111600136}
@@ -19,7 +19,7 @@ Deblending failed on these images, and we are waiting on new data under better c
 
 Other fields observed so far have not exceeded \( 25\,000 \) sources per square degree, which is insufficient for testing the crowded field pipelines.
 
-\subsection{Commissioning data needed}
+\subsubsection{Commissioning data needed}
 The ideal test data would be observations with densities in the \( 75\,000 - 100\,000 \) sources per square degree range. Several fields have been proposed:
 \begin{enumerate}
 \item \textbf{Extragalactic Deep Field:} Extended Chandra Deep Field-South @ (ra, dec) = (53.125, -28.1)
@@ -29,7 +29,7 @@ The ideal test data would be observations with densities in the \( 75\,000 - 100
 \item \textbf{High Stellar Density:} Rubin\_SV\_095\_-25 @ (ra, dec) = (95.0, -25.0)
 \end{enumerate}
 
-\subsection{Development work needed}
+\subsubsection{Development work needed}
 While difference images can usually rely on having isolated diaSources, we expect to have many blended footprints in sufficiently crowded fields. 
 
 We have implemented deblending of blends of purely positive or purely negative peaks (\href{https://rubinobs.atlassian.net/browse/DM-44319}{DM-44319}), but blends of mixed peaks require new development.

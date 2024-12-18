@@ -1,11 +1,11 @@
-\section{Galaxy Photometry}
+\subsection{Galaxy Photometry}
 \label{sec:galaxy_photometry}
 
 Galaxy photometry investigations so far have used the Extended Chandra Deep Field-South (ECDFS) due to the availability of public external reference data, including space-based imaging from the Hubble Space Telescope (HST).
 Broadly, we have done (or soon will be doing) comparisons to matches against external catalogs and from synthetic source injection (SSI) in coadds.
 Some preliminary investigations were done with visual inspection of external images.
 
-\subsection{Comparison to External Imaging}
+\subsubsection{Comparison to External Imaging}
 \label{subsec:galaxy_photometry_external_imaging}
 
 We downloaded a subset of the Hubble Legacy Fields (HLF, \url{https://archive.stsci.edu/prepds/hlf/}) imaging for the GOODS-South field, which included programs covering the original Chandra Deep Field-South and parallel fields now part of ECDFS.
@@ -21,7 +21,7 @@ DM-47576 (\url{https://rubinobs.atlassian.net/browse/DM-47576}) has been informa
 
 Joint modelling of space and ground imaging has been demonstrated with MultiProFit in COSMOS with the Subaru Hyper Suprime-Cam (HSC) and HST data on DM-46497 (\url{https://rubinobs.atlassian.net/browse/DM-46497}) but has not been attempted with ComCam data and is not considered a high priority, in part due to the aforementioned astrometry/warping issues.
 
-\subsection{Comparison to External Catalogs}
+\subsubsection{Comparison to External Catalogs}
 \label{subsec:galaxy_photometry_external_catalogs}
 
 DM-47234 (\url{https://rubinobs.atlassian.net/browse/DM-47234}) compared the tract 5063 20241120 DRP object table galaxy photometry with the latest HLF and Dark Energy Camera Legacy Survey DECaLS (DECaLS, \url{https://www.legacysurvey.org/decamls/}) catalogs.
@@ -79,7 +79,7 @@ The median differences are very small, albeit different in sign between the two 
 The scatter in star color differences is nearly constant to about 22nd magnitude, whereas for galaxies it scales with signal-to-noise to a minimum of about 25mmag at 20th mag (photometry for brighter galaxies is limited by model inadequacy and irregular structure).
 In short, galaxy colors appear quite consistent between all three catalogs, although how the small differences impact derived quantities like photometric redshifts remains to be seen.
 
-\subsection{Additional Investigations}
+\subsubsection{Additional Investigations}
 \label{subsec:galaxy_photometry_additional}
 
 Analysis of the accuracy of magnitude and color errors await the implementation of synthetic galaxy injection in DM-47185 (\url{https://rubinobs.atlassian.net/browse/DM-47185}).
@@ -88,7 +88,7 @@ Some analysis is possible with matching to reference catalogs; however, besides 
 Besides single-band/forced CModel photometry, MultiProFit multi-band (gri) single Sersic fits have been run on a single patch in tract 5063 on DM-47526 (\url{https://rubinobs.atlassian.net/browse/DM-47526}) but have yet to be analyzed.
 Other algorithms like aperture, GaAP and Kron magnitudes/colors have yet to be compared.
 
-\subsection{Conclusions}
+\subsubsection{Conclusions}
 \label{subsec:galaxy_photometry_conclusions}
 
 Galaxy photometry in ECDFS appears consistent with at least two different catalogs covering the same field (one space based) and the differences identified in a third (DECaLS) appear to be peculiar to that catalog, not our own processing.

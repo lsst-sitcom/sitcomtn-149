@@ -1,15 +1,15 @@
-\section{Difference Image Analysis: Transience and Variable Objects}
+\subsection{Difference Image Analysis: Transience and Variable Objects}
 \label{sec:dia_transient_variable}
 
 
-\subsection{DIA Status}
+\subsubsection{DIA Status}
 
 As we have started to obtain repeated science-quality images of some fields, we have begun to build coadded templates as part of the regular weekly cumulative Data Release Processings. 
 These mini-DRPs also include difference image analysis (DIA) of their constituent exposures.
 Using the DRP-produced templates, we have also obtained near-real-time difference images in Prompt Processing for a few exposures. 
 We have not yet had the opportunity to begin tuning template generation, difference imaging, or Real/Bogus characterization of these data, so the report below provides an initial rough characterization of DIA performance. 
 
-\subsection{ML Reliability and Artifact Rates}
+\subsubsection{ML Reliability and Artifact Rates}
 
 We ran a convolutional neural network on 51$\times$51 difference, science, and template cutouts for 912k DIASources identified in the \texttt{w\_2024\_47} data release processing.  
 This processing primarily includes data from extragalactic deep fields.
@@ -26,7 +26,7 @@ We plan to train a purpose-built classifier on larger samples of labeled ComCam 
 \caption{Histogram of machine-learned reliability scores computed on ComCam difference images. \label{fig:reliability_hist}}
 \end{figure}
 
-\section{Difference imaging QA}
+\subsection{Difference imaging QA}
 
 \begin{figure}
 \includegraphics[width=\textwidth]{dia/figures/ComCam_kernel_quiver_2024112000208.png}

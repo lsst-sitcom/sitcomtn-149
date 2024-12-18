@@ -14,6 +14,19 @@
 %\input{aglossary.tex}
 %\makeglossaries
 
+%
+% Number subsubsections and support \subsubsubsection
+%
+\setcounter{tocdepth}{3}    % include subsubsection in table of contents
+\setcounter{secnumdepth}{4}  % number subsubsections
+
+\let\subsubsubsection=\paragraph
+
+\titleformat{\paragraph}[hang]
+  {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+
+%------------------------------------------------------------------------------
+
 \title{An Interim Report on the ComCam On-Sky Campaign}
 
 % This can write metadata into the PDF.
@@ -66,43 +79,54 @@ A summary of what we have learned from the initial period of ComCam observing
 
 \input{system_performance_analysis.tex}
 
+\section{Active Optics System and Image Quality}
 \input{aos_commissioning.tex}
 
 \input{image_quality.tex}
 
-\input{data_production.tex}
-
-\input{calibration_data.tex}
-
-\input{science_pipelines_commissioning_observations.tex}
-
-\input{throughput_for_focused_light.tex}
-
 \input{delivered_image_quality_and_psf.tex}
 
-\input{isr.tex}
+\section{Image Inspection}
 
-\input{low_surface_brightness.tex}
+\input{image_inspection.tex}
+
+\section{Calibration Data and ISR}
+
+\input{calibration_data.tex}
+\input{isr.tex}
+\input{cbp.tex}
+
+\section{Astrometry}
 
 \input{astrometric_calibration.tex}
 
+\section{Static-Sky Photometry}
+
 \input{photometric_calibration.tex}
 
-\input{survey_performance.tex}
+\input{galaxy_photometry.tex}
 
-\input{sample_production.tex}
+\input{low_surface_brightness.tex}
+
+\input{crowded_stellar_fields.tex}
+
+\section{The Variable Sky}
 
 \input{dia_transient_variable.tex}
 
 \input{dia_solar_system.tex}
 
-\input{galaxy_photometry.tex}
+\section{Data Production}
 
-\input{weak_lensing_shear.tex}
+\input{data_production.tex}
 
-\input{crowded_stellar_fields.tex}
+\section{Survey Performance} \label{sec:survey_performance}
 
-\input{image_inspection.tex}
+\input{survey_performance.tex}
+
+\input{ssi.tex}
+
+
 
 \appendix
 % Include all the relevant bib files.
@@ -116,9 +140,5 @@ A summary of what we have learned from the initial period of ComCam observing
 \input{acronyms.tex}
 % If you want glossary uncomment below -- comment out the two lines above
 %\printglossaries
-
-
-
-
 
 \end{document}

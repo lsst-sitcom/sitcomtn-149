@@ -31,7 +31,7 @@
 % commissioning various aspects of the system, it is natural that some
 % sections will have more detail than others.
 
-\section{Instrument Signature Removal}
+\subsection{Instrument Signature Removal}
 \label{sec:isr}
 \newcommand{\czw}[1]{
   \textbf{CZW: }\textcolor{red}{#1}
@@ -39,7 +39,7 @@
 The quality of the instrument signal removal (ISR) has improved during commissioning, as we create and deploy updated calibration products that better represent the \ComCam system.
 The following discussion summarizes our current understanding of a variety of features, both expected and newly seen on \ComCam, and presents our expected prognosis of the behavior of the full LSSTCam.
 
-\subsection{Phosphorescence}
+\subsubsection{Phosphorescence}
 
 There are regions on some of the detectors (most visible in R22\_S01, detector=1) which show bright emission, particularly at bluer wavelengths, as shown in Figure \ref{fig:isr_phosphorescence_example}.
 This is believed to be caused by a thin layer of remnant photo-resist from the manufacturing process that remained on the detector surface, and is now permanent due to the subsequent addition of the anti-reflective coating.
@@ -67,7 +67,7 @@ The first of these manual masks takes up about 3.5\% of that detector, smaller t
 
 The ITL detectors in LSSTCam are believed to have been cleaned better, so this should be less of an issue on the full camera.
 
-\subsection{Vampire pixels}
+\subsubsection{Vampire pixels}
 
 There are defects on \ComCam that have been classified as ``vampire'' pixels, as they appear as a bright defect with a (generally) axisymmetric region surrounding the bright core, as if the defect is draining charge from its neighbors.
 The naming is at least broadly correct, as integrating to large radii shows that these regions do appear to conserve charge.
@@ -92,7 +92,7 @@ From an initial study in the lab, it appears that all ITL detectors on LSSTCam h
 \end{figure}
 
 
-\subsection{Saturated star effects}
+\subsubsection{Saturated star effects}
 
 \begin{figure}
   \begin{center}
@@ -126,7 +126,7 @@ Although we haven't seen identical features on LATISS, the presence of these odd
 %  \caption{Example of a bright star with full-detector bleed.}
 % \end{figure}
 
-\subsection{Gain ratios}
+\subsubsection{Gain ratios}
 
 \ComCam has been the first large-scale application of the updated ``IsrTaskLSST'' task, which uses a model of how the various signals combine to form the raw images to inform how we correct those signals during the ISR process.
 One improvement of this new task is that we now apply per-amplifier gains before flat correction, removing the gain component that was previously included in the flat correction.
@@ -156,20 +156,20 @@ The gain correction fix appears to be stable, as we've only needed to generate a
   \end{center}
 \end{figure}
 
-\subsection{Crosstalk}
+\subsubsection{Crosstalk}
 
 We are currently using crosstalk values that were constructed by averaging the lab-based ITL measurements taken on LSSTCam.
 These are working better than expected, with residuals post correction being only a few electrons peak to peak.
 We plan to do a more complete crosstalk study using on-sky data, but the current results suggest that these lab measurements are sufficient for \ComCam, and expect the same to be true for LSSTCam.
 
-\subsection{Twilight flats}
+\subsubsection{Twilight flats}
 
 There is no flat screen currently available for the main telescope, and so we have constructed twilight flats for all bands using exposures taken to have median counts between 15000-20000 ADU.
 We have some dithering in the inputs, which have allowed us to reduce the impact of stars that print through into the flat.
 This reduction of non-sky signals is imperfect, and an early i-band flat showed a satellite trail as a
 result; this was remedied with a more recent flat built using a larger number of exposures.
 
-\subsection{Operations}
+\subsubsection{Operations}
 
 The Telescope and Auxiliary Instrumentation Calibration Acceptance Board (TAXICAB) has been meeting previously to discuss LATISS calibrations, and has been helping manage calibrations for \ComCam.
 This process has not prevented problematic calibrations from being deployed (like the i-band flat with the satellite trail), but it has ensured that multiple people have checked some set of results.

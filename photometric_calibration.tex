@@ -1,4 +1,4 @@
-\section{Photometric Calibration}
+\subsection{Photometric Calibration}
 \label{sec:photometric_calibration}
 
 We have started commissioning the full photometric calibration pipeline for
@@ -42,7 +42,7 @@ just using the LSSTCam reference filter throughputs and average detector
 throughput for the LSSTCam ITL detectors.  In addition, we do not have a flat
 field screen so we have had to rely on twilight flat observations for flat fielding.
 
-\subsection{Processing Overview}
+\subsubsection{Processing Overview}
 
 We start with the standard ISR as documented in Section~\ref{sec:isr}. While
 there are a number of challenges that we have discovered with the ITL
@@ -64,7 +64,7 @@ used for rapid analysis and prompt processing, but is not used at all for FGCM
 which relies entirely on instrumental fluxes (in units of electrons) with a
 minor constraint from the reference catalog.
 
-\subsection{Global Photometric Calibration with FGCM}
+\subsubsection{Global Photometric Calibration with FGCM}
 
 All associated stars with observations with signal-to-noise greater than 10 are
 input into the FGCM solution.  In addition, reference stars from The Monster
@@ -84,7 +84,7 @@ ITL average of the lab scans ingested into $obs\_lsst\_data$.  Note that the
 detector QEs are normalized to 1.0 at 800 nm, which is certainly
 greater than the true QE at this wavelength.
 
-\subsection{FGCM Results on the ECDFS Field}
+\subsubsection{FGCM Results on the ECDFS Field}
 
 The FGCM results presented here are based on the
 \texttt{LSSTComCam/runs/DRP/20241101\_20241113/w\_2024\_46/DM-47566} DRP processing
@@ -101,7 +101,7 @@ known detector throughputs, filter curves, and additional accomodation for
 aperture corrections (discussed in Burke, Rykoff et al).  With this definition
 fully 92\% of the observations were deemed to be photometric by the code.
 
-\subsubsection{Illumination Corrections}
+\subsubsubsection{Illumination Corrections}
 
 Part of the FGCM solution is generating illumination correction maps, with a
 second-order 2D Chebyshev polynomial over each detector.  Prior to LSSTCam
@@ -148,7 +148,7 @@ offsets in the twilight flats that we are investigating.
   \caption{Illumination correction derived from FGCM for the z band.}
 \end{figure}
 
-\subsubsection{Photometric Repeatability}
+\subsubsubsection{Photometric Repeatability}
 
 The photometric repeatability after the FGCM fits was excellent. We show here
 the repeatability histograms, after all chromatic corrections, for the stars
@@ -200,7 +200,7 @@ than $5\,\mathrm{mmag}$, comfortably exceeding our requirements.
   \caption{Photometric repeatability for stars in the z band.}
 \end{figure}
 
-\subsubsection{Detector Chromaticity Fits}
+\subsubsubsection{Detector Chromaticity Fits}
 
 In the absence of full in-situ throughput scans, we additionally constrain the
 ``chromaticity'' of the detectors, which is a first-order adjustment to the
@@ -223,7 +223,7 @@ detector causing chromatic differences in this band.
     scans should observe if we have it running on ComCam.}
 \end{figure}
 
-\subsubsection{Absolute Throughputs}
+\subsubsubsection{Absolute Throughputs}
 
 The FGCM fit performs a ``dead reckoning'' of the expected absolute throughput
 given the telescope aperture, the effective gain, the standard atmosphere, and
@@ -250,7 +250,7 @@ throughput by this factor.
 We have additional ongoing studies of absolute throughputs using the CalSpec
 standard C26202 directly.
 
-\subsubsection{Comparison to The Monster}
+\subsubsubsection{Comparison to The Monster}
 
 Given our calibrated stars from the FGCM fit we can compare the magnitudes as a
 function of color against The Monster reference catalog.  The ``lsst'' fluxes
@@ -308,7 +308,7 @@ possible if we get CBP scans prior to the removal of ComCam.
     The Monster has the correct absolute throughput.}
 \end{figure}
 
-\subsubsection{Background Oversubtraction}
+\subsubsubsection{Background Oversubtraction}
 
 As a side-effect in the calibration, FGCM tests local background
 oversubtraction by looking at the statistical difference between two large
@@ -374,7 +374,7 @@ are being done by the low-surface-brightness science unit.
     if the background were measured correctly on average.}
 \end{figure}
 
-\subsection{Next Steps}
+\subsubsection{Next Steps}
 
 The following additional data will need be taken to advance from our current
 knowledge:
