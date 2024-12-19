@@ -19,18 +19,11 @@ on the internal staff Slack channels (namely the \#sciunit-image-inspection chan
 but also prominently in other channels, \#sciunit-lsb, \#validation-team,
 \#embargo-beautiful-images, \#ops-satellites, \#dm-calibraion-products to name a few).
 
-Anomolies and peculiarities reported to date along with details of and/or pointers
+Anomalies and peculiarities reported to date along with details of and/or pointers
 to further study and explanation (where applicable) include:
 \begin{itemize}
 
-\item \textbf{ghosts}: most prominent around bright stars (including those falling
-  outside of the FOV) and attributed to multi-bounce reflections off of the focal
-  plane and the \ComCam optics.  Qualitatively, the presence and appearance of 
-  the ghosts are well predicted by Josh Meyers' ``batoid ray tracer'', even in its
-  current unoptimized state.  It is noted that the nature of the ghosts will be
-  quite different for the full LSSTCam, but this initial level of understanding
-  of this feature is promissing and useful for honing characterization and
-  mitigation strategies.
+\item \textbf{ghosts} See \secRef{low_surface_brightness}.
 
 \item \textbf{stray/scattered light}: prominent ring-shaped waffle/corduroy-like
   features seen early on were identified as originating from a blinking light on a
@@ -39,21 +32,9 @@ to further study and explanation (where applicable) include:
   known to be less well baffled than LSSTCam, so scattered light from off-axis light 
   sources is expected to be worse.
 
-\item \textbf{satellite streaks}: see Section~\ref{sec:dia_transient_variable}
+\item \textbf{satellite streaks}: see \secRef{dia_transient_variable}
 
-\item \textbf{kettlebell \& trefoil-shaped PSFs}: see Section~\ref{sec:aos_commissioning}.
-  This issue was further investigated in the context of the PSF modelling itself on such
-  irregularly shaped PSFs.  It was noted that the preferred ``piff'' algorigthm (which
-  is used for the final characterization model) was performing worse that the ``psfex''
-  algorithm (which, due to its relative speed, is used in the initial characterization).
-  As such, we temporarily switched to using only ``psfex'' until the image quality was
-  improved.  Given the incredible and expeditious work of the AOS team, we are already
-  confident that we can switch back to our preferred configurartion.  (This has also
-  spurred a study into the reason why ``piff'' seems to struggle with these shapes and
-  will hopefully lead to improvements there, see
-  Section~\ref{sec:delivered_image_quality_and_psf}).
-
-\item \textbf{background subtraction issues}: see Section~\ref{sec:low_surface_brightness}
+\item \textbf{background subtraction issues}: see \secRef{low_surface_brightness}
 
 \item \textbf{repeated patchwork gradients}: a small number of images appear to have a 
   bias gradient that appears in several amplifiers of detector 1 (R00\_S01). This feature 
@@ -62,7 +43,7 @@ to further study and explanation (where applicable) include:
   the prescan, active area, and overscan regions of the affected amplifiers. It seems 
   likely that this is some type of crosstalk, but the origin and manifestation is unclear. 
   It remains to be seen whether similar features are seen in any other detectors. It is 
-  likely that this feature will be further studied in the context of Section~\ref{sec:isr}.
+  likely that this feature will be further studied in the context of \secRef{isr}.
 
 \item \textbf{trailed sources}: due to tracking errors.  These are particularly
   difficult to identify with automated image quality metrics (there are some ideas
@@ -72,7 +53,7 @@ to further study and explanation (where applicable) include:
 
 \end{itemize}
 
-\noindent \textbf{Future Endeavors}
+\subsection{Future Endeavors}
 
 A major goal for future image inspction efforts is to develop a more systematic
 way to identify and report issues and, where possible, alert the

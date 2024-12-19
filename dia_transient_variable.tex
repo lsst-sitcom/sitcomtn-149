@@ -17,19 +17,24 @@ These DiaSources were obtained from 4252 detector-visit images, implying an aver
 This is somewhat less than the ten thousand DIASources expected per visit and may reflect lower sensitivity due to ongoing image quality refinement and early templates.
 
 The CNN was trained on simulated DC2 images with additional point source injection, so caution is needed when interpreting the values returned by this classifier on ComCam data.
-Nevertheless,  Figure \ref{fig:reliability_hist} shows a clear separation in reliability scores and would imply roughly a 3:1 bogus:real ratio if taken at face value.
+Nevertheless,  \figRef{reliability_hist} shows a clear separation in reliability scores and would imply roughly a 3:1 bogus:real ratio if taken at face value.
 These values will be confirmed with manual inspection.
 We plan to train a purpose-built classifier on larger samples of labeled ComCam data.
 
 \begin{figure}
-\includegraphics[width=\textwidth]{dia/figures/reliability_histogram.png}
-\caption{Histogram of machine-learned reliability scores computed on ComCam difference images. \label{fig:reliability_hist}}
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{dia/figures/reliability_histogram.png}
+  \end{center}
+\caption{Histogram of machine-learned reliability scores computed on ComCam difference
+  images. \label{fig:reliability_hist}}
 \end{figure}
 
 \subsection{Difference imaging QA}
 
 \begin{figure}
-\includegraphics[width=\textwidth]{dia/figures/ComCam_kernel_quiver_2024112000208.png}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{dia/figures/ComCam_kernel_quiver_2024112000208.png}
+  \end{center}
 \caption{Quiver plot of the implied offset between the science and template images,
   calculated from the centroid of the PSF matching kernel.
   Note that the scale differs between the different panels, but that the overall pattern
@@ -37,14 +42,14 @@ We plan to train a purpose-built classifier on larger samples of labeled ComCam 
   \label{fig:diffim-quiver}}
 \end{figure}
 
-A difference imaging afterburner is run manually on Prompt Processing output to generate diagnostic plots, such as \ref{fig:diffim-quiver}.
-From \ref{fig:diffim-quiver} we see the centroid of the PSF matching kernel sampled across one detector, which reveals a systematic offset between the science and template images.
+A difference imaging afterburner is run manually on Prompt Processing output to generate diagnostic plots, such as \figRef{diffim-quiver}.
+From \figRef{diffim-quiver} we see the centroid of the PSF matching kernel sampled across one detector, which reveals a systematic offset between the science and template images.
 A similar offset is seen across the rest of the detectors for this visit, and in other visits.
 The images comprising the template used the same astrometric reference catalog as the science image in this case, but the template was constructed with the calibrate+characterizeImage pipeline while the science image was processed with calibrateImage.
 These are not included in the Prompt Processing payload to save critical time during observing.
 
 The distribution of sources detected on the difference image reveals some detector-level effects that are not fully accounted for.
-Binning the locations of the diaSources in 1-D in \ref{fig:diaSource-distribution} by their x- and y-values reveals systematic overdensities of detections at the amplifier boundaries in x (but not in y).
+Binning the locations of the diaSources in 1-D in \figRef{diaSource-distribution} by their x- and y-values reveals systematic overdensities of detections at the amplifier boundaries in x (but not in y).
 Additional overdensities seen in y-band may be from the residual phosphorescent wax reported to be left on some chips beneath the AR coating.
 
 \begin{figure}

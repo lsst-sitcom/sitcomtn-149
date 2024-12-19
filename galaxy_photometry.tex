@@ -5,6 +5,7 @@ Galaxy photometry investigations so far have used the Extended Chandra Deep Fiel
 Broadly, we have done (or soon will be doing) comparisons to matches against external catalogs and from synthetic source injection (SSI) in coadds.
 Some preliminary investigations were done with visual inspection of external images.
 
+\iffalse                                % doesn't appear to have added much to ComCam analysis
 \subsubsection{Comparison to External Imaging}
 \label{subsec:galaxy_photometry_external_imaging}
 
@@ -20,6 +21,7 @@ Besides visual inspection, no other uses of or comparisons to external imaging h
 DM-47576 (\url{https://rubinobs.atlassian.net/browse/DM-47576}) has been informally assigned to an in-kind contributor to make loading and displaying HST images more convenient should a need arise.
 
 Joint modelling of space and ground imaging has been demonstrated with MultiProFit in COSMOS with the Subaru Hyper Suprime-Cam (HSC) and HST data on DM-46497 (\url{https://rubinobs.atlassian.net/browse/DM-46497}) but has not been attempted with ComCam data and is not considered a high priority, in part due to the aforementioned astrometry/warping issues.
+\fi
 
 \subsubsection{Comparison to External Catalogs}
 \label{subsec:galaxy_photometry_external_catalogs}
@@ -32,7 +34,7 @@ DM-47234 (\url{https://rubinobs.atlassian.net/browse/DM-47234}) compared the tra
   \label{fig:cdfs_i_vs_HST_F775W}
 \end{figure}
 
-Figure ~\ref{fig:cdfs_i_vs_HST_F775W} shows difference between i-band CModel magnitudes and the HLF HST F775W SourceExtractor magnitudes for both stars and galaxies, using the HST star-galaxy classification.
+\figRef{cdfs_i_vs_HST_F775W} shows difference between i-band CModel magnitudes and the HLF HST F775W SourceExtractor magnitudes for both stars and galaxies, using the HST star-galaxy classification.
 The median difference in both stellar and galaxy photometry is fairly flat across 19<i<25, but also quite large at about 175 mmag for galaxies and 75 mmag for stars.
 Presuming that the difference in stellar photometry is mainly a calibration issue, the differential between galaxies and stars is still more than a factor of 2 (and still more in quadrature).
 This could be due to differences in methodology; the HST SourceExtractor-derived magnitudes are more like aperture photometry than a model fit.
@@ -44,7 +46,7 @@ This could be due to differences in methodology; the HST SourceExtractor-derived
   \label{fig:cdfs_g_vs_des}
 \end{figure}
 
-Figure ~\ref{fig:cdfs_g_vs_des} shows the difference between g-band CModel magnitudes and measurements from two Dark Energy Survey (DES) DECam (Dark Energy Camera)-based catalogs.
+\figRef{cdfs_g_vs_des} shows the difference between g-band CModel magnitudes and measurements from two Dark Energy Survey (DES) DECam (Dark Energy Camera)-based catalogs.
 The DECaLS (Dark Energy Camera Legacy Survey) DR10 processing is more recent and includes model photometry, selecting the least complicated model required to provide a good fit from a PSF to a single free Sersic fit.
 The Dark Energy Survey Year 3 Gold (DES-Y3G) sample is an older, shallower dataset, albeit using pipelines more similar to the ComCam/DRP pipelines.
 The median difference between stellar magnitudes is relatively small but varies with magnitude and between the two catalogs.
@@ -58,7 +60,7 @@ Bright ($g < 20.3$) galaxies have median offsets smaller than 10 mmag and scatte
   \label{fig:cdfs_r_vs_des}
 \end{figure}
 
-Figure ~\ref{fig:cdfs_r_vs_des} shows r-band magnitude difference plots.
+\figRef{cdfs_r_vs_des} shows r-band magnitude difference plots.
 Here, the median difference for stars are magnitude-dependent in both catalogs, suggesting that color terms are more important.
 Similarly, the scatter is much larger, at about 80mmag for $r < 20$.
 However, the magnitude dependence in the median difference is stronger in DECaLS, both for stars and galaxies.
@@ -74,7 +76,7 @@ The i-band photometry in DECaLS shows qualitatively similar but quantitatively w
   \label{fig:cdfs_rmi_vs_des}
 \end{figure}
 
-The $r-i$ color differences shown in Figure ~\ref{fig:cdfs_rmi_vs_des} are similar between all three catalogs.
+The $r-i$ color differences shown in \figRef{cdfs_rmi_vs_des} are similar between all three catalogs.
 The median differences are very small, albeit different in sign between the two pairs of catalogs.
 The scatter in star color differences is nearly constant to about 22nd magnitude, whereas for galaxies it scales with signal-to-noise to a minimum of about 25mmag at 20th mag (photometry for brighter galaxies is limited by model inadequacy and irregular structure).
 In short, galaxy colors appear quite consistent between all three catalogs, although how the small differences impact derived quantities like photometric redshifts remains to be seen.

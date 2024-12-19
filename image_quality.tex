@@ -1,7 +1,40 @@
 \subsection{Image Quality}
 \label{sec:image_quality}
 
-The AOS team has delivered very impressive image quality, showing images with 0.68 arcsec FWHM. If we assume that sources of image degradation add in quadrature and we trust our estimates of atmospheric seeing, this is consistent with reaching the image quality error budget allocation of our full system of 0.400 arcsec.
+The AOS team has delivered very impressive image quality, showing images with 0.68 arcsec FWHM. If we assume
+that sources of image degradation add in quadrature and we trust our estimates of atmospheric seeing, this is
+consistent with reaching the image quality error budget allocation of our full system of 0.400 arcsec.
+
+The best image quality achieved so far is \c 0.65 arcsec, with a median of 1.1 arcsec during science visits;
+\tabRef{psf_summary} and \figRef{seeing_plot}.
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{figures/seeing}
+  \caption{\small PSF FWHM as a function of the observed date. Data are from DRP from 2024-11-01 to 2024-11-28.}
+  \label{fig:seeing_plot}
+\end{figure*}
+
+
+\begin{table*}
+\centering
+\begin{tabular}{@{}lccc@{}}
+\textbf{Band} & \textbf{Number of Visits} & \textbf{Mean PSF FWHM} & \textbf{STD. DEV. PSF FWHM} \\
+ & & \textit{arcsec} & \textit{arcsec} \\
+  \hline
+All           & 775                      & 1.12                   & 0.23                  \\
+u             & 28                       & 1.49                   & 0.08                  \\
+g             & 86                       & 1.07                   & 0.14                  \\
+r             & 307                      & 1.18                   & 0.22                  \\
+i             & 203                      & 1.09                   & 0.24                  \\
+z             & 85                       & 1.01                   & 0.21                  \\
+y             & 66                       & 1.04                   & 0.18                  \\ 
+\end{tabular}
+\caption{Summary of PSF FWHM performance. . Data are from DRP from 2024-11-01 to 2024-11-28.}
+\label{tab:psf_summary}
+\end{table*}
+
+
 
 We are in the process of quantifying the different sources of image degradation. The main ones we're focused on measuring are degradation due to the camera/instrument, static optics, dynamic optics, mount motion, and observatory seeing.
 
@@ -11,20 +44,24 @@ We do not currently have a working Rubin DIMM, although repairs are in progress.
 
 \subsubsection{Static Optics}
 
-See Section~\ref{sec:aos_commissioning} for more details on the performance of the static optics system.
+See \secRef{aos_commissioning} for more details on the performance of the static optics system.
 
 \subsubsection{Dynamic Optics}
 
-Dynamic optics contributions are caused by oscillations or motion of the mirrors, causing focus to shift during an exposure. We have accelerometers in the mirror cell and on the top end but have not yet analyzed the data.
+Dynamic optics contributions are caused by oscillations or motion of the mirrors, causing the quality of the
+optical alignment to change during an exposure. We have accelerometers in the mirror cell and on the top end
+but have not yet analyzed the data.
 
 \subsubsection{Observatory Seeing}
 
 The two main contributors to observatory seeing are dome seeing and mirror seeing. We do not have a direct dome seeing monitor but we do have a 3D sonic anemometer located in the dome that is taking data. Larom Segev has looked at the correlation between the standard deviation of the sonic temperature, which should be a proxy for dome seeing due to thermal turbulence, and measured PSF FWHM in the science images (see \figRef{anemometer}). There may be some correlation, but we need more and better data, and to remove atmospheric seeing contributions.
 
 \begin{figure}
-    \includegraphics[width=\linewidth]{image_quality_figures/anemometer_PSF.png}
-    \caption{PSF FWHM versus the standard deviation of sonic temperature.}
-    \label{fig:anemometer}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{image_quality_figures/anemometer_PSF.png}
+  \end{center}
+  \caption{PSF FWHM versus the standard deviation of sonic temperature.}
+  \label{fig:anemometer}
 \end{figure}
 
 \subsubsection{Mount Motion}
@@ -32,7 +69,9 @@ The two main contributors to observatory seeing are dome seeing and mirror seein
 There are two main components to image degradation due to mount motion. The first component comes from drift due to tracking errors. As we have not yet completed a full pointing model at all azimuths and elevations, we have not quantified this component yet. The second component of mount motion image degradation is due to tracking jitter. We quantify this by computing the rms deviation of the mount position as measured by the encoders from the position sent by MTPtg. Craig Lage computed the tracking jitter for all ComCam exposures through the 20th of November. From a total of 5311 images, the median image quality impact is 0.004 arcseconds, and 0.38\% of images have an impact to image quality of above 0.05 arcseconds (see \figRefIII{jitter}{jitter_1}{jitter_2}). This is well below the budgeted mount jitter error of 0.069 arcsec.
 
 \begin{figure}
-  \includegraphics[width=\linewidth]{image_quality_figures/ComCam_Mount_Jitter_21Nov24.png}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{image_quality_figures/ComCam_Mount_Jitter_21Nov24.png}
+  \end{center}
   \caption{Total TMA tracking jitter for all exposures from October 24 to November 20.}
   \label{fig:jitter}
 \end{figure}

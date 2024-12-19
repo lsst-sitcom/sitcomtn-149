@@ -2,6 +2,7 @@
 \input{meta}
 
 % Package imports go here.
+\usepackage{boxedminipage}
 \usepackage{subcaption}                 % supports \begin{subfigure}...\end{subfigure}
 \usepackage{xspace}
 
@@ -10,12 +11,23 @@
 \setlength{\headheight}{62pt}           % heed warnings that these values need adjusting
 \addtolength{\topmargin}{-7pt}
 
+\newcommand{\Batoid}{\texttt{Batoid}\xspace}
 \newcommand{\ComCam}{ComCam\xspace}
+\newcommand{\etal}{\textit{et al.}\xspace}
+\newcommand{\linkedFigure}[1]{
+    \begin{boxedminipage}[t]{0.25\textwidth}
+      \begin{center}
+        \href{#1}{\texttt{Linked Figure}}
+      \end{center}
+    \end{boxedminipage}
+    }
 \newcommand{\RINGSS}{\texttt{RINGSS}\xspace}
+
 \newcommand{\figRef}[1]{Fig.~\ref{fig:#1}\xspace}
 \newcommand{\figRefII}[2]{Figs.~\ref{fig:#1} and \ref{fig:#2}\xspace}
 \newcommand{\figRefIII}[3]{Figs.~\ref{fig:#1}, \ref{fig:#2}, and \ref{fig:#3}\xspace}
 \renewcommand{\secRef}[1]{Sec.~\ref{sec:#1}\xspace}
+\newcommand{\tabRef}[1]{Tab.~\ref{tab:#1}\xspace}
 
 %If you want glossaries
 %\input{aglossary.tex}
@@ -91,15 +103,15 @@ A summary of what we have learned from the initial period of ComCam observing
 
 \input{image_quality.tex}
 
-\input{delivered_image_quality_and_psf.tex}
+\input{psf_modelling.tex}
 
 \section{Image Inspection}
+\label{sec:image_inspection}
 
 \input{image_inspection.tex}
 
 \section{Calibration Data and ISR}
 
-\input{calibration_data.tex}
 \input{isr.tex}
 \input{cbp.tex}
 

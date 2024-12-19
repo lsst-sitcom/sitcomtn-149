@@ -3,27 +3,49 @@
 
 The low-surface-brightness science team has been actively involved in investigating the \ComCam imaging. Efforts in this area have largely broken down along two avenues.
 
-\noindent {\bf Visual Inspection:} Several members of the team have been actively engaged in image inspection with a specific eye on low-surface-brightness features. Several items that have arisen during this inspection. 
+\subsection{Visual Inspection}
+
+Several members of the team have been actively engaged in image inspection with a specific eye on
+low-surface-brightness features.
+In addition to the features reported in \secRef{image_inspection}
+several items that have arisen during this inspection which are of especial interest in the
+context of low surface brightness science:
 
 \begin{itemize}
-\item {\bf Ghosts:} Ghosting, internal reflections of the light from astronomical objects off of multiple reflecting surfaces within the camera (e.g., the detectors, lenses, and filter), is a well known contaminant for low-surface-brightness science. Ghosts were first identified in images taken on the first night of \ComCam observing. Ghost patterns were associated to stars both on, and slightly off, the \ComCam field-of-view. Analysis from the batoid ray tracing code could qualitatively reproduce the ghost patterns (see below for more details).
-
-\item {\bf Baffling:} A prominent stray light feature was noticed as concentric circles of varying intensity often situated in the corner of the \ComCam field of view. Initial incidences of this stray light were traced back to a light on the dome crane (see below); however, this pattern continues to be seen on subsequent nights.   Members of the camera crew note that there is no baffle system installed upstream of the \ComCam optics, and we expect stray light to be much reduced with LSSTCam.
-
-\item {\bf Dome Lights:} Several lights inside and around the dome have been identified and mitigated (one particularly impactful light source was on . Pinhole images are a valuable tool for identifying these light sources, and several were identified in recent pinhole imaging. As operations becomes more routine, it is expected that the incidence of artificial light in the dome will decrease.
+\item {\bf Ghosts:} Ghosting, internal reflections of the light from astronomical objects off of multiple
+  reflecting surfaces within the camera (e.g., the detectors, lenses, and filter), is a well known contaminant
+  for low-surface-brightness science. Ghost patterns were associated to stars both on, and slightly off, the
+  \ComCam field-of-view.
+   Qualitatively, the presence and appearance of 
+  the ghosts are well predicted by Josh Meyers' \Batoid ray trace code.
+  The nature of most of the ghosts will be
+  quite different for the full LSSTCam, with the exception of the ghost produced
+  within the filter itself.
 
 \item {\bf Sky over-subtraction:} Correct subtraction of the sky background around large, bright astronomical
   objects (e.g., nearby galaxies, nebulae, galaxy clusters, etc.) while making accurate measurements for faint
   objects in the frame is a challenging task. The LSB group has been tracking instances of astronomical objects that have been observed by \ComCam and are likely to suffer from background subtraction issues.
 
-\item {\bf Artificial Satellites:} The low-surface-brightness, out-of-focus tails of bright artificial satellites may contribute structured low-surface-brightness features in stacks and coadds. While the topic of artificial satellites is largely covered in Section~\ref{sec:dia_transient_variable}, the LSB group is interested in tracking particularly prominent examples.
+\item {\bf Artificial Satellites:} The low-surface-brightness, out-of-focus tails of bright artificial satellites may contribute structured low-surface-brightness features in stacks and coadds. While the topic of artificial satellites is largely covered in \secRef{dia_transient_variable}, the LSB group is interested in tracking particularly prominent examples.
 
 \end{itemize}
 
 The group is tracking visually identified instances of many of these features in \ComCam imaging.
 
-\noindent {\bf Quantitative Ghost Investigation:}  The `batoid` ray tracing toolkit has the ability to predict the locations and relative intensities of these ghosts. Based on early qualitative comparisons, batoid appears to be doing a good job at predicting the patterns of ghosts observed in \ComCam imaging for stars located both on and slightly off the focal plane. A more quantitative evaluation between batoid and the \ComCam imaging is now being developed to assess the precision and accuracy of the batoid model when it comes to predicting the location, morphology, and intensity of ghosts. Gaia is being used to identify bright stars that should contribute prominent ghosts. These stars are fed into batoid and the output ghost patterns are scaled by the flux of each input star as measured by Gaia. Circular templates for the ghosts are being generated by running batoid on each scattering surface individually and applying Canny edge detection and a circular Hough transform to determine to position and size of each ghost. These circular ghost templates will be compared to the observed data, and eventually fit to the intensity of the observed ghosts to verify/refine the reflectivity coefficients that batoid uses for each camera surface. While the ghosting in LSSTCam will be different from that in \ComCam, the tools developed for this analysis should be generalizable.
+\subsection{Quantitative Ghost Investigation}
 
-\noindent {\bf Future Endeavors}
+A more quantitative evaluation between \Batoid and the \ComCam imaging is now being developed to assess the
+precision and accuracy of the \Batoid model when it comes to predicting the location, morphology, and
+intensity of ghosts. Gaia is being used to identify bright stars that should contribute prominent
+ghosts. These stars are fed into \Batoid and the output ghost patterns are scaled by the flux of each input
+star as measured by Gaia. Circular templates for the ghosts are being generated by running \Batoid on each
+scattering surface individually and applying Canny edge detection and a circular Hough transform to determine
+to position and size of each ghost. These circular ghost templates will be compared to the observed data, and
+eventually fit to the intensity of the observed ghosts to verify/refine the reflectivity coefficients that
+\Batoid uses for each camera surface.  It is not clear that this analysis will be superior to the
+corresponding analysis using the CBP.
+While the ghosting in LSSTCam will be different from that in \ComCam, the tools developed for this analysis should be generalizable.
+
+\subsection{Future Endeavors}
 
 The team hopes to have the chance to collect and investigated on- and off-axis dithered bright star exposures to further quantify ghosting and scattered light. The team is actively investigating metrics to characterize the variance in the sky background modeling. The team is investigating sky background fitting techniques developed on DECam. DECam calibrations have been acquired and testing of these algorithms on DECam data processed with the LSST Science Pipelines is being developed. We hope to apply the quantitative LSB tools being developed on precursor data to the \ComCam data.

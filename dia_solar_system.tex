@@ -22,16 +22,16 @@ Early data suggests that LSST will produce fairly clean difference image source 
 \label{sec:association}
 
 
-Ten images taken in one field on 2024-11-06 and ten each in four fields on 2024-11-23 were close enough to the ecliptic for possible asteroid association. Across the five fields, we associated 828 sources with known asteroids, including 128 unique objects. The 24 objects associated on 2024-11-06 are shown in Figure \ref{fig:solar_system_positions}. We compared the sources' astrometry to our ephemerides, as shown in Figure \ref{fig:solar_system_residuals}. We find very low bias: the median unsigned error is 13 mas, indicating that there are no major errors in either timing or astrometry. We also find low variance, with standard deviationsin RA and Dec of 41 and 44 mas respectively, though in an especially bright and therefore low-variance sample of known objects. Evaluating the precision of asteroid association tests the whole software chain, including the astrometry pipeline, ephemerides computation, and image timing. In sum, the total error contributed by these different systems appears to be low enough for high-confidence association of known asteroids.
+Ten images taken in one field on 2024-11-06 and ten each in four fields on 2024-11-23 were close enough to the ecliptic for possible asteroid association. Across the five fields, we associated 828 sources with known asteroids, including 128 unique objects. The 24 objects associated on 2024-11-06 are shown in \figRef{solar_system_positions}. We compared the sources' astrometry to our ephemerides, as shown in \figRef{solar_system_residuals}. We find very low bias: the median unsigned error is 13 mas, indicating that there are no major errors in either timing or astrometry. We also find low variance, with standard deviationsin RA and Dec of 41 and 44 mas respectively, though in an especially bright and therefore low-variance sample of known objects. Evaluating the precision of asteroid association tests the whole software chain, including the astrometry pipeline, ephemerides computation, and image timing. In sum, the total error contributed by these different systems appears to be low enough for high-confidence association of known asteroids.
 
 \begin{figure}
-  \includegraphics[width=\textwidth]{sso_figures/24_asteroids.pdf}
+  \includegraphics[width=0.5\textwidth]{sso_figures/24_asteroids.pdf}
   \caption{Positions of the 24 asteroids associated in images from 2024-11-06.}
   \label{fig:solar_system_positions}
 \end{figure}
 
 \begin{figure}
-  \includegraphics[width=\textwidth]{sso_figures/sso_residuals.pdf}
+  \includegraphics[width=0.5\textwidth]{sso_figures/sso_residuals.pdf}
   \caption{Astrometric residuals of the 633 sources associated to 104 asteroids on 2024-11-23. All but two sources have residuals under 0.3 arcseconds, while the two outliers have been identified by visual inspection as mis-associations of undetected asteroids.}
   \label{fig:solar_system_residuals}
 \end{figure}
@@ -39,7 +39,7 @@ Ten images taken in one field on 2024-11-06 and ten each in four fields on 2024-
 \subsubsection{Single-epoch Linking}
 \label{sec:linking}
 
-We attempted to link asteroids in single-epoch source catalogs including the fields in section \ref{sec:association} relatively near the ecliptic. In contrast to the difference images averaging 430-840 sources per visit, single-epoch images contained 11,000-23,000 sources per visit, mostly stars. The first reasonable test involved ten images taken on November 6. From an average of 16,000 sources per visit, {\tt make\_tracklets} found 3,068 tracklets with at least five points. While most of these were unquestionably spurious, nine of them were ten-point tracklets (i.e. detected in {\em every one} of the ten visits), showed excellent photometric consistency, and relatively low GCR: very likely real asteroids.
+We attempted to link asteroids in single-epoch source catalogs including the fields in \secRef{association} relatively near the ecliptic. In contrast to the difference images averaging 430-840 sources per visit, single-epoch images contained 11,000-23,000 sources per visit, mostly stars. The first reasonable test involved ten images taken on November 6. From an average of 16,000 sources per visit, {\tt make\_tracklets} found 3,068 tracklets with at least five points. While most of these were unquestionably spurious, nine of them were ten-point tracklets (i.e. detected in {\em every one} of the ten visits), showed excellent photometric consistency, and relatively low GCR: very likely real asteroids.
 
 We selected the ten-point tracklet with the very lowest GCR (0.046 arcsec) and checked it against known asteroid ephemerides, obtaining a match to the main belt asteroid \textbf{(193300) 2000 SO275}, a 20th magnitude object with a very well-constrained orbit. \textbf{(193300) 2000 SO275} was the {\em very first asteroid confirmed to have been detected with the Simonyi Survey Telescope.} We evaluated LSST's astrometric precision by comparing these detections to predicted positions from JPL. The RMS astrometric offset was found to be 29 milli-arcseconds (mas), with a systematic bias (the median observed-calculated residual) of only 14 mas in RA and 3 mas in Dec. These errors are statistically consistent with zero, as expected. We also probed for timing errors, which would produce a positional offset in the direction of motion. Dividing the along-track component of the astrometric offsets by the measured angular velocity, we found a median time offset of 0.3 seconds --- consistent with zero at the 0.5$\sigma$ level.
 
