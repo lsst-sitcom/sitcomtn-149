@@ -1,0 +1,77 @@
+\section{Executive Summary}
+\label{sec:summary}
+
+The Vera C. Rubin Observatory project team has completed a first series of on-sky engineering tests demonstrating the end-to-end functionality of the Simonyi Survey Telescope's hardware and software systems using an engineering test camera, the Commissioning Camera (ComCam).
+
+\subsection{Commissioning Camera (ComCam)}
+
+ComCam mass distribution, physical envelope, and interfaces designed to match LSSTCam.
+ComCam focal plane has single raft w/ 3x3 mosaic of (4K $\times$ 4K) ITL science sensors (144 Mpix total).
+For comparison, LSSTCam comprises 21 rafts w/ both ITL and e2v sensors (total of 189 science sensors; 3.2 Gpix) + 4 dedicated corner rafts for guiding and wavefront estimation.
+Piston entire ComCam focal plane to acquire intra- and extra-focal images of the pupil (``donuts'') for AOS commissioning.
+Same plate scale as LSSTCam (0.2 arcsec / pixel).
+ComCam filter exchanger holds 3 physical filters at a time.
+ComCam Refrigeration Pathfinder allowed commissioning of the refrigeration system prior to arrival of LSSTCam.
+
+\subsection{Accomplishments}
+
+The primary goals of the campaign were to use ComCam to
+
+\begin{enumerate}
+    \item learn how to more efficiently commission the LSST Camera (LSSTCam) on sky
+    \item optically align the telescope and verify capability to deliver acceptable image quality for the smaller ComCam field of view
+\end{enumerate}
+
+The ComCam on-sky campaign accomplished the primary goals, and much more
+
+\begin{itemize}
+    \item Telescope delivers crisp images
+    \item Validated and refined AOS open loop system + demonstrated AOS closed loop system
+    \begin{itemize}
+        \item Using almost all degrees of freedom
+        \item multiple wavefront estimation algorithms
+        \item tested range of stellar densities
+        \item AOS in LSST Wide-Fast-Deep survey emulation mode
+    \end{itemize}
+    \item Scheduler driving on-sky operations, including with Feature Based Scheduler
+    \item System can acquire visits efficiently at a given target field
+    \item ComCam instrument reliable and effective
+    \item Telescope tracking and boresight stability have been superb
+    \item System optical throughput consistent with a priori expectations
+    \item Data transfer and downstream image analysis software working well, including
+    \begin{itemize}
+        \item Quicklook campaign at summit supporting nighttime operations
+        \item Prompt processing and data release processing campaigns at USDF; running at USDF within a few minutes; Generating (but not publishing) alerts; Finding asteroids; Real-bogus classifier running in alert production pipeline; Minimal impact due to cosmic rays
+    \end{itemize}
+    \item Astrometric and photometric calibration are on track to meet design requirements
+    \begin{itemize}
+        \item Stellar astrometric repeatability below 10 mas using only single-frame calibration (i.e., before running global solution w/ gbdes algorithm)
+        \item Photometric repeatability for bright stars at level consistent with the statistical Poisson noise photometric errors, with contribution from calibration errors at few mmag level
+    \end{itemize}
+    \item Collimated Beam Projector can co-point w/ telescope and acquire wavelength scans
+    \item Demonstrated stuttered imaging and guider mode imaging to evaluate high-frequency contributions to delivered image quality (1-100 Hz)
+    \item Exercised end-to-end workflows; new observing staff coming on board; team is strong
+\end{itemize}
+
+\subsection{Areas of Investigation and Further Development}
+
+\begin{itemize}
+    \item Interpreting stray and scattered light
+    \item Contributions to delivered image quality
+    \begin{itemize}
+        \item Understand discrepancies between AOS residual and delivered image quality
+        \item Analysis of stuttered and guider mode imaging
+        \item AOS closed loop convergence optimization
+        \item M1M3 thermal
+        \item Rubin Obs DIMM
+        \item Dome seeing monitor
+        \item Dome louvers + light and wind screen installation
+    \end{itemize}
+    \item Calibration harware
+    \begin{itemize}
+        \item Analysis of CBP data from ComCam; red light leak in g filter
+        \item Flat field screen and illumination system installation and commissioning
+    \end{itemize}
+    \item Overall system reliability and efficiency
+    \item Increasing TMA motion
+\end{itemize}
