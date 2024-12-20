@@ -6,10 +6,11 @@ The Vera C. Rubin Observatory project team has completed a first series of on-sk
 \subsection{Commissioning Camera (ComCam)}
 
 ComCam mass distribution, physical envelope, and interfaces designed to match LSSTCam.
-ComCam focal plane has single raft w/ 3x3 mosaic of (4K $\times$ 4K) ITL science sensors (144 Mpix total).
+ComCam focal plane has single raft w/ 3 $\times$ 3 mosaic of (4K $\times$ 4K) ITL science sensors (144 Mpix total).
 For comparison, LSSTCam comprises 21 rafts w/ both ITL and e2v sensors (total of 189 science sensors; 3.2 Gpix) + 4 dedicated corner rafts for guiding and wavefront estimation.
 Piston entire ComCam focal plane to acquire intra- and extra-focal images of the pupil (``donuts'') for AOS commissioning.
 Same plate scale as LSSTCam (0.2 arcsec / pixel).
+The field of view is 40 arcmin $\times$ 40 arcmin.
 ComCam filter exchanger holds 3 physical filters at a time.
 ComCam Refrigeration Pathfinder allowed commissioning of the refrigeration system prior to arrival of LSSTCam.
 
@@ -25,8 +26,12 @@ The primary goals of the campaign were to use ComCam to
 The ComCam on-sky campaign accomplished the primary goals, and much more
 
 \begin{itemize}
-    \item Telescope delivers crisp images
-    \item Validated and refined AOS open loop system + demonstrated AOS closed loop system
+    \item \textbf{The telescope delivers crisp images.}
+    The median delivered image quality during the campaign for commanded in-focus images, quantified in terms of the PSF FWHM, was $\sim1.1$ arcseconds.
+    The best images have delivered PSF FWHM $\sim0.7$ arcseconds.
+    Multiple analysis approaches suggest that Rubin Observatory is already capable of achieving a system contrbution to the delivered image quality of $\sim0.4$ arcseconds (i.e., accounting for the atmosphere seeing contribution), even with several of the Observatory environmental controls not yet fully in place.
+    \item \textbf{The team validated and further refined the AOS open loop system, and demonstrated the AOS closed loop system functionality with a variety of configurations and environmental conditions.}
+    %\item Validated and refined AOS open loop system + demonstrated AOS closed loop system
     \begin{itemize}
         \item Telescope focused and aligned at start of each night using laser tracker
         \item Using almost all degrees of freedom
@@ -34,24 +39,34 @@ The ComCam on-sky campaign accomplished the primary goals, and much more
         \item tested range of stellar densities
         \item AOS in LSST Wide-Fast-Deep survey emulation mode
     \end{itemize}
-    \item Scheduler driving on-sky operations, including with Feature Based Scheduler
-    \item System can acquire visits efficiently at a given target field
-    \item ComCam instrument reliable and effective
-    \item Telescope tracking and boresight stability have been superb
-    \item System optical throughput consistent with a priori expectations
-    \item Data transfer and downstream image analysis software working well, including
+    \item \textbf{Scheduler driving on-sky operations, including with Feature Based Scheduler}
+    \item \textbf{The system can efficiently acquire visits at a given target field.} The median time between successive visits for short translational dithers on the angular scale of the ComCam field of view was reduced to less than 3 seconds by the end of the campaign, enabling sustained rates of more than 90 individual 30-second visits per hour on a given target field, including occasional filter changes and rotational dithers.
+    \item \textbf{ComCam instrument was reliable and effective.}
+    \item \textbf{Telescope tracking and boresight stability have been superb.}
+    \item \textbf{System optical throughput consistent with a priori expectations.} Measured and predicted counts from per-visit synthetic photometry for the spectrophotometric standard star C26202 are consistent for all bands at the $\sim5\%$ level.
+    Comparison to reference catalogs shows a tight locus with respect to stellar colors, enabling empirical validation of color terms.
+    \item \textbf{Data transfer and downstream image analysis software working well.}
     \begin{itemize}
         \item Quicklook campaign at summit supporting nighttime operations
         \item Prompt processing and data release processing campaigns at USDF; running at USDF within a few minutes; Generating (but not publishing) alerts; Finding asteroids; Real-bogus classifier running in alert production pipeline; Minimal impact due to cosmic rays
     \end{itemize}
-    \item Astrometric and photometric calibration are on track to meet design requirements
+    \item \textbf{The internal astrometric and photometric calibration are on track to meet design requirements.}
     \begin{itemize}
         \item Stellar astrometric repeatability below 10 mas using only single-frame calibration (i.e., before running global solution w/ gbdes algorithm)
         \item Photometric repeatability for bright stars at level consistent with the statistical Poisson noise photometric errors, with contribution from calibration errors at few mmag level
     \end{itemize}
-    \item Collimated Beam Projector can co-point w/ telescope and acquire wavelength scans
-    \item Demonstrated stuttered imaging and guider mode imaging to evaluate high-frequency contributions to delivered image quality (1-100 Hz)
-    \item Exercised end-to-end workflows; new observing staff coming on board; team is strong
+    \item \textbf{Collimated Beam Projector can co-point w/ telescope and acquire wavelength scans.}
+    \item \textbf{Demonstrated stuttered imaging and guider mode imaging to evaluate high-frequency contributions to delivered image quality (1-100 Hz)}
+    \item \textbf{Exercised end-to-end workflows for test planning, execution, and associated data processing and analysis during 7 weeks of continuous operations.}
+    \begin{itemize}
+        %The effort included summit logistics support for the ComCam on-sky campaign, in-dome daytime testing, ongoing summit engineering, and LSSTCam reverification.
+        \item Several hundred team members directly contributed to the ComCam on-sky campaign, supporting continuous 24-hour cycles of daytime and nighttime testing at the summit, observatory operations from the Base Facility in La Serena Chile, data processing campaigns at the US Data Facility at SLAC National Laboratory, and data analysis from locations around the world.
+        The successes of the ComCam on-sky campaign were made possible by years of preparatory work by the extended Rubin Observatory team.
+        \item More than 50 team members worked summit shifts for on-sky testing, and multiple new observing staff were onboarded during the campaign.
+        \item The ComCam on-sky campaign required parallel logistics support and coordination for ongoing summit engineering and LSSTCam reverification at the summit.
+        \item The team is incorporating lessons learned from the ComCam on-sky campaign towards preparations for LSSTCam on-sky commissioning.
+        \item Team is strong.
+    \end{itemize}
 \end{itemize}
 
 \subsection{Areas of Investigation and Further Development}
