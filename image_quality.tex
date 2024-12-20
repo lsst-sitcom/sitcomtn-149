@@ -6,7 +6,7 @@ that sources of image degradation add in quadrature and we trust our estimates o
 consistent with reaching the image quality error budget allocation of our full system of 0.400 arcsec.
 
 The best image quality achieved so far is \c 0.65 arcsec, with a median of 1.1 arcsec during science visits;
-\tabRef{psf_summary} and \figRef{seeing_plot}.
+\tabRef{psf_summary}, \figRef{seeing_plot}, and \figRef{psf_fwhm_distribution}.
 
 \begin{figure*}
   \centering
@@ -28,13 +28,20 @@ g             & 86                       & 1.07                   & 0.14        
 r             & 307                      & 1.18                   & 0.22                  \\
 i             & 203                      & 1.09                   & 0.24                  \\
 z             & 85                       & 1.01                   & 0.21                  \\
-y             & 66                       & 1.04                   & 0.18                  \\ 
+y             & 66                       & 1.04                   & 0.18                  \\
 \end{tabular}
-\caption{Summary of PSF FWHM performance. . Data are from DRP from 2024-11-01 to 2024-11-28.}
+\caption{Summary of PSF FWHM performance. Data are from DRP from 2024-11-01 to 2024-11-28.}
 \label{tab:psf_summary}
 \end{table*}
 
-
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.7\textwidth]{image_quality_figures/comcam_science_psf_fwhm_hist.pdf}
+  \includegraphics[width=0.7\textwidth]{image_quality_figures/comcam_science_psf_fwhm_cdf.pdf}
+  \caption{Distribution of PSF FWHM represented as a histogram (top) and cumulative distribution (bottom).
+  Data are from DRP from 2024-11-01 to 2024-12-11.}
+  \label{fig:psf_fwhm_distribution}
+\end{figure*}
 
 We are in the process of quantifying the different sources of image degradation. The main ones we're focused on measuring are degradation due to the camera/instrument, static optics, dynamic optics, mount motion, and observatory seeing.
 
