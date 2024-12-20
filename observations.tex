@@ -1,6 +1,25 @@
 \section{Observations}
 \label{sec:observations}
 
+\begin{table*}
+    \centering
+    \begin{tabular}{@{}lcc@{}}
+    \textbf{\texttt{img\_type}} & \textbf{Number of Visits} & \textbf{Notes} \\
+    \hline
+    ACQ & 5261 & Includes in-focus visits for AOS commissioning \\
+    BIAS & 1432 & Bias frames for calibration \\
+    CWFS & 5169 & Curvature wavefront sensing for AOS commissioning \\
+    DARK & 1153 & Dark frames for calibration \\
+    ENGTEST & 169 & Includes CBP commissioning \\
+    FLAT & 37 & \\
+    FOCUS & 534 & Focus sequences \\
+    OBJECT & 2144 & Mostly visits for Science Pipelines commissioning \\
+    STUTTERED & 61 & Stuttered imaging \\
+    \end{tabular}
+    \caption{Distribution of visits by image type (\texttt{img\_type}) during the ComCam on-sky campaign.}
+    \label{tab:img_type}
+\end{table*}
+
 % 2394 = EDFS_comcam
 % 5526 = Rubin_SV_095_-25
 % 453 = 47Tuc
@@ -33,7 +52,7 @@
 \begin{table*}
     \centering
     \begin{tabular}{@{}lcc@{}}
-    \textbf{Field Name} & \textbf{RA} & \textbf{Declination} \\
+    \textbf{Target} & \textbf{RA} & \textbf{Declination} \\
      & \textit{deg} & \textit{deg} \\
     \hline
     47 Tuc Globular Cluster (47 Tuc)              & 6.02    & -72.08    \\
@@ -44,8 +63,8 @@
     Low Galactic Latitude Field (Rubin SV 95 -25) & 95.00   & -25.00    \\
     Seagull Nebula (Seagull)                      & 106.23  & -10.51    \\
     \end{tabular}
-    \caption{Seven target fields observed for Science Pipelines commissioning during the ComCam on-sky campaign.}
-    \label{tab:target_fields}
+    \caption{Pointing centers for seven target fields observed for Science Pipelines commissioning during the ComCam on-sky campaign.}
+    \label{tab:target_fields_pointing_centers}
 \end{table*}
 
 
@@ -70,4 +89,36 @@
     \end{center}
     \caption{Sky coverage for Low Ecliptic Latitude Field (Rubin SV 38 7) during the ComCam on-sky campaign.}
     \label{fig:comcam_ecliptic_coverage}
+\end{figure}
+
+\begin{table*}
+    \centering
+    \begin{tabular}{@{}lcccccc@{}}
+    \textbf{Target} & \textbf{u} & \textbf{g} & \textbf{r} & \textbf{i} & \textbf{z} & \textbf{y} \\
+    47 Tuc          &	     6 & 	10 &	33 &	19 &	 0 &     5 \\
+    Rubin SV 38 7 	&       0 &    44 & 	55 &	57 &    27 &     0 \\
+    Fornax dSph 	&       0 &	 5 &	26 &	13 &	 0 &	 0 \\
+    ECDFS 	        &      53 &   230 &   257 &   177 &   177 &	30 \\
+    EDFS ComCam 	&      20 &	61 & 	90 &	42 &	42 &	20 \\
+    Rubin SV 95 -25 & 	    33 &	86 &	97 &	29 &	60 &	11 \\
+    Seagull 	    &      10 &	37 &   	49 &	3  & 	13 & 	 0 \\
+    \end{tabular}
+    \caption{Band coverage for seven target fields observed for Science Pipelines commissioning during the ComCam on-sky campaign.}
+    \label{tab:target_fields_band_coverage}
+\end{table*}
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{observations_figures/comcam_science_visit_count_day_obs.pdf}
+    \end{center}
+    \caption{Distribution of Science Pipelines commissioning observations by \texttt{day\_obs} during the ComCam on-sky campaign.}
+    \label{fig:comcam_science_day_obs}
+\end{figure}
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{observations_figures/comcam_science_airmass_day_obs_ecdfs.pdf}
+    \end{center}
+    \caption{Distribution of Science Pipelines commissioning observations for the ECDFS field during the ComCam on-sky campaign.}
+    \label{fig:comcam_science_day_obs}
 \end{figure}
