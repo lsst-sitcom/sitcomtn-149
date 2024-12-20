@@ -373,7 +373,7 @@ ComCam $ugrizy$ filter passbands.
 The calibrated ComCam AB magnitudes in each of the passbands are
 obtained by converting the {\tt calibFlux} values in the USDF butler
 {\tt sourceTable} from nano-Janskys to AB magnitudes via the equation
-$mag_{\rm ab} = -2.5 \times log_{10}(calibFlux)$.
+$mag_{\rm ab} = -2.5 \times log_{10}(calibFlux) + 31.4$.
 
 As with the absolute system throughput measurements for the expected
 counts of C26202, the engineering system throughputs for an average
@@ -384,7 +384,7 @@ absolute system throughput measurements, the HST CalSpec spectral
 energy distribution (SED), {\tt c26202\_stiswfcnic\_007.fits}, was
 used as the C26202 spectrophotometric reference spectrum.
 
-The results are shown in \figRef{c26202_ab_offsets}.
+The results are shown in \ref{tab:C26202}.
 
 These results are not unexpected, as performing absolute calibrations
 on reference catalog data is extremely difficult before real observed
