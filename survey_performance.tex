@@ -31,7 +31,7 @@ We applied these offsets as corrections to the zeropoints for all visits, and af
     \end{figure}
 
 
-Likewise, the survey simulations use a sky background model as part of predicting five sigma visit depths and to choose observation pointings. The outputs available in the ConsDb include a \texttt{sky\_bg\_median} value, which is in counts per pixel. Together with an estimate of the plate scale (0.2"/pixel) and the zeropoint, we can convert this into magnitudes per square arcsecond, to compare to the predicted values from the rubin\_scheduler sky brightness model. The results are shown in \figRef{sky}, where the adjusted zeropoints with offsets defined above have been used. The measured values are very consistent with the model values for the nights excluding 20241210, with a scatter of less than 0.25 magnitudes in all bands. This is  within our expected errors in the sky background model, particularly in y band where the sky is quite variable and harder to model.
+Likewise, the survey simulations use a sky background model as part of predicting five sigma visit depths and to choose observation pointings. The outputs available in the ConsDb include a \texttt{sky\_bg\_median} value, which is in counts per pixel. Together with an estimate of the plate scale (0.2"/pixel) and the zeropoint from the hardware-only (removing atmospheric extinction), we can convert this into magnitudes per square arcsecond, to compare to the predicted values from the rubin\_scheduler sky brightness model. The results are shown in \figRef{sky}, using the measured zeropoints with offsets defined above, corrected for atmospheric extinction using coefficients determined from the \texttt{syseng\_throughputs} curves. The measured values are very consistent with the model values for the nights excluding 20241210, with a scatter of less than 0.25 magnitudes in all bands. This is within our expected errors in the sky background model, particularly in y band where the sky is quite variable and harder to model.
 
 \begin{figure}
     \centering
@@ -42,7 +42,7 @@ Likewise, the survey simulations use a sky background model as part of predictin
     \end{figure}
 
 
-We look forward to comparing seeing performance to survey predictions. Initial estimates indicate that the approximate equivalent of seeingFwhmEff for these visits had a mean of around 1.15 arcseconds, which isn't out of line with longer term survey expectations, where the mean value is around 1.12 arcseconds. This is particular impressive for this early phase of commissioning. 
+We look forward to comparing seeing performance to survey predictions as more information is available about the system contribution and atmosphere state via a Rubin DIMM. Initial estimates indicate that the approximate equivalent of seeingFwhmEff for these visits had a mean of around 1.15 arcseconds, which isn't out of line with longer term survey expectations, where the mean value is around 1.12 arcseconds. This is particular impressive for this early phase of commissioning. 
 
 \begin{figure}
     \centering
@@ -52,7 +52,7 @@ We look forward to comparing seeing performance to survey predictions. Initial e
     \end{figure}
 
 
-Models of the observatory performance 
+Models of the observatory movement can be compared to the actual slew time, however there are several additional factors present at this stage of commissioning. The dither pattern for the science program visits included small offsets on the order of 0.7 degrees 
 
 
 Remaining questions include the efficiency of observations, both sequential observations with standard slew offsets and sustained over many hours and days, and the likelihood of whether a single exposure per visit will be sufficient.
