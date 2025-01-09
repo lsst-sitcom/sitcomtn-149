@@ -4,14 +4,14 @@
 
 \subsubsection{DIA Status}
 
-As we have started to obtain repeated science-quality images of some fields, we have begun to build coadded templates as part of the regular weekly cumulative Data Release Processings. 
+As we have started to obtain repeated science-quality images of some fields, we have begun to build coadded templates as part of the regular weekly cumulative Data Release Processings.
 These mini-DRPs also include difference image analysis (DIA) of their constituent exposures.
-Using the DRP-produced templates, we have also obtained near-real-time difference images in Prompt Processing for a few exposures. 
-We have not yet had the opportunity to begin tuning template generation, difference imaging, or Real/Bogus characterization of these data, so the report below provides an initial rough characterization of DIA performance. 
+Using the DRP-produced templates, we have also obtained near-real-time difference images in Prompt Processing for a few exposures.
+We have not yet had the opportunity to begin tuning template generation, difference imaging, or Real/Bogus characterization of these data, so the report below provides an initial rough characterization of DIA performance.
 
 \subsubsection{ML Reliability and Artifact Rates}
 
-We ran a convolutional neural network on 51$\times$51 difference, science, and template cutouts for 912k DIASources identified in the \texttt{w\_2024\_47} data release processing.  
+We ran a convolutional neural network on 51$\times$51 difference, science, and template cutouts for 912k DIASources identified in the \texttt{w\_2024\_47} data release processing.
 This processing primarily includes data from extragalactic deep fields.
 These DiaSources were obtained from 4252 detector-visit images, implying an average of 21 DIASources per detector or about four thousand per equivalent full LSST focal plane.
 This is somewhat less than the ten thousand DIASources expected per visit and may reflect lower sensitivity due to ongoing image quality refinement and early templates.
@@ -57,7 +57,7 @@ Additional overdensities seen in y-band may be from the residual phosphorescent 
 \caption{Binning the locations of the diaSources in 1-D by their x- and y-values reveals systematic overdensities of detections at the amplifier boundaries in x (but not in y). \label{fig:diaSource-distribution}}
 \end{figure}
 
-We have analyzed the sources that we detected from the difference imaging campaign. Figure \ref{fig:diaSrc_count} shows the distribution of the diaSources as a function of the magnitude of each source when detected. We have separated the sources into six bands in which the observation was conducted. We show the growth of observed sources in each weekly processing (from week 48 to week 50). 
+We have analyzed the sources that we detected from the difference imaging campaign. Figure \ref{fig:diaSrc_count} shows the distribution of the diaSources as a function of the magnitude of each source when detected. We have separated the sources into six bands in which the observation was conducted. We show the growth of observed sources in each weekly processing (from week 48 to week 50).
 
 \begin{figure}
   \includegraphics[width=\textwidth]{dia/figures/diaSources.png}
@@ -67,7 +67,7 @@ We have analyzed the sources that we detected from the difference imaging campai
 
 The number of diaSources detected increases as each weekly processing run has more data available. Having said that, the details of the distributions also change. We have verified that this is not due to differences in the algorithm details of different processing runs. This verification was done by observing the data distribution done on different weekly processing runs but taking into account only the data sets already available for weekly-48 runs. In this way, all of the runs have the same underlying data, and the differences are not so stark. \par
 
-We want to point out two features visible in the plots. First is the steep rise and significant number of diaSources at the bright end of the distribution. We believe this is primarily due to inefficiencies in the subtraction of bright sources, making it that bright point sources on the sky generate diaSources even if they are not variable. See an example of this behavior in the left panel of image \href{https://rubin-obs.slack.com/archives/C07QM71SZ5J/p1734564452594809?thread_ts=1734547527.434299&cid=C07QM71SZ5J}{here}.
+We want to point out two features visible in the plots. First is the steep rise and significant number of diaSources at the bright end of the distribution. We believe this is primarily due to inefficiencies in the subtraction of bright sources; bright point sources on the sky generate diaSources even if they are not variable. See an example of this behavior in the left panel of image \href{https://rubin-obs.slack.com/archives/C07QM71SZ5J/p1734564452594809?thread_ts=1734547527.434299&cid=C07QM71SZ5J}{here}.
 The increase at the faint end is at least partly due to noise fluctuations being detected as diaSources. See an example of this behavior in the right panel of image \href{https://rubin-obs.slack.com/archives/C07QM71SZ5J/p1734564452594809?thread_ts=1734547527.434299&cid=C07QM71SZ5J}{here}. We are still investigating other features seen in the distribution. \par
 
 We have also investigated the differences between various fields that were observed. We did this investigation to ensure that the results are not dominated by particularly dense fields, such as 47-Tuc. The results are shown in Figure \ref{fig:diaSrc_fields}, and show that 47-Tuc is not dominating the results.
@@ -78,7 +78,7 @@ We have also investigated the differences between various fields that were obser
   \label{fig:diaSrc_fields}
 \end{figure}
 
-We have also run the early implementation of the real-bogus classifier (as already discussed and seen in \ref{fig:reliability_hist}) and present the results in Figure \ref{fig:diaSrc_real_bogus}. Results are encouraging in the sense that many faint sources are flagged as likely false. 
+We have also run the early implementation of the real-bogus classifier (as already discussed and seen in \ref{fig:reliability_hist}) and present the results in Figure \ref{fig:diaSrc_real_bogus}. Results are encouraging in the sense that many faint sources are flagged as likely false.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{dia/figures/diaSource_real_bogus.png}
