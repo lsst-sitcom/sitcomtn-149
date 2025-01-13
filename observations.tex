@@ -1,6 +1,10 @@
 \section{Observations}
 \label{sec:observations}
 
+Roughly 16K total exposures were acquired during the ComCam on-sky campaign from 24 October 2024 to 11 December 2024.
+\tabRef{img_type} summarizes the distribution of visits, disaggregated by \texttt{img\_type}.
+The visits include more than 10K exposures for active optics system (AOS) commissiong (roughly one-third each of intra-focal, extra-focal, and in-focus images), more than 2K bias and dark calibration frames, and more than 2K visits for Science Pipelines commissioning.
+
 \begin{table*}
     \centering
     \begin{tabular}{@{}lcc@{}}
@@ -19,6 +23,37 @@
     \caption{Distribution of visits by image type (\texttt{img\_type}) during the ComCam on-sky campaign.}
     \label{tab:img_type}
 \end{table*}
+
+\subsection{Observations for Science Pipelines Commissioning}
+
+To maximize the utility of observations for Science Pipelines commissioning, the team acquired repeated observations distributed across multiple bands for a small set of fields across many nights to
+
+\begin{itemize}
+    \item test the internal astrometric and photometric calibration across a range of observing conditions and assemble large statistics,
+    \item provide routine opportunities for testing difference image analysis and Prompt Processing framework, and
+    \item accumulate upwards of 200 visits per band to evaluate deep coadds at roughly LSST WFD 10-year equivalent integrated exposure.
+\end{itemize}
+
+\tabRef{target_fields_pointing_centers} reports central pointing coordinates for seven target fields used for Science Pipelines commissioning during the ComCam on-sky campaign.
+The fields were selected to collectively span a range of stellar densities, overlap external reference datasets to enable a broad range of science verification and validation studies, and span the breadth of the four primary LSST science themes.
+
+The ComCam filter exchanger holds three filters at a time.
+A typical observing epoch on a given target field consisted of 5-20 visits in each of the three loaded filters.
+Nearly all of the visits for Science Pipelines commissioning used a single 30-second exposure, rather than 2 $\times$ 15-second ``snap'' exposures.
+
+\figRef{comcam_ddf_coverage} and \figRef{comcam_ecliptic_coverage} show the coverage of the seven target fields.
+Six of the fields used a pattern of random translational and rotational dithers within an 0.2 deg radius circle around the pointing center.
+The rotational dithers were typically applied at the time of filter changes for operational efficiency, with small rotatoral dithers ($\sim1$ deg) applied between individual visits.
+
+For the low ecliptic latitude field, the team used an alternative dither pattern to maximize the coverage of Solar System Objects and to facilitate testing Solar System Object linking across multiple nights.
+The observations synthesized a 2 $\time$s 2 grid of ComCam pointings to cover a region roughly 1.3 deg $\times$ 1.3 deg (\figRef{comcam_ecliptic_coverage}).
+The visits cycled between the four pointing centers in the grid, using small psuedo-random translational dithers to fill in chip gaps, with the goal of acquiring 3-4 visits at each pointing center in each band during in each observing epoch.
+
+\tabRef{target_fields_band_coverage} provides a summary of the band coverage across the seven fields.
+\figRef{comcam_ddf_psf_maglim} shows the resulting integrated depth, expressed in terms of the flux of an unresolved source that would be measured with signal-to-noise ratio $S/N = 5$, using the $r$ band as an example.
+
+\figRef{comcam_science_day_obs} shows the distribution of science program observations across the ComCam on-sky campaign.
+\figRef{comcam_science_day_obs_ecdfs} shows observations for the ECDFS field, which had the most consistent temporal sampling of the seven target fields during the campaign.
 
 % 2394 = EDFS_comcam
 % 5526 = Rubin_SV_095_-25
@@ -63,7 +98,7 @@
     Low Galactic Latitude Field (Rubin SV 95 -25) & 95.00   & -25.00    \\
     Seagull Nebula (Seagull)                      & 106.23  & -10.51    \\
     \end{tabular}
-    \caption{Pointing centers for seven target fields observed for Science Pipelines commissioning during the ComCam on-sky campaign.}
+    \caption{Pointing centers for seven target fields observed for Science Pipelines commissioning during the ComCam on-sky campaign. ICRS coordinates are shared in units of decimal degrees.}
     \label{tab:target_fields_pointing_centers}
 \end{table*}
 
@@ -85,6 +120,14 @@
 
 \begin{figure}
     \begin{center}
+      \includegraphics[width=0.3\textwidth]{observations_figures/showVisit_DM-30993_LSSTComCam_10463.png}
+    \end{center}
+    \caption{Sky coverage for Low Ecliptic Latitude Field (Rubin SV 38 7) during the ComCam on-sky campaign.}
+    \label{fig:comcam_ecliptic_coverage}
+\end{figure}
+
+\begin{figure}
+    \begin{center}
         \includegraphics[width=0.32\textwidth]{observations_figures/comcam_psf_maglim_47_tuc_r.pdf}
         \includegraphics[width=0.32\textwidth]{observations_figures/comcam_psf_maglim_rubin_sv_38_7_r.pdf}
         \includegraphics[width=0.32\textwidth]{observations_figures/comcam_psf_maglim_fornax_dsph_r.pdf}
@@ -100,13 +143,7 @@
     \label{fig:comcam_ddf_psf_maglim}
 \end{figure}
 
-\begin{figure}
-    \begin{center}
-      \includegraphics[width=0.3\textwidth]{observations_figures/showVisit_DM-30993_LSSTComCam_10463.png}
-    \end{center}
-    \caption{Sky coverage for Low Ecliptic Latitude Field (Rubin SV 38 7) during the ComCam on-sky campaign.}
-    \label{fig:comcam_ecliptic_coverage}
-\end{figure}
+
 
 \begin{table*}
     \centering
@@ -137,5 +174,5 @@
         \includegraphics[width=0.7\textwidth]{observations_figures/comcam_science_airmass_day_obs_ecdfs.pdf}
     \end{center}
     \caption{Distribution of Science Pipelines commissioning observations for the ECDFS field during the ComCam on-sky campaign.}
-    \label{fig:comcam_science_day_obs}
+    \label{fig:comcam_science_day_obs_ecdfs}
 \end{figure}
