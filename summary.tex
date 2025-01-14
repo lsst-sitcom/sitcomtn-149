@@ -19,7 +19,7 @@ order to acquire intra- and extra-focal images of the pupil (``donuts'') for AOS
 Same plate scale as LSSTCam (0.2 arcsec / pixel).
 The field of view is 40 arcmin $\times$ 40 arcmin.
 ComCam filter exchanger holds 3 physical filters at a time.
-ComCam Refrigeration Pathfinder allowed commissioning of the refrigeration system prior to arrival of LSSTCam.
+% ComCam Refrigeration Pathfinder allowed commissioning of the refrigeration system prior to arrival of LSSTCam.
 
 \subsection{Accomplishments}
 
@@ -35,12 +35,13 @@ The ComCam on-sky campaign accomplished the primary goals, and much more:
 \begin{itemize}
     \item \textbf{The telescope delivers crisp images.}
     The median delivered image quality during the campaign for commanded in-focus images, quantified in terms of the PSF FWHM, was $\sim1.1$ arcseconds.
-    The best images have delivered PSF FWHM $\sim0.7$ arcseconds.
+    The best images have delivered PSF FWHM $\sim0.65$ arcseconds.
     Multiple analysis approaches suggest that Rubin Observatory is already capable of achieving a system contrbution to the delivered image quality of $\sim0.4$ arcseconds (i.e., accounting for the atmosphere seeing contribution), even with several of the Observatory environmental controls not yet fully in place.
     \item \textbf{The team validated and further refined the AOS open loop system, and demonstrated the AOS closed loop system functionality with a variety of configurations and environmental conditions.}
     %\item Validated and refined AOS open loop system + demonstrated AOS closed loop system
     \begin{itemize}
-        \item Telescope focused and aligned at start of each night using laser tracker
+        \item Telescope focused and coarsely aligned at start of each night using laser tracker,
+          then fine-tuned using wavefront sensing
         \item Using almost all degrees of freedom
         \item multiple wavefront estimation algorithms
         \item tested range of stellar densities
@@ -81,7 +82,8 @@ The ComCam on-sky campaign accomplished the primary goals, and much more:
 
 \subsection{Areas of Investigation and Further Development}
 
-At this stage, while system integration and commissioning is ongoing, it is expected that the team is actively investigating multiple issues.
+At this stage, while system integration and commissioning is ongoing, it is to be expected that the team
+would be actively investigating multiple issues.
 
 \begin{itemize}
     \item \textbf{Interpreting stray and scattered light in ComCam observations.} Approximately 20\% of ComCam pointings showed structured patterns of stray light along an edge and/or corner of the ComCam field of view, that are likely attributed to scattered light from bright stars located slightly outside the ComCam field of view.
@@ -94,10 +96,12 @@ At this stage, while system integration and commissioning is ongoing, it is expe
         The concern arises because the black coating on the M2 baffle is anodization rather than a more reflection-suppressing coating such as Aeroglaze.
         There are ongoing modeling efforts and on-sky test planning to better understand the system, and potential stray light paths for LSSTCam.
     \end{itemize}
-    \item \textbf{Evaluating contributions to delivered image quality.} Multiple approaches are being pursued to evaluate the various contributions to the delivered image quality during the ComCam on-sky campaign, including the camera, static optics, dynamic optics, mount motion, observatory seeing, and the multiple layers of the atmosphere. Observatory environmental controls and monitoring equipment were not yet fully in place during the ComCam camapign.
+    \item \textbf{Evaluating contributions to delivered image quality.} Multiple approaches are being pursued to evaluate the various contributions to the delivered image quality during the ComCam on-sky campaign, including the camera, static optics, dynamic optics, mount motion, observatory seeing, and the atmosphere. Observatory environmental controls and monitoring equipment were not yet fully in place during the ComCam campaign.
     \begin{itemize}
-        \item Analysis of discrepancies between the estimated AOS residual based on wavefront sensing and delivered image quality
-        \item Analysis of stuttered and guider mode imaging. Preliminary analysis of the stuttered and guider mode imaging data shows strongly correlated common mode motion between stars across the ComCam field of view, suggesting that the delivered image quality during those observations was dominated by dome and/or mirror seeing contributions, or telescope motion.
+        \item Analysis of discrepancies between the estimated AOS residual based on wavefront sensing and
+          measurements of the free atmospheric (\eg DIMMs), and delivered image quality
+        \item Analysis of ``stuttered''\footnote{data taken while using the CCD's parallel gates to generate
+            a series of images of a star.} and guider mode imaging. Preliminary analysis of the stuttered and guider mode imaging data shows strongly correlated common mode motion between stars across the ComCam field of view, suggesting that the delivered image quality during those observations was dominated by dome and/or mirror seeing contributions, or telescope motion.
         \item AOS closed loop convergence optimization
         \item M1M3 thermal contribution and control
         \item Rubin Obs DIMM operations
