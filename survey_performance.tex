@@ -2,7 +2,7 @@ Understanding and predicting survey performance includes modeling the likely inp
 
 In this section, information about zeropoints, sky background, and measured image quality (PSF size) is gathered from the ConsDb, where these values are populated by Rapid Anaysis running on the summit. These values are only populated for ACQ or OBJECT images where existing calibration data is available. We also use the bad visit list maintained by DM (the \texttt{excluded\_visits} repo) to remove on the order of 100 visits which are marked as clearly bad -- typically due to trails. This leaves us with 5008 visits from the ComCam commissioning period; 1670 of these are part of BLOCK-320 and 1848 belong to either BLOCK-320 or its precursor PP-SURVEY.
 
-\subsubsection{Predicted throughputs and zeropoints}
+\subsection{Predicted throughputs and zeropoints}
 
 The throughput curves available in \texttt{syseng\_throughputs}, the repository that tracks current system engineering summaries of full-focal-plane throughputs, can be used to predict zeropoints for average ITL CCDs. See \url{https://github.com/lsst-pst/syseng\_throughputs/blob/main/notebooks/InterpolateZeropoint.ipynb}, where a simple interpolation function for filter and airmass is defined for the current throughputs (v1.9).  Looking at only the science program visits (BLOCK-320 and PP-SURVEY), where images could be expected to be in the best possible focus and obtained under more controlled sky conditions (and where all images have 30 second exposures), we can compare the predicted 30s zeropoints to the reported median visit zeropoints in the ConsDB (the column \texttt{visit1\_quicklook.zero\_point\_median}), as shown in \figRef{zeropoints}. It is worth noting that the $u$ band is a significant outlier in this comparison of predicted versus measured zeropoint; we believe this is the same issue as discussed in \secRef{absolutethroughputs}, so is the result of either an issue in the synthetically-derived reference catalog generated for zeropoint calibration or a true underestimate of the system performance in $u$ band.  We find that the estimated zeropoints are fairly close to the achieved zeropoints, except in u band. The median offsets for the photometric nights (nights with scatter < 0.3 magnitudes; this is all science program nights except 20241126, 20241209 and 20241210) in the science survey visits are:  u = -0.26, g = 0.14, r = 0.09, i = 0.10, z = 0.13, y = 0.18. 
 
@@ -31,7 +31,7 @@ We applied these offsets as corrections to the zeropoints for all visits, and af
     \end{figure}
 
 
-\subsubsection{Predicted sky background}
+\subsection{Predicted sky background}
 
 Likewise, the survey simulations use a sky background model as part of predicting five sigma visit depths and to choose observation pointings. The outputs available in the ConsDb include a \texttt{sky\_bg\_median} value, which is in counts per pixel. Together with an estimate of the plate scale (0.2"/pixel) and the zeropoint from the hardware-only (removing atmospheric extinction), we can convert this into magnitudes per square arcsecond, to compare to the predicted values from the rubin\_scheduler sky brightness model. The results are shown in \figRef{sky}, using the measured zeropoints with offsets defined above, corrected for atmospheric extinction using coefficients determined from the \texttt{syseng\_throughputs} curves. The measured values are very consistent with the model values for the nights excluding 20241210, with a scatter of less than 0.25 magnitudes in all bands. This is within our expected errors in the sky background model, particularly in y band where the sky is quite variable and harder to model.
 
@@ -44,7 +44,7 @@ Likewise, the survey simulations use a sky background model as part of predictin
     \end{figure}
 
 
-\subsubsection{Predicted seeing}
+\subsection{Predicted seeing}
 
 We look forward to comparing seeing performance to survey predictions as more information is available about the system contribution and atmosphere state via a Rubin DIMM. Initial estimates indicate that the approximate equivalent of seeingFwhmGeom for the science program visits had a mean of around 1 arcsecond, which is very close to average long-term survey expectations, where the mean value is around 0.9 arcseconds. This is particularly impressive for this early phase of commissioning. 
 
@@ -56,7 +56,7 @@ We look forward to comparing seeing performance to survey predictions as more in
     \end{figure}
 
 
-\subsubsection{Slew times}
+\subsection{Slew times}
 
 As part of the process of commissioning, the movement of the TMA was ramped up from an initial  1\% of potential velocity/acceleration/jerk performance, with additional settle times built into various components, to 20\% of TMA maximum velocity/acceleration/jerk and greatly reduced settle and wait times. In programs such as the AOS triplets, there are additional movements that must be performed with the telescope, such as moving the focal plane to adjust focus and applying bending modes to the mirror, so here we look at the visits acquired as part of BLOCK-320. These visits included small dither offsets on the order of 0.2 degrees or so for all fields except Rubin\_SV\_095\_-25 which had a slightly larger dither pattern. 
 
