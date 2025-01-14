@@ -4,7 +4,7 @@
 The Vera C. Rubin Observatory project team has completed a first series of on-sky engineering tests demonstrating the end-to-end functionality of the Simonyi Survey Telescope's hardware and software systems using an engineering test camera, the Commissioning Camera (ComCam).
 
 \begin{note}[Versioning Note]
-    This interim report provides a technical overview of the ComCam on-sky campaign based on analyses through early January 2025.
+    This interim report provides a preliminary technical overview of the ComCam on-sky campaign based on analyses through early January 2025.
 \end{note}
 
 \emph{}
@@ -29,7 +29,7 @@ The primary goals of the campaign were to use ComCam to
     \item optically align the telescope and verify capability to deliver acceptable image quality for the smaller ComCam field of view
 \end{enumerate}
 
-The ComCam on-sky campaign accomplished the primary goals, and much more
+The ComCam on-sky campaign accomplished the primary goals, and much more:
 
 \begin{itemize}
     \item \textbf{The telescope delivers crisp images.}
@@ -62,7 +62,7 @@ The ComCam on-sky campaign accomplished the primary goals, and much more
         \item Photometric repeatability for bright stars at level consistent with the statistical Poisson noise photometric errors, with contribution from calibration errors at few mmag level
     \end{itemize}
     \item \textbf{Collimated Beam Projector can co-point with telescope and acquire wavelength scans.}
-    \item \textbf{Demonstrated stuttered imaging and guider mode imaging to evaluate high-frequency contributions to delivered image quality (1-100 Hz)}
+    \item \textbf{Demonstrated stuttered imaging and guider mode imaging to evaluate high-frequency contributions to delivered image quality (1-100 Hz).}
     \item \textbf{Exercised end-to-end workflows for test planning, execution, and associated data processing and analysis during 7 weeks of continuous operations.}
     \begin{itemize}
         %The effort included summit logistics support for the ComCam on-sky campaign, in-dome daytime testing, ongoing summit engineering, and LSSTCam reverification.
@@ -77,6 +77,8 @@ The ComCam on-sky campaign accomplished the primary goals, and much more
 
 \subsection{Areas of Investigation and Further Development}
 
+At this stage, while system integration and commissioning is ongoing, it is expected that the team is actively investigating multiple issues.
+
 \begin{itemize}
     \item \textbf{Interpreting stray and scattered light in ComCam observations.} Approximately 20\% of ComCam pointings showed structured patterns of stray light along an edge and/or corner of the ComCam field of view, that are likely attributed to scattered light from bright stars located slightly outside the ComCam field of view.
     Dedicated observations of bright stars were acquired to test the hypothesis that the structured scattered light arises from something related to the ComCam filters, rather than scattering from M2 baffles or another element that will be in place for LSSTCam.
@@ -86,22 +88,22 @@ The ComCam on-sky campaign accomplished the primary goals, and much more
         The concern arises because the black coating on the M2 baffle is anodization rather than a more reflection-suppressing coating such as Aeroglaze.
         There are ongoing modeling efforts and on-sky test planning to better understand the system, and potential stray light paths for LSSTCam.
     \end{itemize}
-    \item \textbf{Contributions to delivered image quality}
+    \item \textbf{Evaluating contributions to delivered image quality.} Multiple approaches are being pursued to evaluate the various contributions to the delivered image quality during the ComCam on-sky campaign, including the camera, static optics, dynamic optics, mount motion, observatory seeing, and the multiple layers of the atmosphere. Observatory environmental controls and monitoring equipment were not yet fully in place during the ComCam camapign.
     \begin{itemize}
-        \item Understand discrepancies between AOS residual and delivered image quality
-        \item Analysis of stuttered and guider mode imaging. Preliminary analysis of the stuttered and guide mode imaging data shows strongly correlated common mode motion between stars across the ComCam field of view, suggesting that the delivered image quality during those observations was dominated by dome and/or mirror seeing contributions, or telescope motion.
+        \item Analysis of discrepancies between the estimated AOS residual based on wavefront sensing and delivered image quality
+        \item Analysis of stuttered and guider mode imaging. Preliminary analysis of the stuttered and guider mode imaging data shows strongly correlated common mode motion between stars across the ComCam field of view, suggesting that the delivered image quality during those observations was dominated by dome and/or mirror seeing contributions, or telescope motion.
         \item AOS closed loop convergence optimization
-        \item M1M3 thermal
-        \item Rubin Obs DIMM
-        \item Dome seeing monitor
-        \item Dome louvers + light and wind screen installation
+        \item M1M3 thermal contribution and control
+        \item Rubin Obs DIMM operations
+        \item Dome seeing monitor equipment installation and commissioning
+        \item Dome louvers + light and wind screen installation and commissioning
     \end{itemize}
-    \item Calibration hardware
+    \item \textbf{Commissioning calibration hardware.}
     \begin{itemize}
-        \item Analysis of CBP data from ComCam; red light leak in g filter
-        \item Flat field screen and illumination system installation and commissioning
+        \item Initial commissioning of the Collimated Beam Projector (CBP) using the Simonyi Telescope and ComCam took place during the final weeks of the campaing. Analysis of CBP data from ComCam is ongoing. Initial analyses suggest possible excesss transmission of red light in the ComCam $g$ filter beyond 1100 nm.
+        \item Flat field screen and illumination system installation and commissioning is ongoing as of January 2025.
     \end{itemize}
-    \item Overall system reliability and efficiency
-    \item Rotator
-    \item Increasing TMA motion
+    \item \textbf{Increasing overall system reliability and efficiency.} Overall system reliability and efficiency, expressed, for example, in terms of the effective open shutter time fraction, increased throughout the ComCam on-sky campaign. This is an ongoing effort that will continue throughout on-sky commissioning with LSSTCam, and will be continuously monitored and optimized during LSST operations.
+    \item \textbf{Improving camera hexapod rotator performance.} The camera hexapod rotator motion performance was sufficient for ComCam on-sky commissioning. The larger LSSTCam field of view requires more stringent performance over the range of telescope altitude and azimuth angles expected for LSST operations.
+    \item \textbf{Increasing Simonyi telescope motion performance.} The telescope commanded velocity, acceleration, and jerk motion settings increased throughout the ComCam on-sky campaign. The telescope is fixed at a horizon pointing orientation during the removal of ComCam and installation of LSSTCam. The ongoing effort to characterize and control inertial forces experienced by the optics with progressively increasing telescope motion settings will resume during the on-sky commissioning campaign with LSSTCam.
 \end{itemize}
