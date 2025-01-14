@@ -61,7 +61,13 @@ but have not yet analyzed the data.
 
 \subsubsection{Observatory Seeing}
 
-The two main contributors to observatory seeing are dome seeing and mirror seeing. We do not have a direct dome seeing monitor but we do have a 3D sonic anemometer located in the dome that is taking data. We have looked at the correlation between the standard deviation of the sonic temperature, which should be a proxy for dome seeing due to thermal turbulence, and measured PSF FWHM in the science images (see \figRef{anemometer}). There may be some correlation, but we need more and better data, and to remove atmospheric seeing contributions.
+The two main contributors to observatory seeing are dome seeing and mirror seeing. We do not have a direct
+dome seeing monitor but we do have a 3D sonic anemometer located in the dome that is taking data. We have
+looked at the correlation between the standard deviation of the sonic temperature, which should be a proxy for
+dome seeing due to thermal turbulence, and measured PSF FWHM in the science images (see
+\figRef{anemometer}). There is no obvious correlation, so we need more and better data, and to remove
+atmospheric seeing contributions, before these measurements are able to help analyze the delivered image
+quality.
 
 \begin{figure}
   \begin{center}
@@ -73,7 +79,7 @@ The two main contributors to observatory seeing are dome seeing and mirror seein
 
 \subsubsection{Mount Motion}
 
-There are two main components to image degradation due to mount motion. The first component comes from drift due to tracking errors. As we have not yet completed a full pointing model at all azimuths and elevations, we have not quantified this component yet. The second component of mount motion image degradation is due to tracking jitter. We quantify this by computing the rms deviation of the mount position as measured by the encoders from the position sent by MTPtg. Craig Lage computed the tracking jitter for all ComCam exposures through the 20th of November. From a total of 5311 images, the median image quality impact is 0.004 arcseconds, and 0.38\% of images have an impact to image quality of above 0.05 arcseconds (see \figRefIII{jitter}{jitter_1}{jitter_2}). This is well below the budgeted mount jitter error of 0.069 arcsec.
+There are two main components to image degradation due to mount motion. The first component comes from drift due to tracking errors. As we have not yet completed a full pointing model at all azimuths and elevations, we have not quantified this component yet. The second component of mount motion image degradation is due to tracking jitter. We quantify this by computing the rms deviation of the mount position as measured by the encoders from the position sent by MTPtg. We computed the tracking jitter for all ComCam exposures through the 20th of November. From a total of 5311 images, the median image quality impact is 0.004 arcseconds, and 0.38\% of images have an impact to image quality of above 0.05 arcseconds (see \figRefIII{jitter}{jitter_1}{jitter_2}). This is well below the budgeted mount jitter error of 0.069 arcsec.
 
 \begin{figure}
   \begin{center}

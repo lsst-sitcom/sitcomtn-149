@@ -14,7 +14,8 @@ The Vera C. Rubin Observatory project team has completed a first series of on-sk
 ComCam mass distribution, physical envelope, and interfaces designed to match LSSTCam.
 ComCam focal plane has single raft with 3 $\times$ 3 mosaic of (4K $\times$ 4K) ITL science sensors (144 Mpix total).
 For comparison, LSSTCam comprises 21 rafts with both ITL and e2v sensors (total of 189 science sensors; 3.2 Gpix) + 4 dedicated corner rafts for guiding and wavefront estimation.
-Piston entire ComCam focal plane to acquire intra- and extra-focal images of the pupil (``donuts'') for AOS commissioning.
+Because ComCam has no dedicated corner rafts, it was necessary to piston the entire ComCam focal plane in
+order to acquire intra- and extra-focal images of the pupil (``donuts'') for AOS commissioning.
 Same plate scale as LSSTCam (0.2 arcsec / pixel).
 The field of view is 40 arcmin $\times$ 40 arcmin.
 ComCam filter exchanger holds 3 physical filters at a time.
@@ -46,7 +47,10 @@ The ComCam on-sky campaign accomplished the primary goals, and much more:
         \item AOS in LSST Wide-Fast-Deep survey emulation mode
     \end{itemize}
     \item \textbf{Scheduler driving on-sky operations, including with the Feature Based Scheduler}
-    \item \textbf{The system can efficiently acquire visits at a given target field.} The median time between successive visits for short translational dithers on the angular scale of the ComCam field of view was reduced to less than 3 seconds by the end of the campaign, enabling sustained rates of more than 90 individual 30-second visits per hour on a given target field, including occasional filter changes and rotational dithers.
+    \item \textbf{The system can efficiently acquire visits at a given target field.} The median time between
+      successive visits for short translational dithers on the angular scale of the ComCam field of view was
+      reduced to less than 3 seconds by the end of the campaign\footnote{Because of the \ComCam's small field,
+        this intervisit time is consistent with the \c 7s expected for LSSTCam.}, enabling sustained rates of more than 90 individual 30-second visits per hour on a given target field, including occasional filter changes and rotational dithers.
     \item \textbf{ComCam instrument was reliable and effective.}
     \item \textbf{Telescope tracking and boresight stability have been superb.} Analysis of telescope mount encoder data finds a median contribution to the delivered image quality PSF FWHM from tracking jitter of less than 0.01 arcseconds.
     \item \textbf{System optical throughput consistent with a priori expectations.} Measured and predicted counts from per-visit synthetic photometry for the spectrophotometric standard star C26202 are consistent for all bands at the $\sim5\%$ level.
@@ -82,7 +86,9 @@ At this stage, while system integration and commissioning is ongoing, it is expe
 \begin{itemize}
     \item \textbf{Interpreting stray and scattered light in ComCam observations.} Approximately 20\% of ComCam pointings showed structured patterns of stray light along an edge and/or corner of the ComCam field of view, that are likely attributed to scattered light from bright stars located slightly outside the ComCam field of view.
     Dedicated observations of bright stars were acquired to test the hypothesis that the structured scattered light arises from something related to the ComCam filters, rather than scattering from M2 baffles or another element that will be in place for LSSTCam.
-    There is currently no evidence for structured scattered light when the ComCam filters are removed.
+    There is currently no evidence for structured scattered light when the ComCam filters are removed,
+    although we expect some features from \c 15-20 degrees off axis as the light/windscreen baffle is
+    not yet installed.
     \begin{itemize}
         \item There remains a risk of structured stray light contamination arising from the M2 baffle.
         The concern arises because the black coating on the M2 baffle is anodization rather than a more reflection-suppressing coating such as Aeroglaze.
@@ -100,10 +106,14 @@ At this stage, while system integration and commissioning is ongoing, it is expe
     \end{itemize}
     \item \textbf{Commissioning calibration hardware.}
     \begin{itemize}
-        \item Initial commissioning of the Collimated Beam Projector (CBP) using the Simonyi Telescope and ComCam took place during the final weeks of the campaing. Analysis of CBP data from ComCam is ongoing. Initial analyses suggest possible excesss transmission of red light in the ComCam $g$ filter beyond 1100 nm.
+        \item Initial commissioning of the Collimated Beam Projector (CBP) using the Simonyi Telescope and
+          ComCam took place during the final weeks of the campaing. Analysis of CBP data from ComCam is
+          ongoing. Initial analyses shows excesss transmission of red light in the ComCam $g$ filter beyond
+          1100 nm, although the impact is not yet clear as the \ComCam CCDs run \c 20C warmer than LSSTCam's.
         \item Flat field screen and illumination system installation and commissioning is ongoing as of January 2025.
     \end{itemize}
     \item \textbf{Increasing overall system reliability and efficiency.} Overall system reliability and efficiency, expressed, for example, in terms of the effective open shutter time fraction, increased throughout the ComCam on-sky campaign. This is an ongoing effort that will continue throughout on-sky commissioning with LSSTCam, and will be continuously monitored and optimized during LSST operations.
     \item \textbf{Improving camera hexapod rotator performance.} The camera hexapod rotator motion performance was sufficient for ComCam on-sky commissioning. The larger LSSTCam field of view requires more stringent performance over the range of telescope altitude and azimuth angles expected for LSST operations.
-    \item \textbf{Increasing Simonyi telescope motion performance.} The telescope commanded velocity, acceleration, and jerk motion settings increased throughout the ComCam on-sky campaign. The telescope is fixed at a horizon pointing orientation during the removal of ComCam and installation of LSSTCam. The ongoing effort to characterize and control inertial forces experienced by the optics with progressively increasing telescope motion settings will resume during the on-sky commissioning campaign with LSSTCam.
+    \item \textbf{Increasing Simonyi telescope motion performance.} The telescope commanded velocity,
+      acceleration, and jerk motion settings were increased during the ComCam on-sky campaign. The telescope is fixed at a horizon pointing orientation during the removal of ComCam and installation of LSSTCam. The ongoing effort to characterize and control inertial forces experienced by the optics with progressively increasing telescope motion settings will resume during the on-sky commissioning campaign with LSSTCam.
 \end{itemize}

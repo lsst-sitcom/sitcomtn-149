@@ -13,7 +13,12 @@ Two different PSF models are currently used in the DM pipeline: PSFEx, which pro
 
 
 However, as the AOS system improved image quality and produced more symmetric PSFs, we observed behavior more consistent with expectations for both PSFEx and Piff. 
-Analysis of second-moment reconstructions shows that PSFEx has a systematic offset in size reconstruction compared to Piff, which aligns with observations from DES. Overall, Piff demonstrates better PSF reconstruction, as illustrated in \figRef{DT_plot}. 
+Analysis of second-moment reconstructions shows that PSFEx has a systematic offset in size reconstruction
+compared to Piff, which aligns with observations from DES. Overall, Piff demonstrates better PSF
+reconstruction, as illustrated in \figRef{DT_plot}. \textit{Note added in proof: further analysis shows
+  that Piff's relatively poor performance was due to an inconsistency between Piff's handling of the centroid
+  and the convention employed by the Rubin pipelines, and that in fact Piff is able to outperform PSFEx
+  on these data.}
 
 \begin{figure*}
         \centering
