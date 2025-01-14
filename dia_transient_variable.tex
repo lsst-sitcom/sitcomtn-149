@@ -1,35 +1,40 @@
-\section{Difference Image Analysis: Transience and Variable Objects}
+\subsection{Difference Image Analysis: Transience and Variable Objects}
 \label{sec:dia_transient_variable}
 
 
-\subsection{DIA Status}
+\subsubsection{DIA Status}
 
-As we have started to obtain repeated science-quality images of some fields, we have begun to build coadded templates as part of the regular weekly cumulative Data Release Processings. 
+As we have started to obtain repeated science-quality images of some fields, we have begun to build coadded templates as part of the regular weekly cumulative Data Release Processings.
 These mini-DRPs also include difference image analysis (DIA) of their constituent exposures.
-Using the DRP-produced templates, we have also obtained near-real-time difference images in Prompt Processing for a few exposures. 
-We have not yet had the opportunity to begin tuning template generation, difference imaging, or Real/Bogus characterization of these data, so the report below provides an initial rough characterization of DIA performance. 
+Using the DRP-produced templates, we have also obtained near-real-time difference images in Prompt Processing for a few exposures.
+We have not yet had the opportunity to begin tuning template generation, difference imaging, or Real/Bogus characterization of these data, so the report below provides an initial rough characterization of DIA performance.
 
-\subsection{ML Reliability and Artifact Rates}
+\subsubsection{ML Reliability and Artifact Rates}
 
-We ran a convolutional neural network on 51$\times$51 difference, science, and template cutouts for 912k DIASources identified in the \texttt{w\_2024\_47} data release processing.  
+We ran a convolutional neural network on 51$\times$51 difference, science, and template cutouts for 912k DIASources identified in the \texttt{w\_2024\_47} data release processing.
 This processing primarily includes data from extragalactic deep fields.
 These DiaSources were obtained from 4252 detector-visit images, implying an average of 21 DIASources per detector or about four thousand per equivalent full LSST focal plane.
 This is somewhat less than the ten thousand DIASources expected per visit and may reflect lower sensitivity due to ongoing image quality refinement and early templates.
 
 The CNN was trained on simulated DC2 images with additional point source injection, so caution is needed when interpreting the values returned by this classifier on ComCam data.
-Nevertheless,  Figure \ref{fig:reliability_hist} shows a clear separation in reliability scores and would imply roughly a 3:1 bogus:real ratio if taken at face value.
+Nevertheless,  \figRef{reliability_hist} shows a clear separation in reliability scores and would imply roughly a 3:1 bogus:real ratio if taken at face value.
 These values will be confirmed with manual inspection.
 We plan to train a purpose-built classifier on larger samples of labeled ComCam data.
 
 \begin{figure}
-\includegraphics[width=\textwidth]{dia/figures/reliability_histogram.png}
-\caption{Histogram of machine-learned reliability scores computed on ComCam difference images. \label{fig:reliability_hist}}
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{dia/figures/reliability_histogram.png}
+  \end{center}
+\caption{Histogram of machine-learned reliability scores computed on ComCam difference
+  images. \label{fig:reliability_hist}}
 \end{figure}
 
-\section{Difference imaging QA}
+\subsection{Difference imaging QA}
 
 \begin{figure}
-\includegraphics[width=\textwidth]{dia/figures/ComCam_kernel_quiver_2024112000208.png}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{dia/figures/ComCam_kernel_quiver_2024112000208.png}
+  \end{center}
 \caption{Quiver plot of the implied offset between the science and template images,
   calculated from the centroid of the PSF matching kernel.
   Note that the scale differs between the different panels, but that the overall pattern
@@ -37,20 +42,50 @@ We plan to train a purpose-built classifier on larger samples of labeled ComCam 
   \label{fig:diffim-quiver}}
 \end{figure}
 
-A difference imaging afterburner is run manually on Prompt Processing output to generate diagnostic plots, such as \ref{fig:diffim-quiver}.
-From \ref{fig:diffim-quiver} we see the centroid of the PSF matching kernel sampled across one detector, which reveals a systematic offset between the science and template images.
+A difference imaging afterburner is run manually on Prompt Processing output to generate diagnostic plots, such as \figRef{diffim-quiver}.
+From \figRef{diffim-quiver} we see the centroid of the PSF matching kernel sampled across one detector, which reveals a systematic offset between the science and template images.
 A similar offset is seen across the rest of the detectors for this visit, and in other visits.
 The images comprising the template used the same astrometric reference catalog as the science image in this case, but the template was constructed with the calibrate+characterizeImage pipeline while the science image was processed with calibrateImage.
 These are not included in the Prompt Processing payload to save critical time during observing.
 
 The distribution of sources detected on the difference image reveals some detector-level effects that are not fully accounted for.
-Binning the locations of the diaSources in 1-D in \ref{fig:diaSource-distribution} by their x- and y-values reveals systematic overdensities of detections at the amplifier boundaries in x (but not in y).
+Binning the locations of the diaSources in 1-D in \figRef{diaSource-distribution} by their x- and y-values reveals systematic overdensities of detections at the amplifier boundaries in x (but not in y).
 Additional overdensities seen in y-band may be from the residual phosphorescent wax reported to be left on some chips beneath the AR coating.
 
 \begin{figure}
 \includegraphics[width=\textwidth]{dia/figures/diaSource_distribution.png}
 \caption{Binning the locations of the diaSources in 1-D by their x- and y-values reveals systematic overdensities of detections at the amplifier boundaries in x (but not in y). \label{fig:diaSource-distribution}}
 \end{figure}
+
+We have analyzed the sources that we detected from the difference imaging campaign. Figure \ref{fig:diaSrc_count} shows the distribution of the diaSources as a function of the magnitude of each source when detected. We have separated the sources into six bands in which the observation was conducted. We show the growth of observed sources in each weekly processing (from week 48 to week 50).
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{dia/figures/diaSources.png}
+  \caption{Number of diaSources detected during the campaign, separated in observing bands and weekly processing runs.}
+  \label{fig:diaSrc_count}
+\end{figure}
+
+The number of diaSources detected increases as each weekly processing run has more data available. Having said that, the details of the distributions also change. We have verified that this is not due to differences in the algorithm details of different processing runs. This verification was done by observing the data distribution done on different weekly processing runs but taking into account only the data sets already available for weekly-48 runs. In this way, all of the runs have the same underlying data, and the differences are not so stark. \par
+
+We want to point out two features visible in the plots. First is the steep rise and significant number of diaSources at the bright end of the distribution. We believe this is primarily due to inefficiencies in the subtraction of bright sources; bright point sources on the sky generate diaSources even if they are not variable. See an example of this behavior in the left panel of image \href{https://rubin-obs.slack.com/archives/C07QM71SZ5J/p1734564452594809?thread_ts=1734547527.434299&cid=C07QM71SZ5J}{here}.
+The increase at the faint end is at least partly due to noise fluctuations being detected as diaSources. See an example of this behavior in the right panel of image \href{https://rubin-obs.slack.com/archives/C07QM71SZ5J/p1734564452594809?thread_ts=1734547527.434299&cid=C07QM71SZ5J}{here}. We are still investigating other features seen in the distribution. \par
+
+We have also investigated the differences between various fields that were observed. We did this investigation to ensure that the results are not dominated by particularly dense fields, such as 47-Tuc. The results are shown in Figure \ref{fig:diaSrc_fields}, and show that 47-Tuc is not dominating the results.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{dia/figures/diaSources_50_6_fields.png}
+  \caption{Number of diaSources detected during the campaign, separated across 6 different sky locations that were repeatedly observed.}
+  \label{fig:diaSrc_fields}
+\end{figure}
+
+We have also run the early implementation of the real-bogus classifier (as already discussed and seen in \ref{fig:reliability_hist}) and present the results in Figure \ref{fig:diaSrc_real_bogus}. Results are encouraging in the sense that many faint sources are flagged as likely false.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{dia/figures/diaSource_real_bogus.png}
+  \caption{Number of diaSources detected during the campaign, separated in high reliability (determined to likely be real) and low reliability (likely to be bogus) sources.}
+  \label{fig:diaSrc_real_bogus}
+\end{figure}
+
 
 \iffalse                                % doesn't analyse comCam data.
 \input{dia/cosmic-rays}
